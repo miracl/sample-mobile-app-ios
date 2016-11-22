@@ -17,25 +17,22 @@
  under the License.
  */
 
-#import "ViewController.h"
-#import "MPin.h"
+#import "SuperViewController.h"
 
-@interface ViewController ()
-
+@interface SuperViewController ()
+- (IBAction)back:(id)sender;
 @end
 
-@implementation ViewController
+@implementation SuperViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIBarButtonItem * newBackButton = [[UIBarButtonItem alloc]  initWithImage:[UIImage imageNamed:@"arrowLeft"]  style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = newBackButton;
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)back:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
 
 @end
