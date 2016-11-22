@@ -21,6 +21,7 @@
 
 #import "ViewController.h"
 #import "MPin.h"
+#import "ATMHud.h"
 
 @interface ViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
@@ -28,7 +29,7 @@
 @property ( nonatomic, strong ) AVCaptureDevice             *captureDevice;
 @property ( nonatomic, strong ) AVCaptureDeviceInput        *captureInput;
 @property ( nonatomic, strong ) AVCaptureVideoPreviewLayer  *videoPreviewLayer;
-
+@property ( nonatomic, strong ) ATMHud *hud;
 @end
 
 @implementation ViewController
@@ -37,6 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     NSError *error;
+    _hud = [ATMHud new];
     _captureSession = [[AVCaptureSession alloc] init];
     _captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     _captureInput = [AVCaptureDeviceInput deviceInputWithDevice:_captureDevice error:&error];
@@ -253,7 +255,28 @@
         }
         else
         {
-            NSLog(@"%@", config);
+            [MPin initSDKWithHeaders:[NSDictionary dictionaryWithObjectsAndKeys:@"com.miracl.maas.ddmfa/1.1.0 (ios/10.1.1) build/186",@"User-Agent", nil]];
+            MpinStatus *mpinStatus = [MPin SetBackend:config[@"url"] rpsPrefix:config[@"rps_prefix"]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                if ( mpinStatus.status == OK )
+                {
+                    [_hud setCaption:@"Set BackEnd OK"];
+                    [_hud setActivity:NO];
+                    _hud.minShowTime = 3;
+                    [_hud showInView:self.view];
+                    [_hud hide];
+                }
+                else
+                {
+                    [_hud setCaption:[NSString stringWithFormat:@"Set BackEnd Error: %ld", (long)mpinStatus.status]];
+                    [_hud setActivity:NO];
+                    _hud.minShowTime = 3;
+                    [_hud showInView:self.view];
+                    [_hud hide];
+
+                }
+            });
         }
     }
     else
