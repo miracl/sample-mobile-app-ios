@@ -21,6 +21,7 @@
 
 @interface ViewController : UIViewController
 
+@property ( nonatomic, strong ) IBOutlet UIView *viewPreview;
 
 @end
 
