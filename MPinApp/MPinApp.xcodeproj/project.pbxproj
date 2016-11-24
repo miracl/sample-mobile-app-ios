@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39BB1B741DE2F81F00F05831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BB1B731DE2F81F00F05831 /* main.m */; };
-		39BB1B9A1DE2FBD400F05831 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BB1B991DE2FBD400F05831 /* ViewController.m */; };
+		39BB1B9A1DE2FBD400F05831 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BB1B991DE2FBD400F05831 /* QRViewController.m */; };
 		39BB1BA11DE2FC9100F05831 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */; };
 		39BB1BA21DE2FC9100F05831 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB1B9F1DE2FC9100F05831 /* Main.storyboard */; };
 		39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */; };
@@ -24,8 +24,8 @@
 /* Begin PBXFileReference section */
 		2F43BEEEE2D254F177C69D55 /* libPods-WhiteLabels-Milagro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-Milagro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BB1B731DE2F81F00F05831 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MPinApp/main.m; sourceTree = "<group>"; };
-		39BB1B981DE2FBD400F05831 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = SOURCE_ROOT; };
-		39BB1B991DE2FBD400F05831 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = SOURCE_ROOT; };
+		39BB1B981DE2FBD400F05831 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = SOURCE_ROOT; };
+		39BB1B991DE2FBD400F05831 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = SOURCE_ROOT; };
 		39BB1B9B1DE2FC2600F05831 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39BB1B9E1DE2FC9100F05831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MPinApp/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39BB1BA01DE2FC9100F05831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MPinApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 				39BB1B731DE2F81F00F05831 /* main.m */,
 				FEBBBFEC1C5F88270011001A /* AppDelegate.h */,
 				FEBBBFED1C5F88270011001A /* AppDelegate.m */,
-				39BB1B981DE2FBD400F05831 /* ViewController.h */,
-				39BB1B991DE2FBD400F05831 /* ViewController.m */,
+				39BB1B981DE2FBD400F05831 /* QRViewController.h */,
+				39BB1B991DE2FBD400F05831 /* QRViewController.m */,
 				39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */,
 				39BB1B9F1DE2FC9100F05831 /* Main.storyboard */,
 				FE4900191A1A3CEB000030A4 /* Frameworks */,
@@ -248,7 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39BB1B9A1DE2FBD400F05831 /* ViewController.m in Sources */,
+				39BB1B9A1DE2FBD400F05831 /* QRViewController.m in Sources */,
 				FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */,
 				39BB1B741DE2F81F00F05831 /* main.m in Sources */,
 			);

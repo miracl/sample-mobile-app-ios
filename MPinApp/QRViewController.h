@@ -19,7 +19,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface QRViewController : UIViewController
 
 @property ( nonatomic, strong ) IBOutlet UIView *viewPreview;
 

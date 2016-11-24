@@ -19,11 +19,11 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-#import "ViewController.h"
+#import "QRViewController.h"
 #import "MPin.h"
 #import "ATMHud.h"
 
-@interface ViewController () <AVCaptureMetadataOutputObjectsDelegate>
+@interface QRViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
 @property ( nonatomic, strong ) AVCaptureSession            *captureSession;
 @property ( nonatomic, strong ) AVCaptureDevice             *captureDevice;
@@ -32,7 +32,7 @@
 @property ( nonatomic, strong ) ATMHud *hud;
 @end
 
-@implementation ViewController
+@implementation QRViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -255,7 +255,7 @@
         }
         else
         {
-            [MPin initSDKWithHeaders:[NSDictionary dictionaryWithObjectsAndKeys:@"com.miracl.maas.ddmfa/1.1.0 (ios/10.1.1) build/186",@"User-Agent", nil]];
+//            [MPin initSDKWithHeaders:[NSDictionary dictionaryWithObjectsAndKeys:@"com.miracl.maas.ddmfa/1.1.0 (ios/10.1.1) build/186",@"initgent", nil]];
             MpinStatus *mpinStatus = [MPin SetBackend:config[@"url"] rpsPrefix:config[@"rps_prefix"]];
             
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
