@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,12 +20,50 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Hw7-h1-Tg2" kind="relationship" relationship="rootViewController" id="hEG-KR-Nn5"/>
+                        <segue destination="ygF-Dm-dUF" kind="relationship" relationship="rootViewController" id="VlU-y3-E1U"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FsI-Eo-ahC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1447" y="80"/>
+            <point key="canvasLocation" x="-2311" y="80"/>
+        </scene>
+        <!--QR Scanner-->
+        <scene sceneID="VeU-ZJ-cf0">
+            <objects>
+                <viewController storyboardIdentifier="QRViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ygF-Dm-dUF" customClass="QRViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nDZ-n9-pU8"/>
+                        <viewControllerLayoutGuide type="bottom" id="rdY-Qr-guF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wdf-4W-61T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Nu-Ig-fnx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2Nu-Ig-fnx" secondAttribute="height" multiplier="125:201" id="pmZ-UE-nZz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Nu-Ig-fnx" secondAttribute="trailing" id="9Wh-yd-I4J"/>
+                            <constraint firstItem="rdY-Qr-guF" firstAttribute="top" secondItem="2Nu-Ig-fnx" secondAttribute="bottom" id="AvQ-yz-EV7"/>
+                            <constraint firstItem="2Nu-Ig-fnx" firstAttribute="top" secondItem="nDZ-n9-pU8" secondAttribute="bottom" id="EnV-qp-iKg"/>
+                            <constraint firstItem="2Nu-Ig-fnx" firstAttribute="leading" secondItem="wdf-4W-61T" secondAttribute="leading" id="lZl-b9-I4M"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR Scanner" id="RBY-rz-Rls"/>
+                    <connections>
+                        <outlet property="viewPreview" destination="2Nu-Ig-fnx" id="K6G-7V-Wbj"/>
+                        <segue destination="Hw7-h1-Tg2" kind="push" id="TRn-hh-hRD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NWE-Aw-YbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1471.2" y="79.610194902548727"/>
         </scene>
         <!--Register User-->
         <scene sceneID="3Qk-UH-FmV">
@@ -364,9 +403,11 @@
                                     <constraint firstAttribute="height" constant="17" id="NFo-Nz-Mcw"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congratulations! You have been successfully logged into the Web Portal. Please check your browser." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPr-cO-CDF">
-                                <rect key="frame" x="16" y="111" width="343" height="113"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations! You have been successfully logged into the Web Portal. Please check your browser." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPr-cO-CDF">
+                                <rect key="frame" x="16" y="190" width="343" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="113" id="pRQ-ph-fsM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -387,14 +428,17 @@
                             <constraint firstItem="mKB-Oj-ytS" firstAttribute="trailing" secondItem="c1E-LV-ZeE" secondAttribute="trailingMargin" id="0GJ-GW-xhA"/>
                             <constraint firstItem="EdO-AI-gIR" firstAttribute="top" secondItem="mKB-Oj-ytS" secondAttribute="bottom" constant="20" id="66S-Z3-uRL"/>
                             <constraint firstItem="EdO-AI-gIR" firstAttribute="top" secondItem="Va7-cs-i52" secondAttribute="bottom" constant="20" id="McV-DT-Koc"/>
+                            <constraint firstItem="dPr-cO-CDF" firstAttribute="top" secondItem="9O8-Bu-A4t" secondAttribute="bottom" constant="126" id="ZJE-Dv-d82"/>
+                            <constraint firstItem="dPr-cO-CDF" firstAttribute="trailing" secondItem="mKB-Oj-ytS" secondAttribute="trailing" id="kbg-j5-KZz"/>
                             <constraint firstItem="mKB-Oj-ytS" firstAttribute="leading" secondItem="Va7-cs-i52" secondAttribute="trailing" constant="1" id="lME-FV-dWS"/>
+                            <constraint firstItem="dPr-cO-CDF" firstAttribute="leading" secondItem="c1E-LV-ZeE" secondAttribute="leadingMargin" id="xG0-au-LmX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Successful Login" id="GSp-iJ-vfS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Osi-zX-zBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.79999999999995" y="842.42878560719646"/>
+            <point key="canvasLocation" x="977" y="830"/>
         </scene>
     </scenes>
     <resources>

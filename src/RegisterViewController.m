@@ -63,14 +63,14 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if( [MPin listUsers].count == 0 ) {
-        /// TODO :: Remove this after hoock it up !!
-        self.confirmView.alpha = 1.0;
+        self.confirmView.alpha = 0.0;
         self.addView.alpha = 1.0;
     } else {
+        [_txtAddUser resignFirstResponder];
         self.addView.alpha = 0.0;
         self.confirmView.alpha = 1.0;
         self.user = [MPin listUsers][0];
-        self.lblMsg.text = [NSString stringWithFormat:@"Your Identity %@ has ben created!", [self.user getIdentity]];
+        self.lblMsg.text = [NSString stringWithFormat:@"Your Identity %@ has been created!", [self.user getIdentity]];
     }
 }
 
@@ -101,12 +101,6 @@
     }
 }
 - (IBAction)onClickResendButton:(id)sender {
-
-    PinPadViewController *ppvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PinPadViewController"];
-    [self.navigationController pushViewController:ppvc animated:YES];
-
-    /// TODO :: REMOVE ±THIDS after hook it up!!!
-    /*
     [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0.0];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
@@ -119,7 +113,6 @@
                                               hideAfter:3.0];
         });
     });
-     */
 }
 
 - (IBAction)onClickAddmButton:(id)sender {
@@ -156,6 +149,7 @@
             [_btnAdd setEnabled:YES];
             if ( mpinStatus.status == OK )  {
                 [[ErrorHandler sharedManager] hideMessage];
+                [_txtAddUser resignFirstResponder];
                 self.lblMsg.text = [NSString stringWithFormat:@"Your Identity %@ has ben created!", [self.user getIdentity]];
                 [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                     self.addView.alpha = 0.0;

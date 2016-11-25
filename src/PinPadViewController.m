@@ -23,6 +23,7 @@
 #import "PinPadViewController.h"
 #import "SuccessfulViewController.h"
 #import "LoginSuccessfulViewController.h"
+#import "QRViewController.h"
 #import "ErrorHandler.h"
 #import "MPin.h"
 
@@ -36,7 +37,6 @@
 @property (nonatomic, strong) id<IUser> user;
 
 - (void) textFieldText:(id)notification;
-- (void) blockedIdentityCase;
 - (IBAction)onClickSendButton:(id)sender;
 
 @end
@@ -51,7 +51,12 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    self.user = [MPin listUsers][0];
+    NSArray* arr = [MPin listUsers];
+    if (arr.count == 0) {
+        [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"Identity list is empty" addActivityIndicator:NO minShowTime:3.0];
+        return;
+    }
+    self.user = arr[0];
     _lblIdentity.text = [_user getIdentity];
     _txtPinPad.text = @"";
     
@@ -65,18 +70,6 @@
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void) blockedIdentityCase {
-      [[ErrorHandler sharedManager] presentMessageInViewController:self
-                                                       errorString:@"The current user has been blocked! The identity is going to be deleted!"
-                                              addActivityIndicator:NO
-                                                       minShowTime:0];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [MPin DeleteUser:self.user];
-        [[ErrorHandler sharedManager] hideMessage];
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    });
 }
 
 #pragma mark - Event handlers -
@@ -109,9 +102,9 @@
             });
         });
     } else if([_user getState] == REGISTERED) {
-       /// TODO :: Call start authentication for QR VIEW Controller;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-            MpinStatus *mpinStatus = [MPin FinishAuthenticationAN:_user pin:_txtPinPad.text accessNumber:_accessCode];
+            QRViewController *qvc = [self.navigationController.viewControllers firstObject];
+            MpinStatus *mpinStatus = [MPin FinishAuthenticationAN:_user pin:_txtPinPad.text accessNumber:qvc.accessCode];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     [[ErrorHandler sharedManager] hideMessage];
@@ -119,10 +112,14 @@
                     [self.navigationController pushViewController:vc animated:YES];
                 }   else if( mpinStatus.status == INCORRECT_PIN )   {
                     if( [_user getState] == BLOCKED ) {
-                        [[ErrorHandler sharedManager] hideMessage];
-                        [self blockedIdentityCase];
+                        [[ErrorHandler sharedManager] updateMessage:@"The current user has been blocked! The identity is going to be deleted!" addActivityIndicator:NO hideAfter:0];
+                        [MPin DeleteUser:self.user];
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                            [[ErrorHandler sharedManager] hideMessage];
+                            [self.navigationController popToRootViewControllerAnimated:YES];
+                        });
                     } else {
-                        [[ErrorHandler sharedManager] updateMessage:@"Wrong PIN" addActivityIndicator:NO hideAfter:3];
+                        [[ErrorHandler sharedManager] updateMessage:@"Wrong PIN" addActivityIndicator:NO hideAfter:1];
                     }
                 }  else {
                     NSString * errorMsg = ( mpinStatus.status == INCORRECT_ACCESS_NUMBER ) ? (@"Session expired!\nPlease refresh the webpage and scan the QR code again.") :
@@ -136,8 +133,12 @@
             });
         });
     } else if([_user getState] == BLOCKED) {
-        [[ErrorHandler sharedManager] hideMessage];
-        [self blockedIdentityCase];
+        [[ErrorHandler sharedManager] updateMessage:@"The current user has been blocked! The identity is going to be deleted!" addActivityIndicator:NO hideAfter:0];
+        [MPin DeleteUser:self.user];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [[ErrorHandler sharedManager] hideMessage];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        });
     }
 }
 
