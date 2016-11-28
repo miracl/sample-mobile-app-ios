@@ -150,7 +150,7 @@
             if ( mpinStatus.status == OK )  {
                 [[ErrorHandler sharedManager] hideMessage];
                 [_txtAddUser resignFirstResponder];
-                self.lblMsg.text = [NSString stringWithFormat:@"Your Identity %@ has ben created!", [self.user getIdentity]];
+                self.lblMsg.text = [NSString stringWithFormat:@"Your Identity %@ has been created!", [self.user getIdentity]];
                 [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                     self.addView.alpha = 0.0;
                     self.confirmView.alpha = 1.0;

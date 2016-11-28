@@ -50,7 +50,7 @@
     if (error.code == -11852) {
         [[[UIAlertView alloc] initWithTitle:@"Camera permission needed"
                                     message:@"No camera permission"
-                                   delegate:self
+                                   delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles: nil]
          show];
@@ -59,7 +59,7 @@
     {
         [[[UIAlertView alloc] initWithTitle:@""
                                     message:error.description
-                                   delegate:self
+                                   delegate:nil
                           cancelButtonTitle:@"OK"
                           otherButtonTitles: nil]
          show];
@@ -110,7 +110,7 @@
         {
             [[[UIAlertView alloc] initWithTitle:@"Not authorized"
                                         message:@"The application needs permissions to use the camera in order to have full functionality."
-                                       delegate:self
+                                       delegate:nil
                               cancelButtonTitle:@"Go to settings"
                               otherButtonTitles: nil]
              show];
@@ -119,7 +119,7 @@
         {
             [[[UIAlertView alloc] initWithTitle:@"Not authorized"
                                         message:@"The application needs permissions to use the camera in order to have full functionality."
-                                       delegate:self
+                                       delegate:nil
                               cancelButtonTitle:@"Go to settings"
                               otherButtonTitles: nil]
              show];
@@ -136,7 +136,7 @@
                 {
                     [[[UIAlertView alloc] initWithTitle:@"Not authorized"
                                                 message:@"The application needs permissions to use the camera in order to have full functionality."
-                                               delegate:self
+                                               delegate:nil
                                       cancelButtonTitle:@"Go to settings"
                                       otherButtonTitles: nil]
                      show];
@@ -162,6 +162,7 @@
     {
         [self stopReading];
         NSLog(@"%@",[metadataObj stringValue]);
+        [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0];
         [self parseResponse:[metadataObj stringValue]];
     }
 }
@@ -173,7 +174,6 @@
     {
         NSString *strBaseURL = [strResponse substringToIndex:range.location];
         NSString *strCode   = [strResponse substringFromIndex:range.location + 1];
-        NSLog(@"%@ , %@", strBaseURL, strCode);
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
             NSHTTPURLResponse *response;
             NSError *error;
@@ -183,31 +183,39 @@
             request.HTTPMethod = @"GET";
             [request setValue:@"com.miracl.maas.ddmfa/1.1.0 (ios/10.1.1) build/186" forHTTPHeaderField:@"User-Agent"];
             NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            if(error != nil)
-            {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:error.description
-                                                                   delegate:nil
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];
+            if(error != nil)    {
+                dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                    [[ErrorHandler sharedManager] hideMessage];
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                        message:error.description
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"Ok"
+                                                              otherButtonTitles:nil];
+                    [alertView show];
+                });
             }
             else if (response.statusCode == 412)
             {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:@"Deprecated version"
-                                                                   delegate:nil
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];
+                dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                    [[ErrorHandler sharedManager] hideMessage];
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                        message:@"Deprecated version"
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"Ok"
+                                                              otherButtonTitles:nil];
+                    [alertView show];
+                });
             }
             else if(response.statusCode == 406) {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:@"You cannot use this app to login to this service."
-                                                                   delegate:nil
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];
+                dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                    [[ErrorHandler sharedManager] hideMessage];
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                        message:@"You cannot use this app to login to this service."
+                                                                       delegate:self
+                                                              cancelButtonTitle:@"Ok"
+                                                              otherButtonTitles:nil];
+                    [alertView show];
+                });
             }
             else
             {
@@ -218,7 +226,8 @@
     else
     {
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid QR!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [[ErrorHandler sharedManager] hideMessage];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid QR!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alertView show];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.f * NSEC_PER_SEC), dispatch_get_main_queue(), ^ (void){
                 [self performSelectorOnMainThread:@selector( startReading ) withObject:nil waitUntilDone:NO];
@@ -238,6 +247,7 @@
         if (error != nil)
         {
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                [[ErrorHandler sharedManager] hideMessage];
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                     message:error.description
                                                                    delegate:self
@@ -250,6 +260,7 @@
         else if(config[@"url"] == nil || config[@"rps_prefix"] == nil || config[@"type"] == nil || config[@"name"] == nil || config[@"logo_url"] == nil)
         {
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                [[ErrorHandler sharedManager] hideMessage];
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                     message:@"Invalid configuration"
                                                                    delegate:self
@@ -261,17 +272,13 @@
             MpinStatus *mpinStatus = [MPin SetBackend:config[@"url"] rpsPrefix:config[@"rps_prefix"]];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
-                    [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                         [self onSetBackendCompleted:accessCode];
                     });
                 }
                 else
                 {
-                    [[ErrorHandler sharedManager] presentMessageInViewController:self
-                                                                     errorString:[NSString stringWithFormat:@"Set BackEnd Error: %ld", (long)mpinStatus.status]
-                                                            addActivityIndicator:NO
-                                                                     minShowTime:0];
+                    [[ErrorHandler sharedManager] updateMessage:[NSString stringWithFormat:@"Set BackEnd Error: %ld", (long)mpinStatus.status] addActivityIndicator:NO hideAfter:0];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^ (void){
                         [[ErrorHandler sharedManager] hideMessage];
                         [self  startReading];
@@ -282,6 +289,7 @@
         }
     }   else    {
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
+            [[ErrorHandler sharedManager] hideMessage];
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                 message:@"Service unavailable!"
                                                                delegate:self
