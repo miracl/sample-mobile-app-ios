@@ -17,12 +17,22 @@
  under the License.
  */
 
-#import <UIKit/UIKit.h>
+#import "SuperViewController.h"
 
-@interface QRViewController : UIViewController
-
-@property ( nonatomic, strong ) IBOutlet UIView *viewPreview;
-@property (nonatomic, strong) NSString *accessCode;
-
+@interface SuperViewController ()
+- (IBAction)back:(id)sender;
 @end
 
+@implementation SuperViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    UIBarButtonItem * newBackButton = [[UIBarButtonItem alloc]  initWithImage:[UIImage imageNamed:@"arrowLeft"]  style:UIBarButtonItemStylePlain target:self action:@selector(back:)];
+    self.navigationItem.leftBarButtonItem = newBackButton;
+}
+
+- (IBAction)back:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+@end

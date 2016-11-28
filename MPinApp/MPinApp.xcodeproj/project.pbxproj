@@ -19,6 +19,14 @@
 		96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */; };
 		96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
+		FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
+		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
+		FEC33C721DE451B200F8EFF0 /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */; };
+		FEC33C751DE4722800F8EFF0 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C741DE4722800F8EFF0 /* Utils.m */; };
+		FEC33C781DE48B8300F8EFF0 /* PinPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C771DE48B8300F8EFF0 /* PinPadViewController.m */; };
+		FEC33C7B1DE5B79F00F8EFF0 /* SuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */; };
+		FEC33C7E1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */; };
+		FEC33C811DE5E93700F8EFF0 /* SuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +51,21 @@
 		F5EBCFD978797205E0FC6E27 /* Pods-WhiteLabels-Milagro.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.adhoc.xcconfig"; sourceTree = "<group>"; };
 		FEBBBFEC1C5F88270011001A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../src/AppDelegate.h; sourceTree = "<group>"; };
 		FEBBBFED1C5F88270011001A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../src/AppDelegate.m; sourceTree = "<group>"; };
+		FEC33C6B1DE43D3000F8EFF0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = ../src/RegisterViewController.h; sourceTree = "<group>"; };
+		FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = ../src/RegisterViewController.m; sourceTree = "<group>"; };
+		FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ErrorHandler.h; path = ../src/ErrorHandler.h; sourceTree = "<group>"; };
+		FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorHandler.m; path = ../src/ErrorHandler.m; sourceTree = "<group>"; };
+		FEC33C731DE4722800F8EFF0 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../src/Utils.h; sourceTree = "<group>"; };
+		FEC33C741DE4722800F8EFF0 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = ../src/Utils.m; sourceTree = "<group>"; };
+		FEC33C761DE48B8300F8EFF0 /* PinPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinPadViewController.h; path = ../src/PinPadViewController.h; sourceTree = "<group>"; };
+		FEC33C771DE48B8300F8EFF0 /* PinPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinPadViewController.m; path = ../src/PinPadViewController.m; sourceTree = "<group>"; };
+		FEC33C791DE5B79F00F8EFF0 /* SuccessfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuccessfulViewController.h; path = ../src/SuccessfulViewController.h; sourceTree = "<group>"; };
+		FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuccessfulViewController.m; path = ../src/SuccessfulViewController.m; sourceTree = "<group>"; };
+		FEC33C7C1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginSuccessfulViewController.h; path = ../src/LoginSuccessfulViewController.h; sourceTree = "<group>"; };
+		FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSuccessfulViewController.m; path = ../src/LoginSuccessfulViewController.m; sourceTree = "<group>"; };
+		FEC33C7F1DE5E93700F8EFF0 /* SuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperViewController.h; path = ../src/SuperViewController.h; sourceTree = "<group>"; };
+		FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperViewController.m; path = ../src/SuperViewController.m; sourceTree = "<group>"; };
 		FECB27B31D0AD752007A282A /* libPods-WhiteLabels-DimensionData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WhiteLabels-DimensionData.a"; path = "/Users/georgi.georgiev/Documents/mpin/mpin-app-ios-v2/Pods/../build/Debug-iphoneos/libPods-WhiteLabels-DimensionData.a"; sourceTree = "<absolute>"; };
 		FECB27B51D0AD759007A282A /* libPods-WhiteLabels-Miracl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WhiteLabels-Miracl.a"; path = "../../../../Library/Developer/Xcode/DerivedData/MPin-hffktdudxaedofaejdptwqddkuyw/Build/Products/Debug-iphonesimulator/libPods-WhiteLabels-Miracl.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,10 +103,25 @@
 		FE49000E1A1A3CEB000030A4 = {
 			isa = PBXGroup;
 			children = (
+				FEC33C731DE4722800F8EFF0 /* Utils.h */,
+				FEC33C741DE4722800F8EFF0 /* Utils.m */,
+				FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */,
+				FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */,
+				FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */,
 				39BB1B9B1DE2FC2600F05831 /* Info.plist */,
 				39BB1B731DE2F81F00F05831 /* main.m */,
 				FEBBBFEC1C5F88270011001A /* AppDelegate.h */,
 				FEBBBFED1C5F88270011001A /* AppDelegate.m */,
+				FEC33C7F1DE5E93700F8EFF0 /* SuperViewController.h */,
+				FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */,
+				FEC33C6B1DE43D3000F8EFF0 /* RegisterViewController.h */,
+				FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */,
+				FEC33C761DE48B8300F8EFF0 /* PinPadViewController.h */,
+				FEC33C771DE48B8300F8EFF0 /* PinPadViewController.m */,
+				FEC33C791DE5B79F00F8EFF0 /* SuccessfulViewController.h */,
+				FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */,
+				FEC33C7C1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.h */,
+				FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */,
 				39BB1B981DE2FBD400F05831 /* QRViewController.h */,
 				39BB1B991DE2FBD400F05831 /* QRViewController.m */,
 				39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */,
@@ -188,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */,
 				39BB1BA11DE2FC9100F05831 /* LaunchScreen.storyboard in Resources */,
 				39BB1BA21DE2FC9100F05831 /* Main.storyboard in Resources */,
 			);
@@ -250,7 +289,14 @@
 			files = (
 				39BB1B9A1DE2FBD400F05831 /* QRViewController.m in Sources */,
 				FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */,
+				FEC33C721DE451B200F8EFF0 /* ErrorHandler.m in Sources */,
+				FEC33C7E1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m in Sources */,
+				FEC33C7B1DE5B79F00F8EFF0 /* SuccessfulViewController.m in Sources */,
 				39BB1B741DE2F81F00F05831 /* main.m in Sources */,
+				FEC33C811DE5E93700F8EFF0 /* SuperViewController.m in Sources */,
+				FEC33C751DE4722800F8EFF0 /* Utils.m in Sources */,
+				FEC33C781DE48B8300F8EFF0 /* PinPadViewController.m in Sources */,
+				FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,8 +410,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Georgiev (MZ4847KYGX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Georgi Georgiev (MZ4847KYGX)";
 				CURRENT_PROJECT_VERSION = 99;
 				DEVELOPMENT_TEAM = WF6XYF7P2L;
 				ENABLE_BITCODE = NO;
@@ -381,10 +427,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dimensiondata.mfaas.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05462b1b-788c-4a44-bdb4-685ade2c0633";
-				PROVISIONING_PROFILE_SPECIFIER = "DEV | iOS Development | Secuclick";
+				PROVISIONING_PROFILE = "d41165a4-afd3-4fc5-a539-1f032ac264f1";
+				PROVISIONING_PROFILE_SPECIFIER = SampleAppProvProfile;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -399,8 +445,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Georgiev (MZ4847KYGX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Georgi Georgiev (MZ4847KYGX)";
 				CURRENT_PROJECT_VERSION = 99;
 				DEVELOPMENT_TEAM = WF6XYF7P2L;
 				ENABLE_BITCODE = NO;
@@ -416,10 +462,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dimensiondata.mfaas.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ec123a85-7e79-4530-94b9-fcd771202cd2";
-				PROVISIONING_PROFILE_SPECIFIER = MiraclMAASMPIN_DEV;
+				PROVISIONING_PROFILE = "d41165a4-afd3-4fc5-a539-1f032ac264f1";
+				PROVISIONING_PROFILE_SPECIFIER = SampleAppProvProfile;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -434,10 +480,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Georgiev (MZ4847KYGX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 99;
-				DEVELOPMENT_TEAM = WF6XYF7P2L;
+				DEVELOPMENT_TEAM = C2KX8VQ53X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -451,10 +497,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dimensiondata.mfaas.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05462b1b-788c-4a44-bdb4-685ade2c0633";
-				PROVISIONING_PROFILE_SPECIFIER = "DEV | iOS Development | Secuclick";
+				PROVISIONING_PROFILE_SPECIFIER = "XC Ad Hoc: *";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -469,10 +514,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Georgiev (MZ4847KYGX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 99;
-				DEVELOPMENT_TEAM = WF6XYF7P2L;
+				DEVELOPMENT_TEAM = C2KX8VQ53X;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -486,10 +531,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dimensiondata.mfaas.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "05462b1b-788c-4a44-bdb4-685ade2c0633";
-				PROVISIONING_PROFILE_SPECIFIER = "DEV | iOS Development | Secuclick";
+				PROVISIONING_PROFILE_SPECIFIER = "XC Ad Hoc: *";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -593,8 +637,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Georgi Georgiev (MZ4847KYGX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Georgi Georgiev (MZ4847KYGX)";
 				CURRENT_PROJECT_VERSION = 99;
 				DEVELOPMENT_TEAM = WF6XYF7P2L;
 				ENABLE_BITCODE = NO;
@@ -610,10 +654,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dimensiondata.mfaas.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ec123a85-7e79-4530-94b9-fcd771202cd2";
-				PROVISIONING_PROFILE_SPECIFIER = MiraclMAASMPIN_DEV;
+				PROVISIONING_PROFILE = "d41165a4-afd3-4fc5-a539-1f032ac264f1";
+				PROVISIONING_PROFILE_SPECIFIER = SampleAppProvProfile;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../**";
 				VALID_ARCHS = "arm64 armv7 armv7s";

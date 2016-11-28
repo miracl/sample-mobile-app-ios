@@ -17,12 +17,8 @@
  under the License.
  */
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface QRViewController : UIViewController
-
-@property ( nonatomic, strong ) IBOutlet UIView *viewPreview;
-@property (nonatomic, strong) NSString *accessCode;
-
+@interface Utils : NSObject
++ ( BOOL )isValidEmail:( NSString * )emailString;
 @end
-

@@ -17,12 +17,16 @@
  under the License.
  */
 
-#import <UIKit/UIKit.h>
+#import "LoginSuccessfulViewController.h"
 
-@interface QRViewController : UIViewController
-
-@property ( nonatomic, strong ) IBOutlet UIView *viewPreview;
-@property (nonatomic, strong) NSString *accessCode;
+@interface LoginSuccessfulViewController ()
 
 @end
 
+@implementation LoginSuccessfulViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
+@end
