@@ -39,6 +39,13 @@
 
 @implementation QRViewController
 
+/*
+On application launch the MPIN sdk must be initialized! In our sample app we need to pass to sdk an "User-Agent" HTTP header. It is required by the Authentication backend. 
+ Without it each HTTP call will fail. Once the sdk is initialized , we must set back end against each user is going to be authenticated. 
+ The sample app extract this information from QR code. QR code contains and access code as well in order to support web login flow. 
+ That's why here int QRViewController class we initialize and run iPhone / iPad camera. 
+ in viewDidLoad mehtod we initialize SDK and configure camera.
+*/
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSError *error;
@@ -82,6 +89,9 @@
     }
 }
 
+/*
+in viewDidAppear mehtod we run camera
+ */
 - ( void ) viewDidAppear:( BOOL )animated
 {
     [super viewDidAppear:animated];
@@ -155,6 +165,9 @@
     }
 }
 
+/*
+HERE Once the QR Code has been successfully detected the mehtod captureOutput is called and we are ready to parse raw information that comes from qr code.
+ */
 -( void )captureOutput:( AVCaptureOutput * )captureOutput didOutputMetadataObjects:( NSArray * )metadataObjects fromConnection:( AVCaptureConnection * )connection
 {
     AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
@@ -167,6 +180,9 @@
     }
 }
 
+/*
+ The routine parseResponse extracts the QR code raw information. The extracted information is represented as JSON data structure and it is passed to serviceReaded method for further processing.
+*/
 - ( void ) parseResponse:( NSString * ) strResponse
 {
     NSRange range = [strResponse rangeOfString:@"#"];
@@ -237,6 +253,9 @@
     
 }
 
+/*
+Service paramenter of serviceReaded method contains backend url that each user will be able to register and authenticated. If SDK mehtod SetBackend completes successfully then onSetBackendCompleted method is called with additional parameter access code for web login flow.
+*/
 - ( void ) serviceReaded: (NSData *)service accessCode:(NSString *) accessCode
 {
     self.accessCode = accessCode;
@@ -300,6 +319,13 @@
     }
 }
 
+/*
+ onSetBackendCompleted does the following: Checks whether there are any user for that particular backend. If they are not then it navigates app to User Registration page. 
+ If there is an user then it checks its state. Depending on its state it navigates app to different pages such as: 
+ If user is in STARTED_REGISTRATION state the app navigate user ot finish registration stage. Registration page is responsible to handle this case.
+ If user is in REGISTERED then the user is navigated to Authentication page - PinPadViewController wich is responsible to authenticate user.
+ In any other User state an Error messge is shown.
+*/
 - (void) onSetBackendCompleted:(NSString *) accessCode {
     NSArray* arr = [MPin listUsers];
     if (arr.count == 0) {

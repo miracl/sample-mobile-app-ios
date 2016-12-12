@@ -75,7 +75,11 @@
 }
 
 #pragma mark - Event handlers -
-
+/*
+ This method checks whether user has confirmed its identity via activation link that is send to user's mail inbox. 
+ if user has clicked on activation link then the apps navigates user to Set up pin page.
+ If user has not cliecked on activation link he is prompted to do so via tips message on the screen shown for 3 seconds
+ */
 - (IBAction)onClickConfirmButton:(id)sender {
 
     if([self.user getState] == STARTED_REGISTRATION) {
@@ -100,6 +104,10 @@
                                                          minShowTime:3.0];
     }
 }
+
+/*
+ This method invalidate user - restart user registration proccess
+*/
 - (IBAction)onClickResendButton:(id)sender {
     [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0.0];
     
@@ -115,6 +123,10 @@
     });
 }
 
+
+/*
+ This initiate registration process. User identity is created and registered.
+ */
 - (IBAction)onClickAddmButton:(id)sender {
     [_btnAdd setEnabled:NO];
     _txtAddUser.text = [_txtAddUser.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];

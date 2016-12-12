@@ -73,7 +73,13 @@
 }
 
 #pragma mark - Event handlers -
-
+/*
+Once four digit pin is scraped from user interface onClickSendButton can be called via login button. It does the following:
+Checks its state. Depending on its state it navigates app to different pages such as:
+If user is in STARTED_REGISTRATION state then the pin is set up for this particular user.
+If user is in REGISTERED state the user is able to be authenticated with using this pin. If the pin is correct the user is successfully authenticated and the apps navigates user to Login Successfull page. On wrong pin and appropriate error is shown. On 3 times enter wrong pin the user account is blocked and deleted from the user's backend list.
+In any other User state an Error messge is shown.
+*/
 - (IBAction)onClickSendButton:(id)sender {
     if (_txtPinPad.text.length < PIN_LENGTH) return;
     
