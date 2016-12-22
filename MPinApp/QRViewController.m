@@ -18,9 +18,9 @@
  */
 
 #import <AVFoundation/AVFoundation.h>
-
 #import "QRViewController.h"
-#import "MPin.h"
+#import "RegisterViewController.h"
+#import "MPinMFA.h"
 #import "ATMHud.h"
 #import "ErrorHandler.h"
 
@@ -49,7 +49,8 @@ On application launch the MPIN sdk must be initialized! In our sample app we nee
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSError *error;
-    [MPin initSDKWithHeaders:[NSDictionary dictionaryWithObjectsAndKeys:@"com.miracl.maas.ddmfa/1.1.0 (ios/10.1.1) build/186",@"User-Agent", nil]];
+    [MPinMFA initSDK];
+    [MPinMFA SetClientId:@"dd"];
     _hud = [ATMHud new];
     _captureSession = [[AVCaptureSession alloc] init];
     _captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -197,7 +198,8 @@ HERE Once the QR Code has been successfully detected the mehtod captureOutput is
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
             [request setTimeoutInterval:10];
             request.HTTPMethod = @"GET";
-            [request setValue:@"com.miracl.maas.ddmfa/1.1.0 (ios/10.1.1) build/186" forHTTPHeaderField:@"User-Agent"];
+            [request setValue:@"dd" forHTTPHeaderField:@"X-MIRACL-CID"];
+            
             NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             if(error != nil)    {
                 dispatch_async(dispatch_get_main_queue(), ^ (void) {
@@ -288,7 +290,7 @@ Service paramenter of serviceReaded method contains backend url that each user w
                 [alertView show];
             });
         }   else    {
-            MpinStatus *mpinStatus = [MPin SetBackend:config[@"url"] rpsPrefix:config[@"rps_prefix"]];
+            MpinStatus *mpinStatus = [MPinMFA SetBackend:config[@"url"] rpsPrefix:config[@"rps_prefix"]];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
@@ -327,20 +329,24 @@ Service paramenter of serviceReaded method contains backend url that each user w
  In any other User state an Error messge is shown.
 */
 - (void) onSetBackendCompleted:(NSString *) accessCode {
-    NSArray* arr = [MPin listUsers];
+    NSArray* arr = [MPinMFA listUsers];
     if (arr.count == 0) {
         [[ErrorHandler sharedManager] hideMessage];
-        UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+        RegisterViewController *vc = (RegisterViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+                                                                instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+        vc.accessCode = accessCode;
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         id<IUser> user  = arr[0];
         if([user getState] == STARTED_REGISTRATION) {
             [[ErrorHandler sharedManager] hideMessage];
-            UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+            RegisterViewController *vc = (RegisterViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+                                                                    instantiateViewControllerWithIdentifier:@"RegisterViewController"];
+            vc.accessCode = accessCode;
             [self.navigationController pushViewController:vc animated:YES];
         } else if([user getState] == REGISTERED )  {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-                MpinStatus *mpinStatus = [MPin StartAuthentication:user];
+                MpinStatus *mpinStatus = [MPinMFA StartAuthentication:user accessCode:accessCode];
                 dispatch_async(dispatch_get_main_queue(), ^ (void) {
                     ///  NSLog(@"%@",[user GetMPinId]);
                     if ( mpinStatus.status == OK )  {

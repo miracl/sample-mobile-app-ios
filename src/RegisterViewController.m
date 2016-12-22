@@ -21,8 +21,9 @@
 
 #import "RegisterViewController.h"
 #import "PinPadViewController.h"
+#import "QRViewController.h"
 #import "ErrorHandler.h"
-#import "MPin.h"
+#import "MPinMFA.h"
 #import "Utils.h"
 
 @interface RegisterViewController ()
@@ -62,14 +63,14 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if( [MPin listUsers].count == 0 ) {
+    if( [MPinMFA listUsers].count == 0 ) {
         self.confirmView.alpha = 0.0;
         self.addView.alpha = 1.0;
     } else {
         [_txtAddUser resignFirstResponder];
         self.addView.alpha = 0.0;
         self.confirmView.alpha = 1.0;
-        self.user = [MPin listUsers][0];
+        self.user = [MPinMFA listUsers][0];
         self.lblMsg.text = [NSString stringWithFormat:@"Your Identity %@ has been created!", [self.user getIdentity]];
     }
 }
@@ -85,7 +86,7 @@
     if([self.user getState] == STARTED_REGISTRATION) {
         [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0.0];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-            MpinStatus *mpinStatus = [MPin ConfirmRegistration:self.user pushNotificationIdentifier:nil];
+            MpinStatus *mpinStatus = [MPinMFA ConfirmRegistration:self.user];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PinPadViewController"];
@@ -112,7 +113,7 @@
     [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0.0];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        MpinStatus *mpinStatus = [MPin RestartRegistration:self.user userData:@""];
+        MpinStatus *mpinStatus = [MPinMFA RestartRegistration:self.user];
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
             NSString * msg = ( mpinStatus.status == OK ) ? ( @"OK" ) :
                                                             ([NSString stringWithFormat:@"An error has occured! Info - %@", [mpinStatus getStatusCodeAsString]] );
@@ -142,7 +143,7 @@
         return;
     }
     
-    id<IUser> user  = [MPin getIUserById:_txtAddUser.text];
+    id<IUser> user  = [MPinMFA getIUserById:_txtAddUser.text];
     if(user != nil) {
         [[ErrorHandler sharedManager] presentMessageInViewController:self
                                                          errorString:@"This identity already exists."
@@ -155,8 +156,10 @@
     [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0.0];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        self.user = [MPin MakeNewUser:_txtAddUser.text deviceName:@"SampleDevName"];
-        MpinStatus *mpinStatus = [MPin StartRegistration:self.user userData:@""];
+        self.user = [MPinMFA MakeNewUser:_txtAddUser.text deviceName:@"SampleDevName"];
+        MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user
+                                               activateCode:self.accessCode
+                                                        pmi:@"PMI-TEST"];
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
             [_btnAdd setEnabled:YES];
             if ( mpinStatus.status == OK )  {
