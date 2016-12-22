@@ -340,8 +340,9 @@ Service paramenter of serviceReaded method contains backend url that each user w
             [self.navigationController pushViewController:vc animated:YES];
         } else if([user getState] == REGISTERED )  {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-                MpinStatus *mpinStatus = [MPin StartAuthentication:user accessCode:accessCode];
+                MpinStatus *mpinStatus = [MPin StartAuthentication:user];
                 dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                    ///  NSLog(@"%@",[user GetMPinId]);
                     if ( mpinStatus.status == OK )  {
                         [[ErrorHandler sharedManager] hideMessage];
                         UIViewController *vc = (UIViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PinPadViewController"];
