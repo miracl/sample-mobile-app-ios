@@ -109,7 +109,7 @@ In any other User state an Error messge is shown.
     } else if([_user getState] == REGISTERED) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
             QRViewController *qvc = [self.navigationController.viewControllers firstObject];
-            MpinStatus *mpinStatus = [MPinMFA FinishAuthenticationAN:_user pin:_txtPinPad.text accessNumber:qvc.accessCode];
+            MpinStatus *mpinStatus = [MPinMFA FinishAuthentication:_user pin:_txtPinPad.text accessCode:qvc.accessCode];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     [[ErrorHandler sharedManager] hideMessage];

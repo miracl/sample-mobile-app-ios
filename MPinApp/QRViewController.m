@@ -51,6 +51,9 @@ On application launch the MPIN sdk must be initialized! In our sample app we nee
     NSError *error;
     [MPinMFA initSDK];
     [MPinMFA SetClientId:@"dd"];
+    [MPinMFA AddTrustedDomain:@"miracl.net"];
+    [MPinMFA AddTrustedDomain:@"mpin.io"];
+    
     _hud = [ATMHud new];
     _captureSession = [[AVCaptureSession alloc] init];
     _captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];

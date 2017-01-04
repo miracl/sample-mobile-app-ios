@@ -88,6 +88,9 @@
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
             MpinStatus *mpinStatus = [MPinMFA ConfirmRegistration:self.user];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                
+                NSLog(@"%@", mpinStatus.statusCodeAsString);
+                
                 if ( mpinStatus.status == OK )  {
                     UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PinPadViewController"];
                     [self.navigationController pushViewController:vc animated:YES];
