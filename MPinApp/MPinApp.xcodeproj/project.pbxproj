@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		39BB1B741DE2F81F00F05831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BB1B731DE2F81F00F05831 /* main.m */; };
-		39BB1B9A1DE2FBD400F05831 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BB1B991DE2FBD400F05831 /* QRViewController.m */; };
 		39BB1BA11DE2FC9100F05831 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */; };
 		39BB1BA21DE2FC9100F05831 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB1B9F1DE2FC9100F05831 /* Main.storyboard */; };
 		39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */; };
@@ -18,6 +17,7 @@
 		96C0F49B1D0FDF6400C8B00A /* libMPinSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB74FD1D0AF48800E6EC50 /* libMPinSDK.a */; };
 		96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */; };
 		96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */; };
+		FE91464D1E3F716C00ED8F65 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE91464C1E3F716C00ED8F65 /* QRViewController.m */; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
 		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
@@ -32,8 +32,6 @@
 /* Begin PBXFileReference section */
 		2F43BEEEE2D254F177C69D55 /* libPods-WhiteLabels-Milagro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-Milagro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BB1B731DE2F81F00F05831 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MPinApp/main.m; sourceTree = "<group>"; };
-		39BB1B981DE2FBD400F05831 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = SOURCE_ROOT; };
-		39BB1B991DE2FBD400F05831 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = SOURCE_ROOT; };
 		39BB1B9B1DE2FC2600F05831 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39BB1B9E1DE2FC9100F05831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MPinApp/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39BB1BA01DE2FC9100F05831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MPinApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +47,8 @@
 		DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.qa.xcconfig"; sourceTree = "<group>"; };
 		F4783CAED134EAA73090B790 /* Pods-WhiteLabels-Milagro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.release.xcconfig"; sourceTree = "<group>"; };
 		F5EBCFD978797205E0FC6E27 /* Pods-WhiteLabels-Milagro.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.adhoc.xcconfig"; sourceTree = "<group>"; };
+		FE91464B1E3F716C00ED8F65 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRViewController.h; path = ../src/QRViewController.h; sourceTree = "<group>"; };
+		FE91464C1E3F716C00ED8F65 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRViewController.m; path = ../src/QRViewController.m; sourceTree = "<group>"; };
 		FEBBBFEC1C5F88270011001A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../src/AppDelegate.h; sourceTree = "<group>"; };
 		FEBBBFED1C5F88270011001A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../src/AppDelegate.m; sourceTree = "<group>"; };
 		FEC33C6B1DE43D3000F8EFF0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = ../src/RegisterViewController.h; sourceTree = "<group>"; };
@@ -112,6 +112,8 @@
 				39BB1B731DE2F81F00F05831 /* main.m */,
 				FEBBBFEC1C5F88270011001A /* AppDelegate.h */,
 				FEBBBFED1C5F88270011001A /* AppDelegate.m */,
+				FE91464B1E3F716C00ED8F65 /* QRViewController.h */,
+				FE91464C1E3F716C00ED8F65 /* QRViewController.m */,
 				FEC33C7F1DE5E93700F8EFF0 /* SuperViewController.h */,
 				FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */,
 				FEC33C6B1DE43D3000F8EFF0 /* RegisterViewController.h */,
@@ -122,8 +124,6 @@
 				FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */,
 				FEC33C7C1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.h */,
 				FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */,
-				39BB1B981DE2FBD400F05831 /* QRViewController.h */,
-				39BB1B991DE2FBD400F05831 /* QRViewController.m */,
 				39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */,
 				39BB1B9F1DE2FC9100F05831 /* Main.storyboard */,
 				FE4900191A1A3CEB000030A4 /* Frameworks */,
@@ -287,7 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39BB1B9A1DE2FBD400F05831 /* QRViewController.m in Sources */,
 				FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */,
 				FEC33C721DE451B200F8EFF0 /* ErrorHandler.m in Sources */,
 				FEC33C7E1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m in Sources */,
@@ -295,6 +294,7 @@
 				39BB1B741DE2F81F00F05831 /* main.m in Sources */,
 				FEC33C811DE5E93700F8EFF0 /* SuperViewController.m in Sources */,
 				FEC33C751DE4722800F8EFF0 /* Utils.m in Sources */,
+				FE91464D1E3F716C00ED8F65 /* QRViewController.m in Sources */,
 				FEC33C781DE48B8300F8EFF0 /* PinPadViewController.m in Sources */,
 				FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */,
 			);
