@@ -12,9 +12,9 @@
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3A1083AD-27D2-4344-93A3-0C011B9F7316",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "2D3CA95B977E1AF24335F7001316030C58E74DCA" : "milagro\/",
-    "9980D11FF5B6CE970FF3598FD73DBFED058471FB" : "sample-mobile-app-ios\/incubator-milagro-mfa-sdk-ios\/mpin-sdk-core\/",
-    "3FE355548C97740CF5583E1A954E269B68CCE206" : "sample-mobile-app-ios\/",
-    "73E1B20CF21226571ACC813FEA2DE2FA6C0CF74A" : "sample-mobile-app-ios\/incubator-milagro-mfa-sdk-ios\/"
+    "9980D11FF5B6CE970FF3598FD73DBFED058471FB" : "SampleApp\/incubator-milagro-mfa-sdk-ios\/mpin-sdk-core\/",
+    "3FE355548C97740CF5583E1A954E269B68CCE206" : "SampleApp\/",
+    "73E1B20CF21226571ACC813FEA2DE2FA6C0CF74A" : "SampleApp\/incubator-milagro-mfa-sdk-ios\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "MPin",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
