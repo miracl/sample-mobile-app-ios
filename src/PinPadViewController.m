@@ -25,7 +25,7 @@
 #import "LoginSuccessfulViewController.h"
 #import "QRViewController.h"
 #import "ErrorHandler.h"
-#import "MPin.h"
+#import "MPinMFA.h"
 
 @interface PinPadViewController ()
 
@@ -51,7 +51,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    NSArray* arr = [MPin listUsers];
+    NSArray* arr = [MPinMFA listUsers];
     if (arr.count == 0) {
         [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"Identity list is empty" addActivityIndicator:NO minShowTime:3.0];
         return;
@@ -84,11 +84,10 @@ In any other User state an Error messge is shown.
     if (_txtPinPad.text.length < PIN_LENGTH) return;
     
     [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0.0];
-    
     if([_user getState] == STARTED_REGISTRATION) {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-            MpinStatus *mpinStatus = [MPin FinishRegistration:_user pin:_txtPinPad.text];
+            MpinStatus *mpinStatus = [MPinMFA FinishRegistration:_user pin:_txtPinPad.text];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     [[ErrorHandler sharedManager] hideMessage];
@@ -100,7 +99,7 @@ In any other User state an Error messge is shown.
                                            addActivityIndicator:NO
                                                       hideAfter:0.0];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                        [MPin DeleteUser:self.user];
+                        [MPinMFA DeleteUser:self.user];
                         [[ErrorHandler sharedManager] hideMessage];
                         [self.navigationController popToRootViewControllerAnimated:YES];
                     });
@@ -110,7 +109,7 @@ In any other User state an Error messge is shown.
     } else if([_user getState] == REGISTERED) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
             QRViewController *qvc = [self.navigationController.viewControllers firstObject];
-            MpinStatus *mpinStatus = [MPin FinishAuthenticationAN:_user pin:_txtPinPad.text accessNumber:qvc.accessCode];
+            MpinStatus *mpinStatus = [MPinMFA FinishAuthentication:_user pin:_txtPinPad.text accessCode:qvc.accessCode];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     [[ErrorHandler sharedManager] hideMessage];
@@ -119,7 +118,7 @@ In any other User state an Error messge is shown.
                 }   else if( mpinStatus.status == INCORRECT_PIN )   {
                     if( [_user getState] == BLOCKED ) {
                         [[ErrorHandler sharedManager] updateMessage:@"The current user has been blocked! The identity is going to be deleted!" addActivityIndicator:NO hideAfter:0];
-                        [MPin DeleteUser:self.user];
+                        [MPinMFA DeleteUser:self.user];
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                             [[ErrorHandler sharedManager] hideMessage];
                             [self.navigationController popToRootViewControllerAnimated:YES];
@@ -140,7 +139,7 @@ In any other User state an Error messge is shown.
         });
     } else if([_user getState] == BLOCKED) {
         [[ErrorHandler sharedManager] updateMessage:@"The current user has been blocked! The identity is going to be deleted!" addActivityIndicator:NO hideAfter:0];
-        [MPin DeleteUser:self.user];
+        [MPinMFA DeleteUser:self.user];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             [[ErrorHandler sharedManager] hideMessage];
             [self.navigationController popToRootViewControllerAnimated:YES];
