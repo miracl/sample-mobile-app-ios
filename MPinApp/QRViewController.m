@@ -40,17 +40,25 @@
 @implementation QRViewController
 
 /*
-On application launch the MPIN sdk must be initialized! In our sample app we need to pass to sdk an "User-Agent" HTTP header. It is required by the Authentication backend. 
- Without it each HTTP call will fail. Once the sdk is initialized , we must set back end against each user is going to be authenticated. 
+On application launch the MPIN sdk must be initialized! In our sample app we need to pass to sdk an CID. It is required by the Authentication backend.
+ Without it each HTTP call will fail. Once the sdk is initialized , we must set backend against each user is going to be authenticated.
  The sample app extract this information from QR code. QR code contains and access code as well in order to support web login flow. 
  That's why here int QRViewController class we initialize and run iPhone / iPad camera. 
- in viewDidLoad mehtod we initialize SDK and configure camera.
+ In viewDidLoad mehtod we initialize SDK and configure camera.
 */
+
+NSString *kStrCID = @"";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSError *error;
     [MPinMFA initSDK];
-    [MPinMFA SetClientId:@"dd"];
+    
+    NSAssert(kStrCID != nil, @"kStrCID should not be Nil");
+    NSAssert(![kStrCID isEqualToString:@""], @"kStrCID should not be empty");
+    NSAssert([kStrCID isKindOfClass:[NSString class]], @"kStrCID should be NSString");
+    
+    [MPinMFA SetClientId:kStrCID];
     [MPinMFA AddTrustedDomain:@"miracl.net"];
     [MPinMFA AddTrustedDomain:@"mpin.io"];
     
@@ -201,7 +209,9 @@ HERE Once the QR Code has been successfully detected the mehtod captureOutput is
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
             [request setTimeoutInterval:10];
             request.HTTPMethod = @"GET";
-            [request setValue:@"dd" forHTTPHeaderField:@"X-MIRACL-CID"];
+            
+            NSAssert(kStrCID != nil, @"kStrCID should contain your CID");
+            [request setValue:kStrCID forHTTPHeaderField:@"X-MIRACL-CID"];
             
             NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             if(error != nil)    {
