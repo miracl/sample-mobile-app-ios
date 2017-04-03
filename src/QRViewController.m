@@ -47,7 +47,7 @@ On application launch the MPIN sdk must be initialized! In our sample app we nee
  In viewDidLoad mehtod we initialize SDK and configure camera.
 */
 
-NSString *kStrCID = @"";
+NSString *kStrCID = @"ea145e13-535a-4159-a921-43b2b30a9274";
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -116,9 +116,15 @@
     [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0.0];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        MpinStatus *mpinStatus = [MPinMFA RestartRegistration:self.user];
+        NSString *strUserID = [self.user getIdentity];
+        [MPinMFA DeleteUser:self.user];
+        
+        self.user = [MPinMFA MakeNewUser:strUserID deviceName:@"SampleDevName"];
+        MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user
+                                               activateCode:self.accessCode
+                                                        pmi:@"PMI-TEST"];
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
-            NSString * msg = ( mpinStatus.status == OK ) ? ( @"OK" ) :
+            NSString * msg = ( mpinStatus.status == OK ) ? ( @"The Email has been resend!" ) :
                                                             ([NSString stringWithFormat:@"An error has occured! Info - %@", [mpinStatus getStatusCodeAsString]] );
             [[ErrorHandler sharedManager] updateMessage:msg
                                    addActivityIndicator:NO

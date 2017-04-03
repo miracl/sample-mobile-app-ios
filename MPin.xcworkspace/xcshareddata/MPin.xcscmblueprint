@@ -4,14 +4,12 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "2D3CA95B977E1AF24335F7001316030C58E74DCA" : 0,
     "9980D11FF5B6CE970FF3598FD73DBFED058471FB" : 0,
     "3FE355548C97740CF5583E1A954E269B68CCE206" : 9223372036854775807,
     "73E1B20CF21226571ACC813FEA2DE2FA6C0CF74A" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3A1083AD-27D2-4344-93A3-0C011B9F7316",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "2D3CA95B977E1AF24335F7001316030C58E74DCA" : "milagro\/",
     "9980D11FF5B6CE970FF3598FD73DBFED058471FB" : "SampleApp\/incubator-milagro-mfa-sdk-ios\/mpin-sdk-core\/",
     "3FE355548C97740CF5583E1A954E269B68CCE206" : "SampleApp\/",
     "73E1B20CF21226571ACC813FEA2DE2FA6C0CF74A" : "SampleApp\/incubator-milagro-mfa-sdk-ios\/"
@@ -20,11 +18,6 @@
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MPin.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/tihomir.ganev@stash.certivox.com\/scm\/mm\/mpin-app-ios-v2.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2D3CA95B977E1AF24335F7001316030C58E74DCA"
-    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/miracl\/sample-mobile-app-ios.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
