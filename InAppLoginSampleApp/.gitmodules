@@ -1,0 +1,3 @@
+[submodule "incubator-milagro-mfa-sdk-ios"]
+	path = incubator-milagro-mfa-sdk-ios
+	url = https://github.com/miracl/incubator-milagro-mfa-sdk-ios.git
