@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3FE355548C97740CF5583E1A954E269B68CCE206",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "73E1B20CF21226571ACC813FEA2DE2FA6C0CF74A" : 9223372036854775807,
+    "3FE355548C97740CF5583E1A954E269B68CCE206" : 9223372036854775807,
+    "9980D11FF5B6CE970FF3598FD73DBFED058471FB" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3A1083AD-27D2-4344-93A3-0C011B9F7316",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "73E1B20CF21226571ACC813FEA2DE2FA6C0CF74A" : "SampleApps\/incubator-milagro-mfa-sdk-ios\/",
+    "3FE355548C97740CF5583E1A954E269B68CCE206" : "SampleApps\/",
+    "9980D11FF5B6CE970FF3598FD73DBFED058471FB" : "SampleApps\/incubator-milagro-mfa-sdk-ios\/mpin-sdk-core\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MPin",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SampleApp\/MPin.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/miracl\/sample-mobile-app-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3FE355548C97740CF5583E1A954E269B68CCE206"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/miracl\/incubator-milagro-mfa-sdk-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "73E1B20CF21226571ACC813FEA2DE2FA6C0CF74A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/miracl\/incubator-milagro-mfa-sdk-core.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9980D11FF5B6CE970FF3598FD73DBFED058471FB"
+    }
+  ]
+}
