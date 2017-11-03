@@ -40,7 +40,7 @@
 
 @implementation RegisterViewController
 
-NSString *kStrCID = @"6e6a1d7a-4ecd-482a-becb-f0b4e266a5cc";
+NSString *kStrCID = @"3afb0f49-4988-488c-9b4d-6f7d3f10c3b9";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -177,7 +177,7 @@ NSString *kStrCID = @"6e6a1d7a-4ecd-482a-becb-f0b4e266a5cc";
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
         [request setTimeoutInterval:10];
-        request.HTTPMethod = @"GET";
+        request.HTTPMethod = @"POST";
         
         
         NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
@@ -261,9 +261,9 @@ NSString *kStrCID = @"6e6a1d7a-4ecd-482a-becb-f0b4e266a5cc";
 
 - ( void ) addUser
 {
-    
+    NSString *strUserName = _txtAddUser.text;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        _user = [MPinMFA MakeNewUser:_txtAddUser.text deviceName:@"SampleDevName"];
+        _user = [MPinMFA MakeNewUser:strUserName deviceName:@"SampleDevName"];
         MpinStatus *mpinStatus = [MPinMFA StartRegistration:_user
                                                activateCode:_accessCode
                                                         pmi:@"PMI-TEST"];
