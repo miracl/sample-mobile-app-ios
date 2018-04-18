@@ -79,9 +79,9 @@ In any other User state an Error messge is shown.
     }
     
     if([_user getState] == STARTED_REGISTRATION) {
-        
+        NSString *strPIN = _txtPinPad.text;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-            MpinStatus *mpinStatus = [MPinMFA FinishRegistration:_user pin:_txtPinPad.text];
+            MpinStatus *mpinStatus = [MPinMFA FinishRegistration:_user pin:strPIN];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SuccessfulViewController"];
@@ -102,10 +102,11 @@ In any other User state an Error messge is shown.
     }
     else if([_user getState] == REGISTERED)
     {
+        NSString *strPIN = _txtPinPad.text;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
             NSString *strAuthzCode;
             MpinStatus *mpinStatus = [MPinMFA FinishAuthentication:_user
-                                                               pin:_txtPinPad.text
+                                                               pin:strPIN
                                                         accessCode:_accessCode
                                                          authzCode:&strAuthzCode];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
