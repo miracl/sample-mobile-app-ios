@@ -25,6 +25,7 @@
 #import "ErrorHandler.h"
 #import "MPinMFA.h"
 #import "Utils.h"
+#import "MPin.h"
 
 @interface RegisterViewController ()
 
@@ -120,9 +121,7 @@
         [MPinMFA DeleteUser:self.user];
         
         self.user = [MPinMFA MakeNewUser:strUserID deviceName:@"SampleDevName"];
-        MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user
-                                               activateCode:self.accessCode
-                                                        pmi:@"PMI-TEST"];
+        MpinStatus *mpinStatus = [MPin StartRegistration:self.user];
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
             NSString * msg = ( mpinStatus.status == OK ) ? ( @"The Email has been resend!" ) :
                                                             ([NSString stringWithFormat:@"An error has occured! Info - %@", [mpinStatus getStatusCodeAsString]] );
@@ -166,9 +165,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
         self.user = [MPinMFA MakeNewUser:_txtAddUser.text deviceName:@"SampleDevName"];
-        MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user
-                                               activateCode:self.accessCode
-                                                        pmi:@"PMI-TEST"];
+        MpinStatus *mpinStatus = [MPin StartRegistration:self.user];
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
             [_btnAdd setEnabled:YES];
             if ( mpinStatus.status == OK )  {

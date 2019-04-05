@@ -25,7 +25,7 @@
 @interface SuccessfulViewController ()
 
 @property (nonatomic, weak) IBOutlet UIButton       *btnLogin;
-- ( NSInteger ) findControllerIndexInNavHeirarchy:(Class) class;
+- ( NSInteger ) findControllerIndexInNavHeirarchy:(Class) clazz;
 
 - (IBAction)onClickLoginButton:(id)sender;
 
@@ -38,9 +38,9 @@
     _btnLogin.layer.cornerRadius  =   CORNER_RADIUS;
 }
 
-- ( NSInteger ) findControllerIndexInNavHeirarchy:(Class) class {
+- ( NSInteger ) findControllerIndexInNavHeirarchy:(Class) clazz {
     for (int i = 0; i < self.navigationController.viewControllers.count; i++)
-        if ( [self.navigationController.viewControllers[i] isMemberOfClass:class])
+        if ( [self.navigationController.viewControllers[i] isMemberOfClass:clazz])
             return i;
     return -1;
 }
