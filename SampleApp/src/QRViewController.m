@@ -291,7 +291,7 @@ Service paramenter of serviceReaded method contains backend url that each user w
                 
             });
         }
-        else if(config[@"url"] == nil || config[@"rps_prefix"] == nil || config[@"type"] == nil || config[@"name"] == nil || config[@"logo_url"] == nil)
+        else if(config[@"url"] == nil || config[@"type"] == nil || config[@"name"] == nil || config[@"logo_url"] == nil)
         {
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 [[ErrorHandler sharedManager] hideMessage];
@@ -303,7 +303,7 @@ Service paramenter of serviceReaded method contains backend url that each user w
                 [alertView show];
             });
         }   else    {
-            MpinStatus *mpinStatus = [MPinMFA SetBackend:config[@"url"] rpsPrefix:config[@"rps_prefix"]];
+            MpinStatus *mpinStatus = [MPinMFA SetBackend:config[@"url"]];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
