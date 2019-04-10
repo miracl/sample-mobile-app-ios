@@ -12,14 +12,11 @@
 		39BB1BA21DE2FC9100F05831 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB1B9F1DE2FC9100F05831 /* Main.storyboard */; };
 		39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */; };
 		39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9331DE43D6600D62925 /* AVFoundation.framework */; };
-		922D9ED4709E8BE359C4A74D /* libPods-WhiteLabels-Milagro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F43BEEEE2D254F177C69D55 /* libPods-WhiteLabels-Milagro.a */; };
 		966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9620FB301BBAAF8A00DC15EF /* libc++.tbd */; };
 		96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */; };
 		96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */; };
-		B0D088D4225D1ABB009E2A08 /* libMPinSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088D1225D1A8B009E2A08 /* libMPinSDK.a */; };
-		B0D088E5225D1C03009E2A08 /* MpinCoreLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */; };
-		B0D088E6225D1C0B009E2A08 /* MpinCoreLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */; };
-		B0D088E7225D1C0B009E2A08 /* MpinCoreLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0C2E46D225DFA4E00E614E1 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */; };
+		B0C2E46E225DFA5500E614E1 /* MpinSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
 		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
@@ -30,31 +27,14 @@
 		FEC33C7E1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		B0D088D0225D1A8B009E2A08 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FE49FF981A1A3C2D000030A4;
-			remoteInfo = MPinSDK;
-		};
-		B0D088D5225D1AC4009E2A08 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = FE49FF971A1A3C2D000030A4;
-			remoteInfo = MPinSDK;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		B0D088E8225D1C0B009E2A08 /* Embed Frameworks */ = {
+		B0C2E460225DF5E500E614E1 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B0D088E7225D1C0B009E2A08 /* MpinCoreLib.framework in Embed Frameworks */,
+				B0C2E46E225DFA5500E614E1 /* MpinSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,7 +42,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2F43BEEEE2D254F177C69D55 /* libPods-WhiteLabels-Milagro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-Milagro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BB1B731DE2F81F00F05831 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MPinApp/main.m; sourceTree = "<group>"; };
 		39BB1B9B1DE2FC2600F05831 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39BB1B9E1DE2FC9100F05831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MPinApp/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,8 +55,7 @@
 		96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libATMHud@dhoerl.a"; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/ATMHud@dhoerl/libATMHud@dhoerl.a"; sourceTree = "<group>"; };
 		9D95999DB87889960A98067B /* Pods-WhiteLabels-Milagro.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.appstore.xcconfig"; sourceTree = "<group>"; };
-		B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MPinSDK.xcodeproj; path = "../../mfa-client-sdk-ios/MPinSDK/MPinSDK.xcodeproj"; sourceTree = "<group>"; };
-		B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MpinCoreLib.framework; sourceTree = "<group>"; };
+		B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MpinSdk.framework; path = ../../MpinSdk.framework; sourceTree = "<group>"; };
 		DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.qa.xcconfig"; sourceTree = "<group>"; };
 		F4783CAED134EAA73090B790 /* Pods-WhiteLabels-Milagro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.release.xcconfig"; sourceTree = "<group>"; };
 		F5EBCFD978797205E0FC6E27 /* Pods-WhiteLabels-Milagro.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.adhoc.xcconfig"; sourceTree = "<group>"; };
@@ -105,15 +83,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0D088D4225D1ABB009E2A08 /* libMPinSDK.a in Frameworks */,
-				B0D088E6225D1C0B009E2A08 /* MpinCoreLib.framework in Frameworks */,
+				B0C2E46D225DFA4E00E614E1 /* MpinSdk.framework in Frameworks */,
 				39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */,
 				39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */,
 				96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */,
 				96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */,
-				B0D088E5225D1C03009E2A08 /* MpinCoreLib.framework in Frameworks */,
 				966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */,
-				922D9ED4709E8BE359C4A74D /* libPods-WhiteLabels-Milagro.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,18 +107,9 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B0D088CD225D1A8B009E2A08 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B0D088D1225D1A8B009E2A08 /* libMPinSDK.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		FE49000E1A1A3CEB000030A4 = {
 			isa = PBXGroup;
 			children = (
-				B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */,
 				FEC33C731DE4722800F8EFF0 /* Utils.h */,
 				FEC33C741DE4722800F8EFF0 /* Utils.m */,
 				FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */,
@@ -180,7 +146,7 @@
 		FE4900191A1A3CEB000030A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */,
+				B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */,
 				39DBB9331DE43D6600D62925 /* AVFoundation.framework */,
 				39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */,
 				96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */,
@@ -189,7 +155,6 @@
 				FECB27B51D0AD759007A282A /* libPods-WhiteLabels-Miracl.a */,
 				FECB27B31D0AD752007A282A /* libPods-WhiteLabels-DimensionData.a */,
 				9620FB301BBAAF8A00DC15EF /* libc++.tbd */,
-				2F43BEEEE2D254F177C69D55 /* libPods-WhiteLabels-Milagro.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,12 +172,11 @@
 				966D42C61BDF674B0095913D /* Resources */,
 				24A630C7F3E18D6D0B2C400A /* [CP] Embed Pods Frameworks */,
 				8799931EEEF3160ACB05D0E9 /* [CP] Copy Pods Resources */,
-				B0D088E8225D1C0B009E2A08 /* Embed Frameworks */,
+				B0C2E460225DF5E500E614E1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B0D088D6225D1AC4009E2A08 /* PBXTargetDependency */,
 			);
 			name = AuthSample;
 			productName = MPinApp;
@@ -254,28 +218,12 @@
 			mainGroup = FE49000E1A1A3CEB000030A4;
 			productRefGroup = FE4900181A1A3CEB000030A4 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = B0D088CD225D1A8B009E2A08 /* Products */;
-					ProjectRef = B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				966D42821BDF674B0095913D /* AuthSample */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		B0D088D1225D1A8B009E2A08 /* libMPinSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMPinSDK.a;
-			remoteRef = B0D088D0225D1A8B009E2A08 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		966D42C61BDF674B0095913D /* Resources */ = {
@@ -355,14 +303,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B0D088D6225D1AC4009E2A08 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MPinSDK;
-			targetProxy = B0D088D5225D1AC4009E2A08 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */ = {
@@ -481,6 +421,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
@@ -521,6 +462,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
@@ -561,6 +503,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
@@ -600,6 +543,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
@@ -728,6 +672,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";

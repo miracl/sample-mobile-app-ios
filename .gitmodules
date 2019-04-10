@@ -1,3 +1,0 @@
-[submodule "mfa-client-sdk-ios"]
-	path = mfa-client-sdk-ios
-	url = git@github.com:miracl/mfa-client-sdk-ios.git

@@ -20,7 +20,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "QRViewController.h"
 #import "RegisterViewController.h"
-#import "MPinMFA.h"
+#import <MPinSDK/MPinMFA.h>
 #import "ATMHud.h"
 #import "ErrorHandler.h"
 
