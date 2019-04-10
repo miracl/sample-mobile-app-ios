@@ -20,8 +20,8 @@
 #import "RegisterViewController.h"
 #import "PinPadViewController.h"
 #import "ErrorHandler.h"
-#import "MPinMFA.h"
-#import "MpinStatus.h"
+#import <MpinSdk/MPinMFA.h>
+#import <MpinSdk/MpinStatus.h>
 #import "Utils.h"
 
 @interface RegisterViewController ()
@@ -177,8 +177,8 @@ NSString *kStrCID = @"2eb980a7-38e7-4c33-8d64-f4668689a2e0";
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
         NSHTTPURLResponse *response;
         NSError *error;
-        //http://192.168.0.105:5000/authzurl
-        NSURL *theUrl = [NSURL URLWithString:@"http://192.168.0.105:5000/authzurl"]; // https://demo.trust.miracl.cloud/authzurl
+        // Replace with the address of the machine where the backend sample is running
+        NSURL *theUrl = [NSURL URLWithString:@"http://192.168.0.105:5000/authzurl"];
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
         [request setTimeoutInterval:10];
