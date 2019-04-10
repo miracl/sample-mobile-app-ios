@@ -16,32 +16,31 @@
 		966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9620FB301BBAAF8A00DC15EF /* libc++.tbd */; };
 		96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */; };
 		96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */; };
-		B066BF672250C5C60054BAA9 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE91464C1E3F716C00ED8F65 /* QRViewController.m */; };
-		B066BF682250C5C60054BAA9 /* SuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */; };
-		B066BF692250C5C60054BAA9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
-		B066BF6A2250C5C60054BAA9 /* PinPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C771DE48B8300F8EFF0 /* PinPadViewController.m */; };
-		B066BF6B2250C5C60054BAA9 /* SuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */; };
-		B066BF6C2250C5C60054BAA9 /* LoginSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */; };
-		B066BF6D2250C5CA0054BAA9 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C741DE4722800F8EFF0 /* Utils.m */; };
-		B066BF6E2250C5CA0054BAA9 /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */; };
-		B0D088AA22571864009E2A08 /* libMPinSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088A522571821009E2A08 /* libMPinSDK.a */; };
-		B0D088DF225D1BBE009E2A08 /* MpinCoreLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088DD225D1BA9009E2A08 /* MpinCoreLib.framework */; };
-		B0D088E0225D1BBE009E2A08 /* MpinCoreLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088DD225D1BA9009E2A08 /* MpinCoreLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0D088D4225D1ABB009E2A08 /* libMPinSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088D1225D1A8B009E2A08 /* libMPinSDK.a */; };
+		B0D088E5225D1C03009E2A08 /* MpinCoreLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */; };
+		B0D088E6225D1C0B009E2A08 /* MpinCoreLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */; };
+		B0D088E7225D1C0B009E2A08 /* MpinCoreLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
+		FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
 		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
+		FEC33C721DE451B200F8EFF0 /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */; };
+		FEC33C751DE4722800F8EFF0 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C741DE4722800F8EFF0 /* Utils.m */; };
+		FEC33C781DE48B8300F8EFF0 /* PinPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C771DE48B8300F8EFF0 /* PinPadViewController.m */; };
+		FEC33C7B1DE5B79F00F8EFF0 /* SuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */; };
+		FEC33C7E1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B0D088A422571821009E2A08 /* PBXContainerItemProxy */ = {
+		B0D088D0225D1A8B009E2A08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B0D088A022571821009E2A08 /* MPinSDK.xcodeproj */;
+			containerPortal = B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = FE49FF981A1A3C2D000030A4;
 			remoteInfo = MPinSDK;
 		};
-		B0D088A722571833009E2A08 /* PBXContainerItemProxy */ = {
+		B0D088D5225D1AC4009E2A08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B0D088A022571821009E2A08 /* MPinSDK.xcodeproj */;
+			containerPortal = B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = FE49FF971A1A3C2D000030A4;
 			remoteInfo = MPinSDK;
@@ -49,13 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B0D088E1225D1BBE009E2A08 /* Embed Frameworks */ = {
+		B0D088E8225D1C0B009E2A08 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B0D088E0225D1BBE009E2A08 /* MpinCoreLib.framework in Embed Frameworks */,
+				B0D088E7225D1C0B009E2A08 /* MpinCoreLib.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,35 +71,31 @@
 		39DBB9331DE43D6600D62925 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7170094E7E6E46EF61FBDB12 /* Pods-WhiteLabels-Milagro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.debug.xcconfig"; sourceTree = "<group>"; };
 		9620FB301BBAAF8A00DC15EF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		966D42E51BDF674B0095913D /* Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		966D42E51BDF674B0095913D /* In-App-Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "In-App-Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CB74FD1D0AF48800E6EC50 /* libMPinSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMPinSDK.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/libMPinSDK.a"; sourceTree = "<group>"; };
 		96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
 		96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libATMHud@dhoerl.a"; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/ATMHud@dhoerl/libATMHud@dhoerl.a"; sourceTree = "<group>"; };
 		9D95999DB87889960A98067B /* Pods-WhiteLabels-Milagro.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.appstore.xcconfig"; sourceTree = "<group>"; };
-		B0D088A022571821009E2A08 /* MPinSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MPinSDK.xcodeproj; path = "../../mfa-client-sdk-ios/MPinSDK/MPinSDK.xcodeproj"; sourceTree = "<group>"; };
-		B0D088DD225D1BA9009E2A08 /* MpinCoreLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MpinCoreLib.framework; path = ../../InAppLoginSampleApp/MPinApp/MpinCoreLib.framework; sourceTree = "<group>"; };
+		B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MPinSDK.xcodeproj; path = "../../mfa-client-sdk-ios/MPinSDK/MPinSDK.xcodeproj"; sourceTree = "<group>"; };
+		B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MpinCoreLib.framework; sourceTree = "<group>"; };
 		DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.qa.xcconfig"; sourceTree = "<group>"; };
 		F4783CAED134EAA73090B790 /* Pods-WhiteLabels-Milagro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.release.xcconfig"; sourceTree = "<group>"; };
 		F5EBCFD978797205E0FC6E27 /* Pods-WhiteLabels-Milagro.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.adhoc.xcconfig"; sourceTree = "<group>"; };
-		FE91464B1E3F716C00ED8F65 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRViewController.h; path = ../src/QRViewController.h; sourceTree = "<group>"; };
-		FE91464C1E3F716C00ED8F65 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRViewController.m; path = ../src/QRViewController.m; sourceTree = "<group>"; };
 		FEBBBFEC1C5F88270011001A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../src/AppDelegate.h; sourceTree = "<group>"; };
 		FEBBBFED1C5F88270011001A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../src/AppDelegate.m; sourceTree = "<group>"; };
 		FEC33C6B1DE43D3000F8EFF0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = ../src/RegisterViewController.h; sourceTree = "<group>"; };
-		FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = ../src/RegisterViewController.m; sourceTree = "<group>"; };
+		FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RegisterViewController.m; path = ../src/RegisterViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ErrorHandler.h; path = ../src/ErrorHandler.h; sourceTree = "<group>"; };
 		FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorHandler.m; path = ../src/ErrorHandler.m; sourceTree = "<group>"; };
 		FEC33C731DE4722800F8EFF0 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../src/Utils.h; sourceTree = "<group>"; };
 		FEC33C741DE4722800F8EFF0 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = ../src/Utils.m; sourceTree = "<group>"; };
 		FEC33C761DE48B8300F8EFF0 /* PinPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinPadViewController.h; path = ../src/PinPadViewController.h; sourceTree = "<group>"; };
-		FEC33C771DE48B8300F8EFF0 /* PinPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PinPadViewController.m; path = ../src/PinPadViewController.m; sourceTree = "<group>"; };
+		FEC33C771DE48B8300F8EFF0 /* PinPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PinPadViewController.m; path = ../src/PinPadViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FEC33C791DE5B79F00F8EFF0 /* SuccessfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuccessfulViewController.h; path = ../src/SuccessfulViewController.h; sourceTree = "<group>"; };
 		FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuccessfulViewController.m; path = ../src/SuccessfulViewController.m; sourceTree = "<group>"; };
 		FEC33C7C1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginSuccessfulViewController.h; path = ../src/LoginSuccessfulViewController.h; sourceTree = "<group>"; };
 		FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSuccessfulViewController.m; path = ../src/LoginSuccessfulViewController.m; sourceTree = "<group>"; };
-		FEC33C7F1DE5E93700F8EFF0 /* SuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperViewController.h; path = ../src/SuperViewController.h; sourceTree = "<group>"; };
-		FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperViewController.m; path = ../src/SuperViewController.m; sourceTree = "<group>"; };
 		FECB27B31D0AD752007A282A /* libPods-WhiteLabels-DimensionData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WhiteLabels-DimensionData.a"; path = "/Users/georgi.georgiev/Documents/mpin/mpin-app-ios-v2/Pods/../build/Debug-iphoneos/libPods-WhiteLabels-DimensionData.a"; sourceTree = "<absolute>"; };
 		FECB27B51D0AD759007A282A /* libPods-WhiteLabels-Miracl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WhiteLabels-Miracl.a"; path = "../../../../Library/Developer/Xcode/DerivedData/MPin-hffktdudxaedofaejdptwqddkuyw/Build/Products/Debug-iphonesimulator/libPods-WhiteLabels-Miracl.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,12 +105,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0D088AA22571864009E2A08 /* libMPinSDK.a in Frameworks */,
+				B0D088D4225D1ABB009E2A08 /* libMPinSDK.a in Frameworks */,
+				B0D088E6225D1C0B009E2A08 /* MpinCoreLib.framework in Frameworks */,
 				39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */,
 				39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */,
 				96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */,
 				96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */,
-				B0D088DF225D1BBE009E2A08 /* MpinCoreLib.framework in Frameworks */,
+				B0D088E5225D1C03009E2A08 /* MpinCoreLib.framework in Frameworks */,
 				966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */,
 				922D9ED4709E8BE359C4A74D /* libPods-WhiteLabels-Milagro.a in Frameworks */,
 			);
@@ -136,10 +132,10 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B0D088A122571821009E2A08 /* Products */ = {
+		B0D088CD225D1A8B009E2A08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0D088A522571821009E2A08 /* libMPinSDK.a */,
+				B0D088D1225D1A8B009E2A08 /* libMPinSDK.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,7 +143,7 @@
 		FE49000E1A1A3CEB000030A4 = {
 			isa = PBXGroup;
 			children = (
-				B0D088A022571821009E2A08 /* MPinSDK.xcodeproj */,
+				B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */,
 				FEC33C731DE4722800F8EFF0 /* Utils.h */,
 				FEC33C741DE4722800F8EFF0 /* Utils.m */,
 				FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */,
@@ -157,10 +153,6 @@
 				39BB1B731DE2F81F00F05831 /* main.m */,
 				FEBBBFEC1C5F88270011001A /* AppDelegate.h */,
 				FEBBBFED1C5F88270011001A /* AppDelegate.m */,
-				FE91464B1E3F716C00ED8F65 /* QRViewController.h */,
-				FE91464C1E3F716C00ED8F65 /* QRViewController.m */,
-				FEC33C7F1DE5E93700F8EFF0 /* SuperViewController.h */,
-				FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */,
 				FEC33C6B1DE43D3000F8EFF0 /* RegisterViewController.h */,
 				FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */,
 				FEC33C761DE48B8300F8EFF0 /* PinPadViewController.h */,
@@ -180,7 +172,7 @@
 		FE4900181A1A3CEB000030A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				966D42E51BDF674B0095913D /* Sample App.app */,
+				966D42E51BDF674B0095913D /* In-App-Login.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,7 +180,7 @@
 		FE4900191A1A3CEB000030A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B0D088DD225D1BA9009E2A08 /* MpinCoreLib.framework */,
+				B0D088E4225D1C03009E2A08 /* MpinCoreLib.framework */,
 				39DBB9331DE43D6600D62925 /* AVFoundation.framework */,
 				39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */,
 				96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */,
@@ -215,16 +207,16 @@
 				966D42C61BDF674B0095913D /* Resources */,
 				24A630C7F3E18D6D0B2C400A /* [CP] Embed Pods Frameworks */,
 				8799931EEEF3160ACB05D0E9 /* [CP] Copy Pods Resources */,
-				B0D088E1225D1BBE009E2A08 /* Embed Frameworks */,
+				B0D088E8225D1C0B009E2A08 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B0D088A822571833009E2A08 /* PBXTargetDependency */,
+				B0D088D6225D1AC4009E2A08 /* PBXTargetDependency */,
 			);
 			name = AuthSample;
 			productName = MPinApp;
-			productReference = 966D42E51BDF674B0095913D /* Sample App.app */;
+			productReference = 966D42E51BDF674B0095913D /* In-App-Login.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -238,7 +230,7 @@
 				TargetAttributes = {
 					966D42821BDF674B0095913D = {
 						DevelopmentTeam = WF6XYF7P2L;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -264,8 +256,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B0D088A122571821009E2A08 /* Products */;
-					ProjectRef = B0D088A022571821009E2A08 /* MPinSDK.xcodeproj */;
+					ProductGroup = B0D088CD225D1A8B009E2A08 /* Products */;
+					ProjectRef = B0D088CC225D1A8B009E2A08 /* MPinSDK.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -276,11 +268,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B0D088A522571821009E2A08 /* libMPinSDK.a */ = {
+		B0D088D1225D1A8B009E2A08 /* libMPinSDK.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libMPinSDK.a;
-			remoteRef = B0D088A422571821009E2A08 /* PBXContainerItemProxy */;
+			remoteRef = B0D088D0225D1A8B009E2A08 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -322,8 +314,6 @@
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,26 +343,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B066BF6D2250C5CA0054BAA9 /* Utils.m in Sources */,
-				B066BF692250C5C60054BAA9 /* RegisterViewController.m in Sources */,
-				B066BF672250C5C60054BAA9 /* QRViewController.m in Sources */,
-				B066BF6C2250C5C60054BAA9 /* LoginSuccessfulViewController.m in Sources */,
-				B066BF6B2250C5C60054BAA9 /* SuccessfulViewController.m in Sources */,
 				FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */,
-				B066BF682250C5C60054BAA9 /* SuperViewController.m in Sources */,
-				B066BF6A2250C5C60054BAA9 /* PinPadViewController.m in Sources */,
+				FEC33C721DE451B200F8EFF0 /* ErrorHandler.m in Sources */,
+				FEC33C7E1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m in Sources */,
+				FEC33C7B1DE5B79F00F8EFF0 /* SuccessfulViewController.m in Sources */,
 				39BB1B741DE2F81F00F05831 /* main.m in Sources */,
-				B066BF6E2250C5CA0054BAA9 /* ErrorHandler.m in Sources */,
+				FEC33C751DE4722800F8EFF0 /* Utils.m in Sources */,
+				FEC33C781DE48B8300F8EFF0 /* PinPadViewController.m in Sources */,
+				FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B0D088A822571833009E2A08 /* PBXTargetDependency */ = {
+		B0D088D6225D1AC4009E2A08 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MPinSDK;
-			targetProxy = B0D088A722571833009E2A08 /* PBXContainerItemProxy */;
+			targetProxy = B0D088D5225D1AC4009E2A08 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -482,19 +470,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7170094E7E6E46EF61FBDB12 /* Pods-WhiteLabels-Milagro.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 99;
-				DEVELOPMENT_TEAM = WF6XYF7P2L;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -508,9 +495,9 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
-				PRODUCT_NAME = "Sample App";
-				PROVISIONING_PROFILE = "5f6bbc77-08a2-4854-bc8e-66aeb2a799b2";
-				PROVISIONING_PROFILE_SPECIFIER = com.miracl.sampleapp;
+				PRODUCT_NAME = "In-App-Login";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../../**";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -523,7 +510,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F4783CAED134EAA73090B790 /* Pods-WhiteLabels-Milagro.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -535,7 +522,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -549,7 +535,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
-				PRODUCT_NAME = "Sample App";
+				PRODUCT_NAME = "In-App-Login";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -564,11 +550,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D95999DB87889960A98067B /* Pods-WhiteLabels-Milagro.appstore.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CURRENT_PROJECT_VERSION = 99;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
@@ -576,7 +562,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -590,7 +575,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
-				PRODUCT_NAME = "Sample App";
+				PRODUCT_NAME = "In-App-Login";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../../**";
@@ -604,7 +589,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F5EBCFD978797205E0FC6E27 /* Pods-WhiteLabels-Milagro.adhoc.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -616,7 +601,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -630,7 +614,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
-				PRODUCT_NAME = "Sample App";
+				PRODUCT_NAME = "In-App-Login";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../../**";
@@ -733,7 +717,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -745,7 +729,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -759,7 +742,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
-				PRODUCT_NAME = "Sample App";
+				PRODUCT_NAME = "In-App-Login";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
