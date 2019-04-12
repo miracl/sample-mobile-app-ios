@@ -26,7 +26,6 @@
 #import "QRViewController.h"
 #import "ErrorHandler.h"
 #import <MPinSDK/MPinMFA.h>
-#import <MPinSDK/MPin.h>
 
 @interface PinPadViewController ()
 
@@ -88,7 +87,7 @@ In any other User state an Error messge is shown.
     if([_user getState] == STARTED_REGISTRATION) {
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-            MpinStatus *mpinStatus = [MPin FinishRegistration:_user pin:_txtPinPad.text];
+            MpinStatus *mpinStatus = [MPinMFA FinishRegistration:_user pin0:_txtPinPad.text pin1:nil];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     [[ErrorHandler sharedManager] hideMessage];
@@ -110,7 +109,7 @@ In any other User state an Error messge is shown.
     } else if([_user getState] == REGISTERED) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
             QRViewController *qvc = [self.navigationController.viewControllers firstObject];
-            MpinStatus *mpinStatus = [MPin FinishRegistration:_user pin:qvc.accessCode];
+            MpinStatus *mpinStatus = [MPinMFA FinishRegistration:_user pin0:qvc.accessCode pin1:nil];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     [[ErrorHandler sharedManager] hideMessage];
