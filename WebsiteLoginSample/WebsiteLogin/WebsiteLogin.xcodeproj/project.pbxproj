@@ -7,15 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39BB1B741DE2F81F00F05831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BB1B731DE2F81F00F05831 /* main.m */; };
-		39BB1BA11DE2FC9100F05831 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */; };
-		39BB1BA21DE2FC9100F05831 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB1B9F1DE2FC9100F05831 /* Main.storyboard */; };
 		39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */; };
 		39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9331DE43D6600D62925 /* AVFoundation.framework */; };
-		95F0CF2424FCA86D5AB648D4 /* libPods-WhiteLabels-WebsiteLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4798EA12731A652616DFCEDF /* libPods-WhiteLabels-WebsiteLogin.a */; };
+		8A254F070204B66815EA14FC /* libPods-WhiteLabels-WebsiteLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BDB923F3F3F12909282D724 /* libPods-WhiteLabels-WebsiteLogin.a */; };
 		966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9620FB301BBAAF8A00DC15EF /* libc++.tbd */; };
-		96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */; };
-		96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */; };
 		B066BF672250C5C60054BAA9 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE91464C1E3F716C00ED8F65 /* QRViewController.m */; };
 		B066BF682250C5C60054BAA9 /* SuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */; };
 		B066BF692250C5C60054BAA9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
@@ -26,6 +21,9 @@
 		B066BF6E2250C5CA0054BAA9 /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */; };
 		B0C2E472225DFAFD00E614E1 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E46F225DFAD900E614E1 /* MpinSdk.framework */; };
 		B0C2E473225DFAFD00E614E1 /* MpinSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E46F225DFAD900E614E1 /* MpinSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0FB40412265D63600A015C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FB40402265D63600A015C2 /* main.m */; };
+		B0FB40462265D64000A015C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB40422265D64000A015C2 /* Main.storyboard */; };
+		B0FB40472265D64000A015C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB40442265D64000A015C2 /* LaunchScreen.storyboard */; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -45,23 +43,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		39BB1B731DE2F81F00F05831 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MPinApp/main.m; sourceTree = "<group>"; };
 		39BB1B9B1DE2FC2600F05831 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39BB1B9E1DE2FC9100F05831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MPinApp/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		39BB1BA01DE2FC9100F05831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MPinApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		39DBB9331DE43D6600D62925 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		4798EA12731A652616DFCEDF /* libPods-WhiteLabels-WebsiteLogin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-WebsiteLogin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C88417012C07A9C72654B2B /* Pods-WhiteLabels-WebsiteLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.debug.xcconfig"; sourceTree = "<group>"; };
 		7170094E7E6E46EF61FBDB12 /* Pods-WhiteLabels-Milagro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.debug.xcconfig"; sourceTree = "<group>"; };
 		768BDB0C025910D536C23251 /* Pods-WhiteLabels-WebsiteLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.release.xcconfig"; sourceTree = "<group>"; };
 		9620FB301BBAAF8A00DC15EF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		966D42E51BDF674B0095913D /* Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		96CB74FD1D0AF48800E6EC50 /* libMPinSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMPinSDK.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/libMPinSDK.a"; sourceTree = "<group>"; };
-		96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
-		96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libATMHud@dhoerl.a"; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/ATMHud@dhoerl/libATMHud@dhoerl.a"; sourceTree = "<group>"; };
+		9BDB923F3F3F12909282D724 /* libPods-WhiteLabels-WebsiteLogin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-WebsiteLogin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D95999DB87889960A98067B /* Pods-WhiteLabels-Milagro.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.appstore.xcconfig"; sourceTree = "<group>"; };
 		B0C2E46F225DFAD900E614E1 /* MpinSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MpinSdk.framework; path = ../../MpinSdk.framework; sourceTree = "<group>"; };
+		B0FB40402265D63600A015C2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WebsiteLogin/main.m; sourceTree = "<group>"; };
+		B0FB40432265D64000A015C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WebsiteLogin/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B0FB40452265D64000A015C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WebsiteLogin/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C9AE20E51D9216F75AC5AF7D /* Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; sourceTree = "<group>"; };
 		D21BF8E5D65CF1E7E9F0FA60 /* Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; sourceTree = "<group>"; };
 		DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.qa.xcconfig"; sourceTree = "<group>"; };
@@ -87,8 +82,6 @@
 		FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSuccessfulViewController.m; path = ../src/LoginSuccessfulViewController.m; sourceTree = "<group>"; };
 		FEC33C7F1DE5E93700F8EFF0 /* SuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperViewController.h; path = ../src/SuperViewController.h; sourceTree = "<group>"; };
 		FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperViewController.m; path = ../src/SuperViewController.m; sourceTree = "<group>"; };
-		FECB27B31D0AD752007A282A /* libPods-WhiteLabels-DimensionData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WhiteLabels-DimensionData.a"; path = "/Users/georgi.georgiev/Documents/mpin/mpin-app-ios-v2/Pods/../build/Debug-iphoneos/libPods-WhiteLabels-DimensionData.a"; sourceTree = "<absolute>"; };
-		FECB27B51D0AD759007A282A /* libPods-WhiteLabels-Miracl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WhiteLabels-Miracl.a"; path = "../../../../Library/Developer/Xcode/DerivedData/MPin-hffktdudxaedofaejdptwqddkuyw/Build/Products/Debug-iphonesimulator/libPods-WhiteLabels-Miracl.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +92,8 @@
 				39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */,
 				39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */,
 				B0C2E472225DFAFD00E614E1 /* MpinSdk.framework in Frameworks */,
-				96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */,
-				96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */,
 				966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */,
-				95F0CF2424FCA86D5AB648D4 /* libPods-WhiteLabels-WebsiteLogin.a in Frameworks */,
+				8A254F070204B66815EA14FC /* libPods-WhiteLabels-WebsiteLogin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,9 +126,9 @@
 				FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */,
 				FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */,
 				39BB1B9B1DE2FC2600F05831 /* Info.plist */,
-				39BB1B731DE2F81F00F05831 /* main.m */,
 				FEBBBFEC1C5F88270011001A /* AppDelegate.h */,
 				FEBBBFED1C5F88270011001A /* AppDelegate.m */,
+				B0FB40402265D63600A015C2 /* main.m */,
 				FE91464B1E3F716C00ED8F65 /* QRViewController.h */,
 				FE91464C1E3F716C00ED8F65 /* QRViewController.m */,
 				FEC33C7F1DE5E93700F8EFF0 /* SuperViewController.h */,
@@ -150,8 +141,8 @@
 				FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */,
 				FEC33C7C1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.h */,
 				FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */,
-				39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */,
-				39BB1B9F1DE2FC9100F05831 /* Main.storyboard */,
+				B0FB40442265D64000A015C2 /* LaunchScreen.storyboard */,
+				B0FB40422265D64000A015C2 /* Main.storyboard */,
 				FE4900191A1A3CEB000030A4 /* Frameworks */,
 				FE4900181A1A3CEB000030A4 /* Products */,
 				81CD8D8F9FA244C998C416A2 /* Pods */,
@@ -172,13 +163,8 @@
 				B0C2E46F225DFAD900E614E1 /* MpinSdk.framework */,
 				39DBB9331DE43D6600D62925 /* AVFoundation.framework */,
 				39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */,
-				96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */,
-				96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */,
-				96CB74FD1D0AF48800E6EC50 /* libMPinSDK.a */,
-				FECB27B51D0AD759007A282A /* libPods-WhiteLabels-Miracl.a */,
-				FECB27B31D0AD752007A282A /* libPods-WhiteLabels-DimensionData.a */,
 				9620FB301BBAAF8A00DC15EF /* libc++.tbd */,
-				4798EA12731A652616DFCEDF /* libPods-WhiteLabels-WebsiteLogin.a */,
+				9BDB923F3F3F12909282D724 /* libPods-WhiteLabels-WebsiteLogin.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -229,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FE4900121A1A3CEB000030A4 /* Build configuration list for PBXProject "MPinApp" */;
+			buildConfigurationList = FE4900121A1A3CEB000030A4 /* Build configuration list for PBXProject "WebsiteLogin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -253,9 +239,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0FB40472265D64000A015C2 /* LaunchScreen.storyboard in Resources */,
 				FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */,
-				39BB1BA11DE2FC9100F05831 /* LaunchScreen.storyboard in Resources */,
-				39BB1BA21DE2FC9100F05831 /* Main.storyboard in Resources */,
+				B0FB40462265D64000A015C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0FB40412265D63600A015C2 /* main.m in Sources */,
 				B066BF6D2250C5CA0054BAA9 /* Utils.m in Sources */,
 				B066BF692250C5C60054BAA9 /* RegisterViewController.m in Sources */,
 				B066BF672250C5C60054BAA9 /* QRViewController.m in Sources */,
@@ -315,7 +302,6 @@
 				FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */,
 				B066BF682250C5C60054BAA9 /* SuperViewController.m in Sources */,
 				B066BF6A2250C5C60054BAA9 /* PinPadViewController.m in Sources */,
-				39BB1B741DE2F81F00F05831 /* main.m in Sources */,
 				B066BF6E2250C5CA0054BAA9 /* ErrorHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,20 +309,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */ = {
+		B0FB40422265D64000A015C2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				39BB1B9E1DE2FC9100F05831 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		39BB1B9F1DE2FC9100F05831 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				39BB1BA01DE2FC9100F05831 /* Base */,
+				B0FB40432265D64000A015C2 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B0FB40442265D64000A015C2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0FB40452265D64000A015C2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -443,7 +429,7 @@
 				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "WebsiteLogin/WebsiteLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -485,7 +471,7 @@
 				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "WebsiteLogin/WebsiteLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -527,7 +513,7 @@
 				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "WebsiteLogin/WebsiteLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -568,7 +554,7 @@
 				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "WebsiteLogin/WebsiteLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -698,7 +684,7 @@
 				);
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "WebsiteLogin/WebsiteLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -784,7 +770,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		FE4900121A1A3CEB000030A4 /* Build configuration list for PBXProject "MPinApp" */ = {
+		FE4900121A1A3CEB000030A4 /* Build configuration list for PBXProject "WebsiteLogin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FE49004A1A1A3CEB000030A4 /* Debug */,
