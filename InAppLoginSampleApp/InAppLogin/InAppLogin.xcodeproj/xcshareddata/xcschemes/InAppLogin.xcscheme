@@ -17,7 +17,7 @@
                BlueprintIdentifier = "966D42821BDF674B0095913D"
                BuildableName = "In-App-Login.app"
                BlueprintName = "InAppLogin"
-               ReferencedContainer = "container:MPinApp.xcodeproj">
+               ReferencedContainer = "container:InAppLogin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "966D42821BDF674B0095913D"
             BuildableName = "In-App-Login.app"
             BlueprintName = "InAppLogin"
-            ReferencedContainer = "container:MPinApp.xcodeproj">
+            ReferencedContainer = "container:InAppLogin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "966D42821BDF674B0095913D"
             BuildableName = "In-App-Login.app"
             BlueprintName = "InAppLogin"
-            ReferencedContainer = "container:MPinApp.xcodeproj">
+            ReferencedContainer = "container:InAppLogin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "966D42821BDF674B0095913D"
             BuildableName = "In-App-Login.app"
             BlueprintName = "InAppLogin"
-            ReferencedContainer = "container:MPinApp.xcodeproj">
+            ReferencedContainer = "container:InAppLogin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
