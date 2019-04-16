@@ -7,17 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26F00F9381BA57BDFB53D1CA /* libPods-WhiteLabels-AuthSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DAEBAB36C0A3A8B89819C06 /* libPods-WhiteLabels-AuthSample.a */; };
-		39BB1B741DE2F81F00F05831 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BB1B731DE2F81F00F05831 /* main.m */; };
-		39BB1BA11DE2FC9100F05831 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */; };
-		39BB1BA21DE2FC9100F05831 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BB1B9F1DE2FC9100F05831 /* Main.storyboard */; };
 		39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */; };
 		39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9331DE43D6600D62925 /* AVFoundation.framework */; };
 		966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9620FB301BBAAF8A00DC15EF /* libc++.tbd */; };
-		96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */; };
-		96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */; };
 		B0C2E46D225DFA4E00E614E1 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */; };
 		B0C2E46E225DFA5500E614E1 /* MpinSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0FA75FE2265CD03006ADB9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FA75FD2265CD03006ADB9C /* main.m */; };
+		B0FA76032265CE7E006ADB9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FA75FF2265CE7E006ADB9C /* LaunchScreen.storyboard */; };
+		B0FA76042265CE7E006ADB9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FA76012265CE7E006ADB9C /* Main.storyboard */; };
+		D76CDD461DACC8DC86314082 /* libPods-WhiteLabels-InAppLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28C0EEB0775782304B645EF /* libPods-WhiteLabels-InAppLogin.a */; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
 		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
@@ -43,24 +41,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		39BB1B731DE2F81F00F05831 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MPinApp/main.m; sourceTree = "<group>"; };
+		1554242F0D9254D1303A9A74 /* Pods-WhiteLabels-InAppLogin.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-InAppLogin.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-InAppLogin/Pods-WhiteLabels-InAppLogin.adhoc.xcconfig"; sourceTree = "<group>"; };
 		39BB1B9B1DE2FC2600F05831 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39BB1B9E1DE2FC9100F05831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MPinApp/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		39BB1BA01DE2FC9100F05831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MPinApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		39DBB9331DE43D6600D62925 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		521014CFDB288F3EF1205314 /* Pods-WhiteLabels-AuthSample.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-AuthSample.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-AuthSample/Pods-WhiteLabels-AuthSample.qa.xcconfig"; sourceTree = "<group>"; };
 		671E7BF1A1B22C1DFEEAA1F7 /* Pods-WhiteLabels-AuthSample.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-AuthSample.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-AuthSample/Pods-WhiteLabels-AuthSample.adhoc.xcconfig"; sourceTree = "<group>"; };
+		6BA7F29195F2EEC3F13F0FB4 /* Pods-WhiteLabels-InAppLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-InAppLogin.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-InAppLogin/Pods-WhiteLabels-InAppLogin.release.xcconfig"; sourceTree = "<group>"; };
 		7170094E7E6E46EF61FBDB12 /* Pods-WhiteLabels-Milagro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.debug.xcconfig"; sourceTree = "<group>"; };
-		7DAEBAB36C0A3A8B89819C06 /* libPods-WhiteLabels-AuthSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-AuthSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC99479B7B6E3DD8A8B8D96 /* Pods-WhiteLabels-AuthSample.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-AuthSample.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-AuthSample/Pods-WhiteLabels-AuthSample.appstore.xcconfig"; sourceTree = "<group>"; };
 		9620FB301BBAAF8A00DC15EF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		966D42E51BDF674B0095913D /* In-App-Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "In-App-Login.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		96CB74FD1D0AF48800E6EC50 /* libMPinSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMPinSDK.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/libMPinSDK.a"; sourceTree = "<group>"; };
-		96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAFNetworking.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/AFNetworking/libAFNetworking.a"; sourceTree = "<group>"; };
-		96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libATMHud@dhoerl.a"; path = "../../../../../Library/Developer/Xcode/DerivedData/MPin-bnczhweukeukuibjvghijsngdzna/Build/Products/Debug-iphoneos/ATMHud@dhoerl/libATMHud@dhoerl.a"; sourceTree = "<group>"; };
 		9D95999DB87889960A98067B /* Pods-WhiteLabels-Milagro.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.appstore.xcconfig"; sourceTree = "<group>"; };
+		9EC44E1D7B08D9CFE7AC6067 /* Pods-WhiteLabels-InAppLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-InAppLogin.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-InAppLogin/Pods-WhiteLabels-InAppLogin.debug.xcconfig"; sourceTree = "<group>"; };
+		B047E1D0034A4CE74C66B318 /* Pods-WhiteLabels-InAppLogin.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-InAppLogin.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-InAppLogin/Pods-WhiteLabels-InAppLogin.appstore.xcconfig"; sourceTree = "<group>"; };
 		B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MpinSdk.framework; path = ../../MpinSdk.framework; sourceTree = "<group>"; };
+		B0FA75FD2265CD03006ADB9C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = InAppLogin/main.m; sourceTree = "<group>"; };
+		B0FA76002265CE7E006ADB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = InAppLogin/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B0FA76022265CE7E006ADB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = InAppLogin/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C28C0EEB0775782304B645EF /* libPods-WhiteLabels-InAppLogin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-InAppLogin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA3AEE1558AC5BC74C0BE871 /* Pods-WhiteLabels-InAppLogin.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-InAppLogin.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-InAppLogin/Pods-WhiteLabels-InAppLogin.qa.xcconfig"; sourceTree = "<group>"; };
 		DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.qa.xcconfig"; sourceTree = "<group>"; };
 		EC5396B59E8C37EE70022E2A /* Pods-WhiteLabels-AuthSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-AuthSample.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-AuthSample/Pods-WhiteLabels-AuthSample.release.xcconfig"; sourceTree = "<group>"; };
 		ED4BBF1B6C25DC41D32FAEBC /* Pods-WhiteLabels-AuthSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-AuthSample.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-AuthSample/Pods-WhiteLabels-AuthSample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,8 +81,6 @@
 		FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuccessfulViewController.m; path = ../src/SuccessfulViewController.m; sourceTree = "<group>"; };
 		FEC33C7C1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginSuccessfulViewController.h; path = ../src/LoginSuccessfulViewController.h; sourceTree = "<group>"; };
 		FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSuccessfulViewController.m; path = ../src/LoginSuccessfulViewController.m; sourceTree = "<group>"; };
-		FECB27B31D0AD752007A282A /* libPods-WhiteLabels-DimensionData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WhiteLabels-DimensionData.a"; path = "/Users/georgi.georgiev/Documents/mpin/mpin-app-ios-v2/Pods/../build/Debug-iphoneos/libPods-WhiteLabels-DimensionData.a"; sourceTree = "<absolute>"; };
-		FECB27B51D0AD759007A282A /* libPods-WhiteLabels-Miracl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-WhiteLabels-Miracl.a"; path = "../../../../Library/Developer/Xcode/DerivedData/MPin-hffktdudxaedofaejdptwqddkuyw/Build/Products/Debug-iphonesimulator/libPods-WhiteLabels-Miracl.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +91,8 @@
 				B0C2E46D225DFA4E00E614E1 /* MpinSdk.framework in Frameworks */,
 				39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */,
 				39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */,
-				96C0F49D1D0FDF8D00C8B00A /* libATMHud@dhoerl.a in Frameworks */,
-				96C0F49C1D0FDF8900C8B00A /* libAFNetworking.a in Frameworks */,
 				966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */,
-				26F00F9381BA57BDFB53D1CA /* libPods-WhiteLabels-AuthSample.a in Frameworks */,
+				D76CDD461DACC8DC86314082 /* libPods-WhiteLabels-InAppLogin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +112,11 @@
 				EC5396B59E8C37EE70022E2A /* Pods-WhiteLabels-AuthSample.release.xcconfig */,
 				7DC99479B7B6E3DD8A8B8D96 /* Pods-WhiteLabels-AuthSample.appstore.xcconfig */,
 				671E7BF1A1B22C1DFEEAA1F7 /* Pods-WhiteLabels-AuthSample.adhoc.xcconfig */,
+				9EC44E1D7B08D9CFE7AC6067 /* Pods-WhiteLabels-InAppLogin.debug.xcconfig */,
+				CA3AEE1558AC5BC74C0BE871 /* Pods-WhiteLabels-InAppLogin.qa.xcconfig */,
+				6BA7F29195F2EEC3F13F0FB4 /* Pods-WhiteLabels-InAppLogin.release.xcconfig */,
+				B047E1D0034A4CE74C66B318 /* Pods-WhiteLabels-InAppLogin.appstore.xcconfig */,
+				1554242F0D9254D1303A9A74 /* Pods-WhiteLabels-InAppLogin.adhoc.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -129,9 +130,9 @@
 				FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */,
 				FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */,
 				39BB1B9B1DE2FC2600F05831 /* Info.plist */,
-				39BB1B731DE2F81F00F05831 /* main.m */,
 				FEBBBFEC1C5F88270011001A /* AppDelegate.h */,
 				FEBBBFED1C5F88270011001A /* AppDelegate.m */,
+				B0FA75FD2265CD03006ADB9C /* main.m */,
 				FEC33C6B1DE43D3000F8EFF0 /* RegisterViewController.h */,
 				FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */,
 				FEC33C761DE48B8300F8EFF0 /* PinPadViewController.h */,
@@ -140,8 +141,8 @@
 				FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */,
 				FEC33C7C1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.h */,
 				FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */,
-				39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */,
-				39BB1B9F1DE2FC9100F05831 /* Main.storyboard */,
+				B0FA75FF2265CE7E006ADB9C /* LaunchScreen.storyboard */,
+				B0FA76012265CE7E006ADB9C /* Main.storyboard */,
 				FE4900191A1A3CEB000030A4 /* Frameworks */,
 				FE4900181A1A3CEB000030A4 /* Products */,
 				81CD8D8F9FA244C998C416A2 /* Pods */,
@@ -162,13 +163,8 @@
 				B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */,
 				39DBB9331DE43D6600D62925 /* AVFoundation.framework */,
 				39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */,
-				96CB75031D0AF88E00E6EC50 /* libATMHud@dhoerl.a */,
-				96CB74FF1D0AF88700E6EC50 /* libAFNetworking.a */,
-				96CB74FD1D0AF48800E6EC50 /* libMPinSDK.a */,
-				FECB27B51D0AD759007A282A /* libPods-WhiteLabels-Miracl.a */,
-				FECB27B31D0AD752007A282A /* libPods-WhiteLabels-DimensionData.a */,
 				9620FB301BBAAF8A00DC15EF /* libc++.tbd */,
-				7DAEBAB36C0A3A8B89819C06 /* libPods-WhiteLabels-AuthSample.a */,
+				C28C0EEB0775782304B645EF /* libPods-WhiteLabels-InAppLogin.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,7 +215,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FE4900121A1A3CEB000030A4 /* Build configuration list for PBXProject "MPinApp" */;
+			buildConfigurationList = FE4900121A1A3CEB000030A4 /* Build configuration list for PBXProject "InAppLogin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -243,9 +239,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0FA76042265CE7E006ADB9C /* Main.storyboard in Resources */,
 				FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */,
-				39BB1BA11DE2FC9100F05831 /* LaunchScreen.storyboard in Resources */,
-				39BB1BA21DE2FC9100F05831 /* Main.storyboard in Resources */,
+				B0FA76032265CE7E006ADB9C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +259,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WhiteLabels-AuthSample-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-WhiteLabels-InAppLogin-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -276,7 +272,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-WhiteLabels-AuthSample/Pods-WhiteLabels-AuthSample-resources.sh",
+				"${SRCROOT}/../Pods/Target Support Files/Pods-WhiteLabels-InAppLogin/Pods-WhiteLabels-InAppLogin-resources.sh",
 				"${PODS_ROOT}/ATMHud@dhoerl/11-x.png",
 				"${PODS_ROOT}/ATMHud@dhoerl/19-check.png",
 			);
@@ -287,7 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WhiteLabels-AuthSample/Pods-WhiteLabels-AuthSample-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WhiteLabels-InAppLogin/Pods-WhiteLabels-InAppLogin-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -301,9 +297,9 @@
 				FEC33C721DE451B200F8EFF0 /* ErrorHandler.m in Sources */,
 				FEC33C7E1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m in Sources */,
 				FEC33C7B1DE5B79F00F8EFF0 /* SuccessfulViewController.m in Sources */,
-				39BB1B741DE2F81F00F05831 /* main.m in Sources */,
 				FEC33C751DE4722800F8EFF0 /* Utils.m in Sources */,
 				FEC33C781DE48B8300F8EFF0 /* PinPadViewController.m in Sources */,
+				B0FA75FE2265CD03006ADB9C /* main.m in Sources */,
 				FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,18 +307,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		39BB1B9D1DE2FC9100F05831 /* LaunchScreen.storyboard */ = {
+		B0FA75FF2265CE7E006ADB9C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				39BB1B9E1DE2FC9100F05831 /* Base */,
+				B0FA76002265CE7E006ADB9C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		39BB1B9F1DE2FC9100F05831 /* Main.storyboard */ = {
+		B0FA76012265CE7E006ADB9C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				39BB1BA01DE2FC9100F05831 /* Base */,
+				B0FA76022265CE7E006ADB9C /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -414,7 +410,7 @@
 		};
 		966D42E01BDF674B0095913D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED4BBF1B6C25DC41D32FAEBC /* Pods-WhiteLabels-AuthSample.debug.xcconfig */;
+			baseConfigurationReference = 9EC44E1D7B08D9CFE7AC6067 /* Pods-WhiteLabels-InAppLogin.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -430,7 +426,7 @@
 					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "InAppLogin/InAppLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -455,7 +451,7 @@
 		};
 		966D42E21BDF674B0095913D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC5396B59E8C37EE70022E2A /* Pods-WhiteLabels-AuthSample.release.xcconfig */;
+			baseConfigurationReference = 6BA7F29195F2EEC3F13F0FB4 /* Pods-WhiteLabels-InAppLogin.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -471,7 +467,7 @@
 					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "InAppLogin/InAppLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -496,7 +492,7 @@
 		};
 		966D42E31BDF674B0095913D /* AppStore */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DC99479B7B6E3DD8A8B8D96 /* Pods-WhiteLabels-AuthSample.appstore.xcconfig */;
+			baseConfigurationReference = B047E1D0034A4CE74C66B318 /* Pods-WhiteLabels-InAppLogin.appstore.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -512,7 +508,7 @@
 					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "InAppLogin/InAppLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -536,7 +532,7 @@
 		};
 		966D42E41BDF674B0095913D /* AdHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 671E7BF1A1B22C1DFEEAA1F7 /* Pods-WhiteLabels-AuthSample.adhoc.xcconfig */;
+			baseConfigurationReference = 1554242F0D9254D1303A9A74 /* Pods-WhiteLabels-InAppLogin.adhoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -552,7 +548,7 @@
 					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "InAppLogin/InAppLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -665,7 +661,7 @@
 		};
 		96CB435E1D129A3D00552745 /* QA */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 521014CFDB288F3EF1205314 /* Pods-WhiteLabels-AuthSample.qa.xcconfig */;
+			baseConfigurationReference = CA3AEE1558AC5BC74C0BE871 /* Pods-WhiteLabels-InAppLogin.qa.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -681,7 +677,7 @@
 					"../../**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPinApp/MPinApp-Prefix.pch";
+				GCC_PREFIX_HEADER = "InAppLogin/InAppLogin-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"NOTIFICATIONS=1",
@@ -767,7 +763,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		FE4900121A1A3CEB000030A4 /* Build configuration list for PBXProject "MPinApp" */ = {
+		FE4900121A1A3CEB000030A4 /* Build configuration list for PBXProject "InAppLogin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FE49004A1A1A3CEB000030A4 /* Debug */,

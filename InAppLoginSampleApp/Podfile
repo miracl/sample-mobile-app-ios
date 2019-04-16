@@ -1,5 +1,5 @@
-workspace 'MPin'
-project 'MPinApp/MPinApp.xcodeproj/'
+workspace 'InAppLogin'
+project 'InAppLogin/InAppLogin.xcodeproj/'
 
 platform :ios, '8.0'
 
