@@ -7,5 +7,5 @@ abstract_target 'WhiteLabels' do
     pod 'ATMHud@dhoerl'
     pod 'AFNetworking'
     
-    target 'AuthSample'
+    target 'InAppLogin'
 end
