@@ -18,10 +18,10 @@ Now that the project is imported, in order to enable you to test the demo iOS ap
 
 Once you have used the [authentication portal](https://trust.miracl.cloud/) to obtain a Client Id and Secret for your demo web app, you will need to configure the demo web app with these values, using the instructions provided on the web SDK page. It will then need to be hosted on an available url which means it is accessible by the iOS app. These steps are illustrated on the web SDK instructions page. A further note is that, if you are setting this up on a simple private network and using IIS Express to run the app which has been configured in Visual Studio, it will be necessary to make sure the firewall of the host machine allows incoming connections to the relevant port, and that the .vs/config/applicationhost.config file contains bindings which make it available:
 
-`<bindings>
+```<bindings>
     <binding protocol="http" bindingInformation="*:5000:127.0.0.1" />
     <binding protocol="http" bindingInformation="*:5000:" />
-</bindings>`
+</bindings>```
 
 The `<binding protocol="http" bindingInformation="*:5000:" />` line will allow binding to any IP. Using, for example, `<binding protocol="http" bindingInformation="*:5000:192.168.1.18" />` would allow binding to a specific private IP only.
 
@@ -40,6 +40,65 @@ Before building an iOS app, you will need to obtain your company id as the owner
 
 While in XCode select the Config.m file and fill in the placeholders as follows:
 
-`+(NSString*) clientId` replace with your company id.
-`+(NSString*) backendDomain ` fill in the placeholder with the private IP/domain which you filled in during the previous step(for example `192.168.1.18`)
-`+(int) backendPort` fill in the placeholder with the port for the private IP/domain
+```+(NSString*) clientId``` replace with your company id.
+
+```+(NSString*) backendDomain ``` fill in the placeholder with the private IP/domain which you filled in during the previous step(for example `192.168.1.18`)
+
+```+(int) backendPort``` fill in the placeholder with the port for the private IP/domain
+
+### XCode project file structure overview
+![proj-navigation](Docs/proj-navigation.png)
+
+The main storyboard view ```SampleApp/MPinApp/MPinApp/Base.lproj/Main.storyboard``` shows the configuration of the different views and associated messages:
+
+![ios-local-storyboard](Docs/ios-local-storyboard.png)
+
+### Users array
+
+Within 'viewWillAppear' an array is set up to check if there are any registered users with the service:
+
+```NSArray *arrUsers = [MPinMFA listUsers];```
+If ```arrUsers.count``` returns `0`, then `setupAddId` will call the `AddId` view to begin the user registration process:
+
+![ios-local-add-id](Docs/ios-local-add-id)
+
+The demo app is only configured to deal with one registered user, so if `arrUsers.count` returns `> 1` user, the SDK `DeleteUser` method is called to delete all users. `setupAddId` will call the `AddId` view to begin the user registration process.
+
+If the result is that there is one user found in the array (`_user = arrUsers[0];`) then the SDK getState method is called:
+
+If the user state is INVALID, the `DeleteUser` method is called and `setupAddId` will call `viewAddId` to begin the user registration process.
+If the user state is REGISTERED, `setupRegistered` calls `viewRegistered` and makes use of the `getState`, `getBackend`, `getIdentity` and `GetCustomerId` methods to display the relevant info for the registered customer, who can login:
+
+![ios-local-add-id](Docs/ios-local-add-id.png)
+
+If the user state is STARTED_REGISTRATION, `setupStartedRegistration` calls `viewStartedRegistration` and makes use of the getState, `getBackend`, `getIdentity` and `GetCustomerId` methods to display the relevant info for the customer, who can then complete the registration process:
+
+![ios-local-view-started-reg](Docs/ios-local-view-started-reg.png)
+
+
+### PinPadViewController.m
+
+![ios-local-view-enter-pin](Docs/ios-local-view-enter-pin.png)
+
+Once called the user can use this view to first of all create their PIN. The PIN can then be used to login at any time.
+
+When the user enters their PIN and clicks 'send' (`- (IBAction)onClickSendButton:(id)sender`), a user status check is made. If the status is STARTED_REGISTRATION the FinishRegistration SDK method is used:
+
+`MpinStatus *mpinStatus = [MPinMFA FinishRegistration:_user pin:_txtPinPad.text];`
+
+and the app navigates to the SuccessfulViewController view:
+
+```if ( mpinStatus.status == OK )  {
+    UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SuccessfulViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}```
+
+If the user status is REGISTERED the FinishAuthentication SDK method is used:
+
+```MpinStatus *mpinStatus = [MPinMFA FinishAuthentication:_user
+                                                   pin:_txtPinPad.text
+                                            accessCode:_accessCode
+                                             authzCode:&strAuthzCode];
+```
+
+If the FinishAuthentication method returns a status of OK the checkAuthenticationStatus method is called. This method makes use of the retreived strAuthzCode to obtain an authorization token from the /authtoken API endpoint from the backend service url. If the request is successful the user is logged in.
