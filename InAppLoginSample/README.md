@@ -42,6 +42,8 @@ Before building an iOS app, you will need to obtain your company id as the owner
 
 While in XCode select the Config.m file and fill in the placeholders as follows:
 
+![configm-placeholders](Docs/configm-placeholders.png)
+
 ```+(NSString*) clientId``` replace with your company id.
 
 ```+(NSString*) backendDomain ``` fill in the placeholder with the private IP/domain which you filled in during the previous step(for example `192.168.1.18`)
@@ -62,7 +64,7 @@ Within 'viewWillAppear' an array is set up to check if there are any registered 
 ```NSArray *arrUsers = [MPinMFA listUsers];```
 If ```arrUsers.count``` returns `0`, then `setupAddId` will call the `AddId` view to begin the user registration process:
 
-![ios-local-add-id](Docs/ios-local-add-id)
+![ios-local-add-id](Docs/ios-local-add-id.png)
 
 The demo app is only configured to deal with one registered user, so if `arrUsers.count` returns `> 1` user, the SDK `DeleteUser` method is called to delete all users. `setupAddId` will call the `AddId` view to begin the user registration process.
 

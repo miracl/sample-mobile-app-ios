@@ -10,20 +10,19 @@
 @implementation Config
 
 +(NSString*) clientId {
-    return @"2eb980a7-38e7-4c33-8d64-f4668689a2e0";
+    return <# Replace with your company id #>;
 }
 
 +(NSString*) backendDomain {
-    return  @"192.168.0.105";
+    return  <#Replace with private ip/domain#>;
+}
+    
++(int) backendPort {
+    return <#Replace with private ip/domain port#>;
 }
 
 +(NSArray*) trustedDomains {
-    // TODO add placeholder text here
     return @[@"miracl.net", @"mpin.io", @"miracl.cloud", [Config backendDomain]];
-}
-
-+(int) backendPort {
-    return 5000;
 }
     
 +(NSString*) mpinSdkBackend {
