@@ -14,7 +14,7 @@
 }
 
 +(NSString*) backendDomain {
-    return  <# Set the domain name/ip address of the machine where the backend sample is running #>;
+    return  @"192.168.0.105";
 }
 
 +(NSArray*) trustedDomains {
@@ -23,7 +23,7 @@
 }
 
 +(int) backendPort {
-    return <# Set the port number of the machine where the backend sample is running #>;
+    return 5000;
 }
     
 +(NSString*) mpinSdkBackend {

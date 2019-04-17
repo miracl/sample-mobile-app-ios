@@ -24,6 +24,7 @@
 		B0FB40412265D63600A015C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FB40402265D63600A015C2 /* main.m */; };
 		B0FB40462265D64000A015C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB40422265D64000A015C2 /* Main.storyboard */; };
 		B0FB40472265D64000A015C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB40442265D64000A015C2 /* LaunchScreen.storyboard */; };
+		B0FB7DE722676C8C00FB560E /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FB7DE622676C8C00FB560E /* Config.m */; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,8 @@
 		B0FB40402265D63600A015C2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WebsiteLogin/main.m; sourceTree = "<group>"; };
 		B0FB40432265D64000A015C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WebsiteLogin/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0FB40452265D64000A015C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WebsiteLogin/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B0FB7DE522676C8C00FB560E /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		B0FB7DE622676C8C00FB560E /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		C9AE20E51D9216F75AC5AF7D /* Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; sourceTree = "<group>"; };
 		D21BF8E5D65CF1E7E9F0FA60 /* Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; sourceTree = "<group>"; };
 		DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.qa.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 		FE49000E1A1A3CEB000030A4 = {
 			isa = PBXGroup;
 			children = (
+				B0FB7DE522676C8C00FB560E /* Config.h */,
+				B0FB7DE622676C8C00FB560E /* Config.m */,
 				FEC33C731DE4722800F8EFF0 /* Utils.h */,
 				FEC33C741DE4722800F8EFF0 /* Utils.m */,
 				FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */,
@@ -301,6 +306,7 @@
 				B066BF6B2250C5C60054BAA9 /* SuccessfulViewController.m in Sources */,
 				FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */,
 				B066BF682250C5C60054BAA9 /* SuperViewController.m in Sources */,
+				B0FB7DE722676C8C00FB560E /* Config.m in Sources */,
 				B066BF6A2250C5C60054BAA9 /* PinPadViewController.m in Sources */,
 				B066BF6E2250C5CA0054BAA9 /* ErrorHandler.m in Sources */,
 			);
