@@ -477,4 +477,4 @@ Once a PIN is entered, the user taps the Send button. Within onClickSendButton t
 
 If the user's state is REGISTERED they are able to authenticate and login using their PIN. If the pin is correct the user is successfully authenticated and the app navigates the user to the Login Successful page:
 
-![5-success](Docs/5-success.png)
+![5-success](Docs/5-success.jpg)
