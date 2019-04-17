@@ -10,9 +10,9 @@
 
 @implementation Config
 +(NSString*) clientId {
-    return @"2eb980a7-38e7-4c33-8d64-f4668689a2e0";
+    return <# Replace with company id #>;
 }
 +(NSArray*) trustedDomains {
-    return @[@"miracl.net", @"mpin.io", @"192.168.0.105"];
+    return @[@"miracl.net", @"mpin.io", @"<# Replace with private ip/domain #>"];
 }
 @end
