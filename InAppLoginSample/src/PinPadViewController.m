@@ -24,6 +24,7 @@
 #import "LoginSuccessfulViewController.h"
 #import "ErrorHandler.h"
 #import <MpinSdk/MPinMFA.h>
+#import "Config.h"
 
 @interface PinPadViewController ()
 
@@ -170,7 +171,7 @@ In any other User state an Error messge is shown.
 
 - ( void ) checkAuthenticationStatus:(NSString *) strAuthzCode
 {
-    NSURL *theUrl = [NSURL URLWithString:@"https://demo.trust.miracl.cloud/authtoken"];
+    NSURL *theUrl = [NSURL URLWithString: [Config authCheckUrl]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];

@@ -19,11 +19,13 @@
 		B066BF6C2250C5C60054BAA9 /* LoginSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */; };
 		B066BF6D2250C5CA0054BAA9 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C741DE4722800F8EFF0 /* Utils.m */; };
 		B066BF6E2250C5CA0054BAA9 /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */; };
-		B0C2E472225DFAFD00E614E1 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E46F225DFAD900E614E1 /* MpinSdk.framework */; };
-		B0C2E473225DFAFD00E614E1 /* MpinSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E46F225DFAD900E614E1 /* MpinSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0B370C5227885AC00E4BCA5 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B370C4227885AC00E4BCA5 /* MpinSdk.framework */; };
+		B0B370C6227885B800E4BCA5 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B370C4227885AC00E4BCA5 /* MpinSdk.framework */; };
+		B0B370C7227885B800E4BCA5 /* MpinSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B370C4227885AC00E4BCA5 /* MpinSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0FB40412265D63600A015C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FB40402265D63600A015C2 /* main.m */; };
 		B0FB40462265D64000A015C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB40422265D64000A015C2 /* Main.storyboard */; };
 		B0FB40472265D64000A015C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB40442265D64000A015C2 /* LaunchScreen.storyboard */; };
+		B0FB7DE722676C8C00FB560E /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FB7DE622676C8C00FB560E /* Config.m */; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -35,7 +37,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B0C2E473225DFAFD00E614E1 /* MpinSdk.framework in Embed Frameworks */,
+				B0B370C7227885B800E4BCA5 /* MpinSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,10 +55,12 @@
 		966D42E51BDF674B0095913D /* Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BDB923F3F3F12909282D724 /* libPods-WhiteLabels-WebsiteLogin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-WebsiteLogin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D95999DB87889960A98067B /* Pods-WhiteLabels-Milagro.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.appstore.xcconfig"; sourceTree = "<group>"; };
-		B0C2E46F225DFAD900E614E1 /* MpinSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MpinSdk.framework; path = ../../MpinSdk.framework; sourceTree = "<group>"; };
+		B0B370C4227885AC00E4BCA5 /* MpinSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MpinSdk.framework; sourceTree = "<group>"; };
 		B0FB40402265D63600A015C2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WebsiteLogin/main.m; sourceTree = "<group>"; };
 		B0FB40432265D64000A015C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WebsiteLogin/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0FB40452265D64000A015C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WebsiteLogin/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B0FB7DE522676C8C00FB560E /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		B0FB7DE622676C8C00FB560E /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		C9AE20E51D9216F75AC5AF7D /* Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; sourceTree = "<group>"; };
 		D21BF8E5D65CF1E7E9F0FA60 /* Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; sourceTree = "<group>"; };
 		DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.qa.xcconfig"; sourceTree = "<group>"; };
@@ -89,9 +93,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0B370C5227885AC00E4BCA5 /* MpinSdk.framework in Frameworks */,
+				B0B370C6227885B800E4BCA5 /* MpinSdk.framework in Frameworks */,
 				39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */,
 				39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */,
-				B0C2E472225DFAFD00E614E1 /* MpinSdk.framework in Frameworks */,
 				966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */,
 				8A254F070204B66815EA14FC /* libPods-WhiteLabels-WebsiteLogin.a in Frameworks */,
 			);
@@ -120,6 +125,8 @@
 		FE49000E1A1A3CEB000030A4 = {
 			isa = PBXGroup;
 			children = (
+				B0FB7DE522676C8C00FB560E /* Config.h */,
+				B0FB7DE622676C8C00FB560E /* Config.m */,
 				FEC33C731DE4722800F8EFF0 /* Utils.h */,
 				FEC33C741DE4722800F8EFF0 /* Utils.m */,
 				FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */,
@@ -160,7 +167,7 @@
 		FE4900191A1A3CEB000030A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B0C2E46F225DFAD900E614E1 /* MpinSdk.framework */,
+				B0B370C4227885AC00E4BCA5 /* MpinSdk.framework */,
 				39DBB9331DE43D6600D62925 /* AVFoundation.framework */,
 				39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */,
 				9620FB301BBAAF8A00DC15EF /* libc++.tbd */,
@@ -220,6 +227,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				ja,
@@ -301,6 +309,7 @@
 				B066BF6B2250C5C60054BAA9 /* SuccessfulViewController.m in Sources */,
 				FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */,
 				B066BF682250C5C60054BAA9 /* SuperViewController.m in Sources */,
+				B0FB7DE722676C8C00FB560E /* Config.m in Sources */,
 				B066BF6A2250C5C60054BAA9 /* PinPadViewController.m in Sources */,
 				B066BF6E2250C5CA0054BAA9 /* ErrorHandler.m in Sources */,
 			);
@@ -440,13 +449,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.ios.t4mbeta;
 				PRODUCT_NAME = "Sample App";
 				PROVISIONING_PROFILE = "5f6bbc77-08a2-4854-bc8e-66aeb2a799b2";
-				PROVISIONING_PROFILE_SPECIFIER = com.miracl.sampleapp;
+				PROVISIONING_PROFILE_SPECIFIER = TCB4MIRACL;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../../**";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -482,13 +491,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.ios.t4mbeta;
 				PRODUCT_NAME = "Sample App";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../../**";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -524,12 +533,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.ios.t4mbeta;
 				PRODUCT_NAME = "Sample App";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../../**";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -565,12 +574,12 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.ios.t4mbeta;
 				PRODUCT_NAME = "Sample App";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../../**";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
@@ -695,13 +704,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.sampleapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miracl.ios.t4mbeta;
 				PRODUCT_NAME = "Sample App";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "../../**";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
