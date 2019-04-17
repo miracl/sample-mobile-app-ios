@@ -1,3 +1,4 @@
+
 # InAppLoginSampleApp
 
 Sequence diagram of the In app login flow:
@@ -21,7 +22,8 @@ Once you have used the [authentication portal](https://trust.miracl.cloud/) to o
 ```<bindings>
     <binding protocol="http" bindingInformation="*:5000:127.0.0.1" />
     <binding protocol="http" bindingInformation="*:5000:" />
-</bindings>```
+</bindings>
+```
 
 The `<binding protocol="http" bindingInformation="*:5000:" />` line will allow binding to any IP. Using, for example, `<binding protocol="http" bindingInformation="*:5000:192.168.1.18" />` would allow binding to a specific private IP only.
 
@@ -88,14 +90,17 @@ When the user enters their PIN and clicks 'send' (`- (IBAction)onClickSendButton
 
 and the app navigates to the SuccessfulViewController view:
 
-```if ( mpinStatus.status == OK )  {
+```
+if ( mpinStatus.status == OK )  {
     UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SuccessfulViewController"];
     [self.navigationController pushViewController:vc animated:YES];
-}```
+}
+```
 
 If the user status is REGISTERED the FinishAuthentication SDK method is used:
 
-```MpinStatus *mpinStatus = [MPinMFA FinishAuthentication:_user
+```
+MpinStatus *mpinStatus = [MPinMFA FinishAuthentication:_user
                                                    pin:_txtPinPad.text
                                             accessCode:_accessCode
                                              authzCode:&strAuthzCode];
