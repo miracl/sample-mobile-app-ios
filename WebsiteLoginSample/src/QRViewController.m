@@ -23,6 +23,7 @@
 #import <MPinSDK/MPinMFA.h>
 #import "ATMHud.h"
 #import "ErrorHandler.h"
+#import "Config.h"
 
 @interface QRViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
@@ -47,20 +48,15 @@ On application launch the MPIN sdk must be initialized! In our sample app we nee
  In viewDidLoad mehtod we initialize SDK and configure camera.
 */
 
-NSString *kStrCID = @"ea145e13-535a-4159-a921-43b2b30a9274";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSError *error;
     [MPinMFA initSDK];
     
-    NSAssert(kStrCID != nil, @"kStrCID should not be Nil");
-    NSAssert(![kStrCID isEqualToString:@""], @"kStrCID should not be empty");
-    NSAssert([kStrCID isKindOfClass:[NSString class]], @"kStrCID should be NSString");
-    
-    [MPinMFA SetClientId:kStrCID];
-    [MPinMFA AddTrustedDomain:@"miracl.net"];
-    [MPinMFA AddTrustedDomain:@"mpin.io"];
+    [MPinMFA SetClientId:[Config companyId]];
+    for(NSString *domain in [Config trustedDomains]) {
+        [MPinMFA AddTrustedDomain: domain];
+    }
     
     _hud = [ATMHud new];
     _captureSession = [[AVCaptureSession alloc] init];
@@ -210,8 +206,7 @@ HERE Once the QR Code has been successfully detected the mehtod captureOutput is
             [request setTimeoutInterval:10];
             request.HTTPMethod = @"GET";
             
-            NSAssert(kStrCID != nil, @"kStrCID should contain your CID");
-            [request setValue:kStrCID forHTTPHeaderField:@"X-MIRACL-CID"];
+            [request setValue:[Config companyId] forHTTPHeaderField:@"X-MIRACL-CID"];
             
             NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             if(error != nil)    {
