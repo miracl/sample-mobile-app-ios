@@ -15,6 +15,7 @@
 		B0FA75FE2265CD03006ADB9C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FA75FD2265CD03006ADB9C /* main.m */; };
 		B0FA76032265CE7E006ADB9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FA75FF2265CE7E006ADB9C /* LaunchScreen.storyboard */; };
 		B0FA76042265CE7E006ADB9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FA76012265CE7E006ADB9C /* Main.storyboard */; };
+		B0FB7DE4226750C100FB560E /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FB7DE3226750C100FB560E /* Config.m */; };
 		D76CDD461DACC8DC86314082 /* libPods-WhiteLabels-InAppLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C28C0EEB0775782304B645EF /* libPods-WhiteLabels-InAppLogin.a */; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
@@ -59,6 +60,8 @@
 		B0FA75FD2265CD03006ADB9C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = InAppLogin/main.m; sourceTree = "<group>"; };
 		B0FA76002265CE7E006ADB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = InAppLogin/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0FA76022265CE7E006ADB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = InAppLogin/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B0FB7DE2226750C100FB560E /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		B0FB7DE3226750C100FB560E /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		C28C0EEB0775782304B645EF /* libPods-WhiteLabels-InAppLogin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-InAppLogin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA3AEE1558AC5BC74C0BE871 /* Pods-WhiteLabels-InAppLogin.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-InAppLogin.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-InAppLogin/Pods-WhiteLabels-InAppLogin.qa.xcconfig"; sourceTree = "<group>"; };
 		DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.qa.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 		FE49000E1A1A3CEB000030A4 = {
 			isa = PBXGroup;
 			children = (
+				B0FB7DE2226750C100FB560E /* Config.h */,
+				B0FB7DE3226750C100FB560E /* Config.m */,
 				FEC33C731DE4722800F8EFF0 /* Utils.h */,
 				FEC33C741DE4722800F8EFF0 /* Utils.m */,
 				FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */,
@@ -300,6 +305,7 @@
 				FEC33C751DE4722800F8EFF0 /* Utils.m in Sources */,
 				FEC33C781DE48B8300F8EFF0 /* PinPadViewController.m in Sources */,
 				B0FA75FE2265CD03006ADB9C /* main.m in Sources */,
+				B0FB7DE4226750C100FB560E /* Config.m in Sources */,
 				FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

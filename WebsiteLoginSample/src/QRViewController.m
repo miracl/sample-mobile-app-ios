@@ -1,28 +1,10 @@
-/*
- Licensed to the Apache Software Foundation (ASF) under one
- or more contributor license agreements.  See the NOTICE file
- distributed with this work for additional information
- regarding copyright ownership.  The ASF licenses this file
- to you under the Apache License, Version 2.0 (the
- "License"); you may not use this file except in compliance
- with the License.  You may obtain a copy of the License at
- 
- http://www.apache.org/licenses/LICENSE-2.0
- 
- Unless required by applicable law or agreed to in writing,
- software distributed under the License is distributed on an
- "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- KIND, either express or implied.  See the License for the
- specific language governing permissions and limitations
- under the License.
- */
-
 #import <AVFoundation/AVFoundation.h>
 #import "QRViewController.h"
 #import "RegisterViewController.h"
 #import <MPinSDK/MPinMFA.h>
 #import "ATMHud.h"
 #import "ErrorHandler.h"
+#import "Config.h"
 
 @interface QRViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
@@ -47,20 +29,15 @@ On application launch the MPIN sdk must be initialized! In our sample app we nee
  In viewDidLoad mehtod we initialize SDK and configure camera.
 */
 
-NSString *kStrCID = @"ea145e13-535a-4159-a921-43b2b30a9274";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSError *error;
     [MPinMFA initSDK];
     
-    NSAssert(kStrCID != nil, @"kStrCID should not be Nil");
-    NSAssert(![kStrCID isEqualToString:@""], @"kStrCID should not be empty");
-    NSAssert([kStrCID isKindOfClass:[NSString class]], @"kStrCID should be NSString");
-    
-    [MPinMFA SetClientId:kStrCID];
-    [MPinMFA AddTrustedDomain:@"miracl.net"];
-    [MPinMFA AddTrustedDomain:@"mpin.io"];
+    [MPinMFA SetClientId:[Config clientId]];
+    for(NSString *domain in [Config trustedDomains]) {
+        [MPinMFA AddTrustedDomain: domain];
+    }
     
     _hud = [ATMHud new];
     _captureSession = [[AVCaptureSession alloc] init];
@@ -210,8 +187,7 @@ HERE Once the QR Code has been successfully detected the mehtod captureOutput is
             [request setTimeoutInterval:10];
             request.HTTPMethod = @"GET";
             
-            NSAssert(kStrCID != nil, @"kStrCID should contain your CID");
-            [request setValue:kStrCID forHTTPHeaderField:@"X-MIRACL-CID"];
+            [request setValue:[Config clientId] forHTTPHeaderField:@"X-MIRACL-CID"];
             
             NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             if(error != nil)    {
