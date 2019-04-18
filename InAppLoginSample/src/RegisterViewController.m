@@ -23,6 +23,7 @@
 #import <MpinSdk/MPinMFA.h>
 #import <MpinSdk/MpinStatus.h>
 #import "Utils.h"
+#import "Config.h"
 
 @interface RegisterViewController ()
 {
@@ -41,24 +42,18 @@
 @implementation RegisterViewController
 
 // This parameter configured from the apps dashboard
-NSString *kStrCID = @"2eb980a7-38e7-4c33-8d64-f4668689a2e0";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [MPinMFA initSDK];
     
-    NSAssert(kStrCID != nil, @"kStrCID should not be Nil");
-    NSAssert(![kStrCID isEqualToString:@""], @"kStrCID should not be empty");
-    NSAssert([kStrCID isKindOfClass:[NSString class]], @"kStrCID should be NSString");
+    [MPinMFA SetClientId:[Config clientId]];
     
-    [MPinMFA SetClientId:kStrCID];
-    
-    [MPinMFA AddTrustedDomain:@"miracl.net"];
-    [MPinMFA AddTrustedDomain:@"mpin.io"];
-    // Here you need to add the domain/ip address of the Redirect URL
-    [MPinMFA AddTrustedDomain:@"192.168.0.105"];
-    [MPinMFA AddTrustedDomain:@"miracl.cloud"];
+    NSArray *domains = [Config trustedDomains];
+    for(NSString *domain in domains) {
+        [MPinMFA AddTrustedDomain: domain];
+    }
     
     [_txtAddUser addTarget:self action:@selector(addID:) forControlEvents:UIControlEventEditingDidEndOnExit];
     _txtAddUser.keyboardType = UIKeyboardTypeEmailAddress;
@@ -66,11 +61,6 @@ NSString *kStrCID = @"2eb980a7-38e7-4c33-8d64-f4668689a2e0";
     [_txtAddUser becomeFirstResponder];
     
     self.title = @"InAppLogin sample";
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -178,12 +168,12 @@ NSString *kStrCID = @"2eb980a7-38e7-4c33-8d64-f4668689a2e0";
         NSHTTPURLResponse *response;
         NSError *error;
         // Replace with the address of the machine where the backend sample is running
-        NSURL *theUrl = [NSURL URLWithString:@"http://192.168.0.105:5000/authzurl"];
+        NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%d/authzurl",
+                                              [Config backendDomain], [Config backendPort]]];
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
         [request setTimeoutInterval:10];
         request.HTTPMethod = @"POST";
-        
         
         NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         if(error != nil)    {
@@ -451,7 +441,7 @@ NSString *kStrCID = @"2eb980a7-38e7-4c33-8d64-f4668689a2e0";
 
 - ( void ) setBackend
 {
-    MpinStatus *mpinStatus = [MPinMFA SetBackend:@"https://api.mpin.io"];
+    MpinStatus *mpinStatus = [MPinMFA SetBackend: [Config mpinSdkBackend]];
     switch (mpinStatus.status) {
         case OK:
             _boolBackendSet = YES;
