@@ -12,7 +12,7 @@ In order to download and build the projects you have to do the following steps:
 After this steps you have to go to the desired project dir and open the .xcworkspace file. 
 
 ### Create a demo web app to log into
-Now that the project is imported, in order to enable you to test the demo iOS app, you should first of all create a demo MFA web app using one of our web SDKs, as explained in the [SDK Instructions](https://devdocs.trust.miracl.cloud/sdk-instructions/overview/) section of this documentation.
+Now that the project is imported, in order to enable you to test the demo iOS app, you should first of all create a demo MFA web app using one of our web SDKs, as explained in the [SDK Instructions](https://devdocs.trust.miracl.cloud/mobile-sdk-instructions/) section of this documentation.
 
 This involves the following:
 
@@ -381,7 +381,7 @@ If there is a problem (i.e. email does not arrive) the user has the option to pr
 
 ### PinPadViewController.m
 
-![4-enterpin](Docs/4-enterpin.png)
+![4-enterpin](Docs/4-enterpin.jpg)
 
 This starts with using listUsers to create an array and check to see if any users are already registered with the backend, and displays the PIN pad for the registered user, if found (note that the demo app only allows for one identity per backend):
 
