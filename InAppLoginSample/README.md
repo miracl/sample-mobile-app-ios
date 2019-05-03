@@ -48,7 +48,7 @@ While in XCode select the Config.m file and fill in the placeholders as follows:
 ## XCode project file structure overview
 <img src="Docs/proj-navigation.png" width="400">
 
-The main storyboard view ```SampleApp/MPinApp/MPinApp/Base.lproj/Main.storyboard``` shows the configuration of the different views and associated messages:
+The main storyboard view ```⁨InAppLoginSample⁩/⁨InAppLogin⁩/⁨InAppLogin⁩/⁨Base.lproj⁩/Main.storyboard``` shows the configuration of the different views and associated messages:
 
 <img src="Docs/ios-local-storyboard.png" width="400">
 
@@ -64,7 +64,7 @@ If ```arrUsers.count``` returns `0`, then `setupAddId` will call the `AddId` vie
 
 The demo app is only configured to deal with one registered user, so if `arrUsers.count` returns `> 1` users, the SDK `DeleteUser` method is called to delete all users. `setupAddId` will call the `AddId` view to begin the user registration process.
 
-* If the result is that there is one user found in the array (`_user = arrUsers[0];`) then the SDK `getState` method is called.
+If the result is that there is one user found in the array (`_user = arrUsers[0];`) then the SDK `getState` method is called.
 
 * If the user state is `INVALID`, the `DeleteUser` method is called and `setupAddId` will call `viewAddId` to begin the user registration process
 * If the user state is `REGISTERED`, `setupRegistered` calls `viewRegistered` and makes use of the `getState`, `getBackend`, `getIdentity` and `GetCustomerId` methods to display the relevant info for the registered customer, who can login:
