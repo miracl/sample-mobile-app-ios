@@ -7,11 +7,11 @@
 }
 
 +(NSString*) backendDomain {
-    return  <#Replace with private ip/domain#>;
+    return <#Replace with backend ip/domain#>;
 }
     
 +(int) backendPort {
-    return <#Replace with private ip/domain port#>;
+    return <#Replace with backend ip/domain port#>;
 }
 
 +(NSArray*) trustedDomains {

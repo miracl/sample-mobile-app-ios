@@ -36,7 +36,7 @@ Before building an iOS app, you will need to obtain your company id as the owner
 
 <img src="Docs/demo-proj-navigator.png" width="300">
 
-The main storyboard view `SampleApp/MPinApp/MPinApp/Base.lproj/Main.storyboard` shows the configuration of the different views and associated messages:
+The main storyboard view `WebsiteLoginSample⁩/⁨WebsiteLogin⁩/⁨WebsiteLogin⁩/⁨Base.lproj⁩/Main.storyboard` shows the configuration of the different views and associated messages:
 
 <img src="Docs/ios-main-storyboard.png" width="300">
 
