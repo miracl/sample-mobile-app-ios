@@ -41,7 +41,7 @@ While in XCode select the Config.m file and fill in the placeholders as follows:
 
 ```+(NSString*) companyId``` replace with your `company id`.
 
-```+(NSString*) authBackend ``` with the uri of the hosted web app, visible to the iOS which you've run in the [previous section](https://github.com/miracl/sample-mobile-app-ios/tree/master/InAppLoginSample/#create-a-demo-web-app-to-act-as-a-backend-service).
+```+(NSString*) backendDomain ``` with the uri of the hosted web app, visible to the iOS which you've run in the [previous section](https://github.com/miracl/sample-mobile-app-ios/tree/master/InAppLoginSample/#create-a-demo-web-app-to-act-as-a-backend-service).
 
 ```+(int) backendPort``` with the port of the hosted web app.
 
@@ -77,9 +77,9 @@ If the result is that there is one user found in the array (`_user = arrUsers[0]
 
 ### PinPadViewController.m
 
-<img src="Docs/ios-local-view-enter-pin.png" width="400">
-
 `PinPadView` is used to create the user's PIN which can be used later to login at any time.
+
+<img src="Docs/ios-local-view-enter-pin.png" width="400">
 
 After the PIN is entered and 'send' (`- (IBAction)onClickSendButton:(id)sender`) is clicked, a user status check is received. If it is `STARTED_REGISTRATION` the `FinishRegistration` SDK method is used:
 
