@@ -43,11 +43,15 @@ The `accessCodeServiceBaseUrl` method should return the url of your demo web app
 
 ## Flow implementation
 
+### AppDelegate
+1. [`[MPinMFA initSDK]`](https://github.com/miracl/mfa-client-sdk-ios#void-initsdk) is called to initialize the `MFA SDK`. This is one time operation.
+2. [`[MPinMFA SetClientId:]`](https://github.com/miracl/mfa-client-sdk-ios#void-setclientid-nsstring-clientid) to set the `company id`. This is one time operation.
+
 ### LoginViewController
 
 1. `/authzurl` endpoint is called to obtain access token.
-2. `[MPinMFA SetBackend:]` is called to set the `MFA` url.
-3. `[MPinMFA listUsers]` is called to get the list of users. In the returned list all users which are not registered(`[user getState] == REGISTERED`) are deleted via `[MPinMFA DeleteUser:]` 
+2. [`[MPinMFA SetBackend:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-setbackend-const-nsstring-url-1) is called to set the `MFA` url.
+3. [`[MPinMFA listUsers]`](https://github.com/miracl/mfa-client-sdk-ios#nsmutablearray-listusers-1) is called to get the list of users. In the returned list all users which are not registered(`[user getState] == REGISTERED`) are deleted via [`[MPinMFA DeleteUser:]`](https://github.com/miracl/mfa-client-sdk-ios#void-deleteuser-const-idiuser-user)
 4. From the remaining users a second filtering is applied where all users with `backend` property which are different from the one of the current sample app are ignored (`[[user getBackend] isEqualToString [Config authBackend]]`)
 5. If there is such user satisfying the requirements listed in the previous steps then this user is selected and their details are displayed.
 
@@ -58,8 +62,8 @@ The `accessCodeServiceBaseUrl` method should return the url of your demo web app
 8. Selecting `Login` will result in the following actions:
 8.1. `/authzurl` endpoint is called to obtain an access token.
 8.2. User will be asked to [enter their `PIN` number](#enterpinviewcontroller)
-8.3. `[MPinMFA StartAuthentication: accessCode:]` is executed.
-8.4. `[MPinMFA FinishAuthentication: pin: pin1: accessCode: authzCode:]` is executed. If the user is `blocked` (`[user getState] == BLOCKED`) then the user is deleted with SDK call `[MPinMFA DeleteUser:]`
+8.3. [`[MPinMFA StartAuthentication: accessCode:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startauthentication-const-idiuser-user) is executed.
+8.4. [`[MPinMFA FinishAuthentication: pin: pin1: accessCode: authzCode:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishauthentication-const-idiuser-user-pin-nsstring-pin-authresultdata-nsstring-authresultdata) is executed. If the user is `blocked` (`[user getState] == BLOCKED`) then the user is deleted with SDK call '`[MPinMFA DeleteUser:]`](https://github.com/miracl/mfa-client-sdk-ios#void-deleteuser-const-idiuser-user)
 8.5. `/authtoken` endpoint is called to validate the login.
 8.6. If the user is authorized to sign documents [`SignMessageViewController`](#signmessageviewcontroller) is presented. Otherwise [`DvsRegistrationViewController`](#dvsregistrationviewcontroller) is presented.
 
@@ -68,15 +72,15 @@ The `accessCodeServiceBaseUrl` method should return the url of your demo web app
 1. User enters a message which is going to be `signed`.
 2. User is asked to [enter their `PIN` number](#enterpinviewcontroller)
 3. `/CreateDocumentHash` endpoint is called which returns the following parameters - `timestamp`, `authToken` and `hash`
-4. `[MPinMFA Sign: documentHash: pin0: pin1: epochTime: result:]` is called to perform the signing.
+4. [`[MPinMFA Sign: documentHash: pin0: pin1: epochTime: result:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-sign-idiuser-user-documenthash-nsdata-documenthash-pin0-nsstring-pin0-pin1-nsstring-pin1-epochtime-double-epochtime-authztoken-nsstring-authztoken-result-bridgesignature-result) is called to perform the signing.
 5. `/VerifySignature` endpoint is called to verify the signature.
 
 ### DvsRegistrationViewController
 
 1. User selects to `register` for `DVS` and is asked to [enter their `PIN` number](#enterpinviewcontroller)
-2. `[MPinMFA StartRegistrationDVS: pin0: pin1:]`
+2. [`[MPinMFA StartRegistrationDVS: pin0: pin1:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startregistrationdvs-const-idiuser-user-token-nsstring-token)
 3. User is again asked to [enter their `PIN` number](#enterpinviewcontroller)
-4. `[MPinMFA FinishRegistrationDVS: pinDVS: nfc:]` is called to finalize `DVS registration`
+4. [`[MPinMFA FinishRegistrationDVS: pinDVS: nfc:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishregistrationdvs-const-idiuser-user-pindvs-nsstring-pindvs-nfc-nsstring-nfc) is called to finalize `DVS registration`
 5. [`SignMessageViewController`](#signmessageviewcontroller) is presented.
 
 ### RegistrationViewController
@@ -86,17 +90,17 @@ The `accessCodeServiceBaseUrl` method should return the url of your demo web app
 <img src="Docs/regvc.png" width="400">
 
 2. `/authzurl` endpoint is called to obtain access token.
-3. `[MPinMFA MakeNewUser: deviceName:]` is called to create a new user.
-4. `[MPinMFA StartRegistration: accessCode: pmi:]` starts the registration process.
+3. [`[MPinMFA MakeNewUser: deviceName:]`](https://github.com/miracl/mfa-client-sdk-ios#idiuser-makenewuser-const-nsstring-identity-devicename-const-nsstring-devname) is called to create a new user.
+4. [`[MPinMFA StartRegistration: accessCode: pmi:]`](#https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startregistration-const-idiuser-user) starts the registration process.
 
 Then the user is presented with options to `Resend email` or `Confirm` the registration.
 
 <img src="Docs/regvc2.png" width="400">
 
-5. Pressing `Resend email` will result in SDK call to `[MPinMFA RestartRegistration:]`
-6. Pressing `Confirmed` will result in SDK call to `[MPinMFA ConfirmRegistration:]`. Note that this operation will only be successfull if the user confirms their registration by openings the email link which should be sent to their email.
+5. Pressing `Resend email` will result in SDK call to [`[MPinMFA RestartRegistration:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-restartregistration-const-idiuser-user)
+6. Pressing `Confirmed` will result in SDK call to [`[MPinMFA ConfirmRegistration:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-confirmregistration-const-idiuser-user). Note that this operation will only be successfull if the user confirms their registration by openings the email link which should be sent to their email.
 7. The user is asked to [enter their 4 digit `PIN` number](#enterpinviewcontroller).
-8. A call to `[MPinMFA FinishRegistration: pin0: pin1:]` to finalize the registration with the entered `PIN` number.
+8. A call to [`[MPinMFA FinishRegistration: pin0: pin1:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishregistration-const-idiuser-user-pin-nsstring-pin) to finalize the registration with the entered `PIN` number.
 
 ### EnterPinViewController
 
