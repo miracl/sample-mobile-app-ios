@@ -59,13 +59,13 @@ The `accessCodeServiceBaseUrl` method should return the url of your demo web app
 
 6. If there is no such user then the [RegistrationViewController](#registrationviewcontroller) is displayed
 7. Selecting `Delete` will result in [MPinMFA DeleteUser:] SDK call.
-8. Selecting `Login` will result in the following actions:
-8.1. `/authzurl` endpoint is called to obtain an access token.
-8.2. User will be asked to [enter their `PIN` number](#enterpinviewcontroller)
-8.3. [`[MPinMFA StartAuthentication: accessCode:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startauthentication-const-idiuser-user) is executed.
-8.4. [`[MPinMFA FinishAuthentication: pin: pin1: accessCode: authzCode:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishauthentication-const-idiuser-user-pin-nsstring-pin-authresultdata-nsstring-authresultdata) is executed. If the user is `blocked` (`[user getState] == BLOCKED`) then the user is deleted with SDK call '`[MPinMFA DeleteUser:]`](https://github.com/miracl/mfa-client-sdk-ios#void-deleteuser-const-idiuser-user)
-8.5. `/authtoken` endpoint is called to validate the login.
-8.6. If the user is authorized to sign documents [`SignMessageViewController`](#signmessageviewcontroller) is presented. Otherwise [`DvsRegistrationViewController`](#dvsregistrationviewcontroller) is presented.
+8. Selecting `Login` will result in the following actions:<br />
+8.1. `/authzurl` endpoint is called to obtain an access token.<br />
+8.2. User will be asked to [enter their `PIN` number](#enterpinviewcontroller)<br />
+8.3. [`[MPinMFA StartAuthentication: accessCode:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startauthentication-const-idiuser-user) is executed.<br />
+8.4. [`[MPinMFA FinishAuthentication: pin: pin1: accessCode: authzCode:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishauthentication-const-idiuser-user-pin-nsstring-pin-authresultdata-nsstring-authresultdata) is executed. If the user is `blocked` (`[user getState] == BLOCKED`) then the user is deleted with SDK call '`[MPinMFA DeleteUser:]`](https://github.com/miracl/mfa-client-sdk-ios#void-deleteuser-const-idiuser-user)<br />
+8.5. `/authtoken` endpoint is called to validate the login.<br />
+8.6. If the user is authorized to sign documents [`SignMessageViewController`](#signmessageviewcontroller) is presented. Otherwise [`DvsRegistrationViewController`](#dvsregistrationviewcontroller) is presented.<br />
 
 ### SignMessageViewController
 
