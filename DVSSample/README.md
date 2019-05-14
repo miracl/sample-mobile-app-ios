@@ -91,7 +91,7 @@ The `accessCodeServiceBaseUrl` method should return the url of your demo web app
 
 2. [`/authzurl`](https://github.com/miracl/maas-sdk-dotnet-core2#sample-endpoints) endpoint is called to obtain access token.
 3. [`[MPinMFA MakeNewUser: deviceName:]`](https://github.com/miracl/mfa-client-sdk-ios#idiuser-makenewuser-const-nsstring-identity-devicename-const-nsstring-devname) is called to create a new user.
-4. [`[MPinMFA StartRegistration: accessCode: pmi:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startregistration-const-idiuser-user) starts the registration process.
+4. [`[MPinMFA StartRegistration: accessCode: pmi:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startregistration-const-idiuser-user-accesscode-nsstring-accesscode-pmi-nsstring-pmi) starts the registration process.
 
 Then the user is presented with options to `Resend email` or `Confirm` the registration.
 
