@@ -72,7 +72,7 @@ The `accessCodeServiceBaseUrl` method should return the url of your demo web app
 1. User enters a message which is going to be `signed`.
 2. User is asked to [enter their `PIN` number](#enterpinviewcontroller)
 3. `/CreateDocumentHash` endpoint is called which returns the following parameters - `timestamp`, `authToken` and `hash`
-4. [`[MPinMFA Sign: documentHash: pin0: pin1: epochTime: result:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-sign-idiuser-user-documenthash-nsdata-documenthash-pin0-nsstring-pin0-pin1-nsstring-pin1-epochtime-double-epochtime-authztoken-nsstring-authztoken-result-bridgesignature-result) is called to perform the signing.
+4. [`[MPinMFA Sign: documentHash: pin0: pin1: epochTime: result:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-sign-idiuser-user-documenthash-nsdata-documenthash-pin0-nsstring-pin0-pin1-nsstring-pin1-epochtime-double-epochtime-result-bridgesignature-result) is called to perform the signing.
 5. `/VerifySignature` endpoint is called to verify the signature.
 
 ### DvsRegistrationViewController
