@@ -107,7 +107,7 @@
     }];
 }
 
-- (void) onEmailChanged {
+- (void) onEmailChanged:(NSString *)email {
     if(!self.submitButton.enabled) {
         [self disableControls];
         [self execAsync:^{
@@ -121,7 +121,6 @@
             self.currentUser = nil;
         }];
     } else {
-        NSString *email = self.textField.text;
         if(email.length == 0 || ![self validateEmailWithString:email]) {
             self.submitButton.enabled = NO;
         } else {
@@ -198,9 +197,15 @@
     [textField resignFirstResponder];
     return YES;
 }
+    
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString * changedString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    [self onEmailChanged: changedString];
+    return YES;
+}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    [self onEmailChanged];
+    [self onEmailChanged: textField.text];
 }
 
 - (BOOL)validateEmailWithString:(NSString*)checkString {

@@ -79,9 +79,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];
     request.HTTPMethod = @"POST";
-    
-//    [request setValue:[Config companyId] forHTTPHeaderField:@"X-MIRACL-CID"];
-    
+        
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(error != nil) {
             NSLog(@"%@", error.localizedDescription);

@@ -19,10 +19,11 @@
 		B07E5E9C225FB7CE000BDBE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B07E5E9B225FB7CE000BDBE6 /* Assets.xcassets */; };
 		B07E5E9F225FB7CE000BDBE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07E5E9D225FB7CE000BDBE6 /* LaunchScreen.storyboard */; };
 		B07E5EA2225FB7CE000BDBE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E5EA1225FB7CE000BDBE6 /* main.m */; };
-		B07E5EAA225FB864000BDBE6 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07E5EA9225FB864000BDBE6 /* MpinSdk.framework */; };
-		B07E5EAC225FB86A000BDBE6 /* MpinSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07E5EA9225FB864000BDBE6 /* MpinSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B07E5EB1225FBA4E000BDBE6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E5EB0225FBA4E000BDBE6 /* BaseViewController.m */; };
 		B0F9DB36225FC95C00EC0A42 /* RegisterUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F9DB35225FC95C00EC0A42 /* RegisterUserViewController.m */; };
+		B0FCB781228AC515004818C6 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FCB780228AC515004818C6 /* MpinSdk.framework */; };
+		B0FCB782228AC520004818C6 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FCB780228AC515004818C6 /* MpinSdk.framework */; };
+		B0FCB783228AC520004818C6 /* MpinSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0FCB780228AC515004818C6 /* MpinSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B07E5EAC225FB86A000BDBE6 /* MpinSdk.framework in Embed Frameworks */,
+				B0FCB783228AC520004818C6 /* MpinSdk.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,11 +63,11 @@
 		B07E5E9E225FB7CE000BDBE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B07E5EA0225FB7CE000BDBE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07E5EA1225FB7CE000BDBE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B07E5EA9225FB864000BDBE6 /* MpinSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MpinSdk.framework; path = ../../../MpinSdk.framework; sourceTree = "<group>"; };
 		B07E5EAF225FBA4E000BDBE6 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		B07E5EB0225FBA4E000BDBE6 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		B0F9DB34225FC95C00EC0A42 /* RegisterUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterUserViewController.h; sourceTree = "<group>"; };
 		B0F9DB35225FC95C00EC0A42 /* RegisterUserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterUserViewController.m; sourceTree = "<group>"; };
+		B0FCB780228AC515004818C6 /* MpinSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MpinSdk.framework; path = ../../MpinSdk.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B07E5EAA225FB864000BDBE6 /* MpinSdk.framework in Frameworks */,
+				B0FCB781228AC515004818C6 /* MpinSdk.framework in Frameworks */,
+				B0FCB782228AC520004818C6 /* MpinSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +140,7 @@
 				B07E5E93225FB7CD000BDBE6 /* AppDelegate.m */,
 				B07E5EA0225FB7CE000BDBE6 /* Info.plist */,
 				B07E5EA1225FB7CE000BDBE6 /* main.m */,
+				B0FCB780228AC515004818C6 /* MpinSdk.framework */,
 				B07E5EA8225FB855000BDBE6 /* Frameworks */,
 			);
 			path = DVSSample;
@@ -146,7 +149,6 @@
 		B07E5EA8225FB855000BDBE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B07E5EA9225FB864000BDBE6 /* MpinSdk.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -394,7 +396,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = "../../**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"../../**",
+					"$(PROJECT_DIR)/DVSSample/Frameworks",
+				);
 				INFOPLIST_FILE = DVSSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -411,7 +416,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = "../../**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"../../**",
+					"$(PROJECT_DIR)/DVSSample/Frameworks",
+				);
 				INFOPLIST_FILE = DVSSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
