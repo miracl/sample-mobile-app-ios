@@ -21,7 +21,7 @@ This sample demonstrates how to use the [MIRACL iOS SDK](https://github.com/mira
 4. Open the `DVSSample/DVSSample.xcodeproj` and run the demo app from `XCode`.
 
 ### Create a demo web app to act as a backend service
-In order to be able to test the demo iOS app you need to run a backend service as a demo web app. You could use our .NET SDK[SDK Instructions](https://devdocs.trust.miracl.cloud/sdk-instructions/dotnet/dvs/). It is used to register and authenticate the user logging into your mobile app to the [MIRACL Trust authentication portal](https://trust.miracl.cloud/), called also `MFA`.
+In order to be able to test the demo iOS app you need to run a backend service as a demo web app. You could use our [.NET SDK](https://devdocs.trust.miracl.cloud/sdk-instructions/dotnet/dvs/). It is used to register and authenticate the user logging into your mobile app to the [MIRACL Trust authentication portal](https://trust.miracl.cloud/), called also `MFA`.
 You will need a new app in the portal to get the authentication credentials (client id, client secret) with a properly set redirect url to the demo web app (it should be `demoAppUri/login`).
 
 Once you have run the demo web app you need to host it on a visible uri for the mobile app. These steps are documented in details on the 
@@ -36,7 +36,7 @@ Before building an iOS app, you will need to obtain your `company id` as the own
 <img src="Docs/view-co-id.png" width="400">
 
 Once you have the company id, open the `DVSSample⁩/⁨DVSSample⁩/⁨model⁩/Config.m` and replace the placeholder text with the correct parameters as follows:<br />
-The `companyId` method needs to return the company identifier.
+The `companyId` method needs to return the company identifier.<br />
 The `accessCodeServiceBaseUrl` method should return the url of your demo web app (configured using the web SDK, as per the [previous section](#create-a-demo-web-app-to-act-as-a-backend-service).
 
 <img src="Docs/config-m.png" width="400">
@@ -91,7 +91,7 @@ The `accessCodeServiceBaseUrl` method should return the url of your demo web app
 
 2. [`/authzurl`](https://github.com/miracl/maas-sdk-dotnet-core2#sample-endpoints) endpoint is called to obtain access token.
 3. [`[MPinMFA MakeNewUser: deviceName:]`](https://github.com/miracl/mfa-client-sdk-ios#idiuser-makenewuser-const-nsstring-identity-devicename-const-nsstring-devname) is called to create a new user.
-4. [`[MPinMFA StartRegistration: accessCode: pmi:]`](#https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startregistration-const-idiuser-user) starts the registration process.
+4. [`[MPinMFA StartRegistration: accessCode: pmi:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startregistration-const-idiuser-user) starts the registration process.
 
 Then the user is presented with options to `Resend email` or `Confirm` the registration.
 
@@ -100,7 +100,7 @@ Then the user is presented with options to `Resend email` or `Confirm` the regis
 5. Pressing `Resend email` will result in SDK call to [`[MPinMFA RestartRegistration:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-restartregistration-const-idiuser-user)
 6. Pressing `Confirmed` will result in SDK call to [`[MPinMFA ConfirmRegistration:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-confirmregistration-const-idiuser-user). Note that this operation will only be successfull if the user confirms their registration by openings the email link which should be sent to their email.
 7. The user is asked to [enter their 4 digit `PIN` number](#enterpinviewcontroller).
-8. A call to [`[MPinMFA FinishRegistration: pin0: pin1:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishregistration-const-idiuser-user-pin-nsstring-pin) to finalize the registration with the entered `PIN` number.
+8. A call to [`[MPinMFA FinishRegistration: pin0: pin1:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishregistration-const-idiuser-user-pin0-nsstring-pin0-pin1-nsstring-pin1) to finalize the registration with the entered `PIN` number.
 
 ### EnterPinViewController
 
