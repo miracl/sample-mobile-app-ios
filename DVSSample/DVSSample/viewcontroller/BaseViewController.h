@@ -5,6 +5,5 @@
 - (void) showMessage: (NSString*) message;
 - (void) execAsync:(dispatch_block_t) block;
 - (void) execOnUiThread:(dispatch_block_t) block;
-- (void) refreshAccessCode;
 
 @end

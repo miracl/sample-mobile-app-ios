@@ -10,6 +10,13 @@
 
 @interface LoginViewController()
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userContainerHeightConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *userIdField;
+@property (weak, nonatomic) IBOutlet UILabel *userStateField;
+@property (weak, nonatomic) IBOutlet UILabel *userMpinBackendField;
+@property (weak, nonatomic) IBOutlet UILabel *userCustomerIdField;
+@property (weak, nonatomic) IBOutlet UIButton *btnDeleteUser;
+@property (weak, nonatomic) IBOutlet UIButton *btnLoginUser;
 @property (nonatomic, strong) id<IUser> currentUser;
 @property (nonatomic, strong) AppDelegate* appDelegate;
 
@@ -139,7 +146,7 @@
     }];
 }
 
-- (void) loadCurrentUserAndInit {
+- (void) loadCurrentUser {
     NSMutableArray *usersList = [MPinMFA listUsers];
     NSMutableArray *registeredUsersList = [NSMutableArray array];
     for(int i=0; i < usersList.count; i++) {
@@ -161,6 +168,10 @@
             break;
         }
     }
+}
+
+- (void) loadCurrentUserAndInit {
+    [self loadCurrentUser];
     if(self.currentUser == nil) {
         [self execOnUiThread:^{
             RegisterUserViewController* registerUserViewController = [RegisterUserViewController instantiate];
@@ -170,34 +181,38 @@
     } else {
         [self execOnUiThread:^{
             self.userContainerHeightConstraint.constant = 200;
-            self.userIdField.text = [self.currentUser getMPinId];
-            
-            NSString* stateStr = nil;
-            switch ([self.currentUser getState]) {
-                case INVALID:
-                    stateStr = @"INVALID";
-                    break;
-                case STARTED_REGISTRATION:
-                    stateStr = @"STARTED_REGISTRATION";
-                    break;
-                case ACTIVATED:
-                    stateStr = @"ACTIVATED";
-                    break;
-                case REGISTERED:
-                    stateStr = @"REGISTERED";
-                    break;
-                case BLOCKED:
-                    stateStr = @"BLOCKED";
-                    break;
-                default:
-                    stateStr = @"UNKNOWN";
-                    break;
-            }
-            self.userStateField.text = stateStr;
-            self.userMpinBackendField.text = [self.currentUser getBackend];
-            self.userCustomerIdField.text = [self.currentUser getCustomerId];
+            [self showCurrentUserData];
         }];
     }
+}
+
+- (void) showCurrentUserData {
+    self.userIdField.text = [self.currentUser getMPinId];
+    
+    NSString* stateStr = nil;
+    switch ([self.currentUser getState]) {
+        case INVALID:
+            stateStr = @"INVALID";
+            break;
+        case STARTED_REGISTRATION:
+            stateStr = @"STARTED_REGISTRATION";
+            break;
+        case ACTIVATED:
+            stateStr = @"ACTIVATED";
+            break;
+        case REGISTERED:
+            stateStr = @"REGISTERED";
+            break;
+        case BLOCKED:
+            stateStr = @"BLOCKED";
+            break;
+        default:
+            stateStr = @"UNKNOWN";
+            break;
+    }
+    self.userStateField.text = stateStr;
+    self.userMpinBackendField.text = [self.currentUser getBackend];
+    self.userCustomerIdField.text = [self.currentUser getCustomerId];
 }
 
 

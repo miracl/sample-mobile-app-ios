@@ -3,14 +3,14 @@
 @implementation Config
 
 + (NSString*) companyId {
-    return @"<# Replace with your company id #>";
+    return <# Replace with your company id #>;
 }
 
 + (NSString*) accessCodeServiceBaseUrl {
-    return @"<# Replace with backend ip/domain port #>";
+    return <# Replace with backend ip/domain port #>;
 }
 
-+(NSString*) authBackend {
++ (NSString*) authBackend {
     return @"https://api.mpin.io";
 }
 

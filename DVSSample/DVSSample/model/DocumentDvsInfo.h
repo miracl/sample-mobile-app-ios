@@ -3,7 +3,7 @@
 @interface DocumentDvsInfo : NSObject
 
 @property (nonatomic) long timestamp;
-@property (nonatomic, strong) NSString *hash;
+@property (nonatomic, strong) NSString *hashValue;
 @property (nonatomic, strong) NSString *authToken;
 
 @end

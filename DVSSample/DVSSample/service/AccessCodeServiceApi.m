@@ -12,7 +12,6 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];
     
-    request.HTTPBody = [NSData data];
     request.HTTPMethod = @"POST";
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(error != nil) {
@@ -33,7 +32,6 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];
 
-    request.HTTPBody = [NSData data];
     request.HTTPMethod = @"POST";
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(error != nil) {
@@ -47,7 +45,7 @@
             DocumentDvsInfo *info = [[DocumentDvsInfo alloc] init];
             info.timestamp = [[json valueForKey:@"timestamp"] longValue];
             info.authToken = [json valueForKey:@"authToken"];
-            info.hash = [json valueForKey:@"hash"];
+            info.hashValue = [json valueForKey:@"hash"];
             callback(nil, info);
         }
     }] resume];

@@ -10,9 +10,4 @@
 
 @property (nonatomic, strong) id<IUser> currentUser;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (weak, nonatomic) IBOutlet UIButton *btnSign;
-
-
 @end

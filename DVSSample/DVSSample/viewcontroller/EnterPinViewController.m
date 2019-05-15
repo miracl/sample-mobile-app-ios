@@ -19,7 +19,7 @@
     self.pinCancelCallback();
 }
 
-// UITextFieldDelegate
+#pragma UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;

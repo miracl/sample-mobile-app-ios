@@ -8,7 +8,12 @@
 #import "EnterPinViewController.h"
 
 @interface DvsRegistrationViewController()
+
 @property (nonatomic) BOOL registrationStarted;
+@property (nonatomic, strong) AppDelegate *appDelegate;
+@property (weak, nonatomic) IBOutlet UILabel *userIdentityField;
+@property (weak, nonatomic) IBOutlet UIButton *btnRegisterDvs;
+
 @end
 
 @implementation DvsRegistrationViewController
@@ -21,6 +26,7 @@
 - (void) viewDidLoad {
     [super viewDidLoad];
     
+    self.appDelegate = [AppDelegate delegate];
     self.userIdentityField.text = [self.currentUser getIdentity];
     [self.btnRegisterDvs addTarget:self action:@selector(registerDVSClicked) forControlEvents: UIControlEventTouchUpInside];
 }
@@ -45,7 +51,7 @@
 
 -(void) startRegistrationDvs:(NSString *)pin {
     [self execAsync:^{
-        MpinStatus *status = [MPinMFA StartRegistrationDVS:[AppDelegate delegate].currentUser pin0:pin pin1:nil];
+        MpinStatus *status = [MPinMFA StartRegistrationDVS:self.appDelegate.currentUser pin0:pin pin1:nil];
         if(status.status == OK) {
             self.registrationStarted = YES;
             [self execOnUiThread:^{
@@ -68,7 +74,7 @@
 
 -(void)finishRegistrationDvs:(NSString *)pin {
     [self execAsync:^{
-        MpinStatus *status = [MPinMFA FinishRegistrationDVS:[AppDelegate delegate].currentUser pinDVS:pin nfc:nil];
+        MpinStatus *status = [MPinMFA FinishRegistrationDVS:self.appDelegate.currentUser pinDVS:pin nfc:nil];
         if(status.status == OK) {
             [self execOnUiThread:^{
                 [self.navigationController popViewControllerAnimated:NO];

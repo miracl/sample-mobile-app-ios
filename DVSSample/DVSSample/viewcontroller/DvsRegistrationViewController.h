@@ -8,7 +8,4 @@
 + (DvsRegistrationViewController*) instantiate;
 
 @property (nonatomic, strong) id<IUser> currentUser;
-@property (weak, nonatomic) IBOutlet UILabel *userIdentityField;
-@property (weak, nonatomic) IBOutlet UIButton *btnRegisterDvs;
-
 @end

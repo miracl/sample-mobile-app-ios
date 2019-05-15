@@ -6,7 +6,12 @@
 #import "EnterPinViewController.h"
 
 @interface SignMessageViewController ()
+
 @property (nonatomic, strong) AppDelegate* appDelegate;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UIButton *btnSign;
+
 @end
 
 @implementation SignMessageViewController
@@ -50,7 +55,7 @@
             id<IUser> user = self.appDelegate.currentUser;
             double time = (double)info.timestamp;
             BridgeSignature *bridgeSignature = nil;
-            MpinStatus *status = [MPinMFA Sign:user documentHash:[info.hash dataUsingEncoding:NSUTF8StringEncoding] pin0:pin pin1:nil epochTime:time result:&bridgeSignature];
+            MpinStatus *status = [MPinMFA Sign:user documentHash:[info.hashValue dataUsingEncoding:NSUTF8StringEncoding] pin0:pin pin1:nil epochTime:time result:&bridgeSignature];
             if(status.status == OK) {
                 [self verifySignature:bridgeSignature documentDvsInfo:info];
             }
@@ -74,7 +79,7 @@
 - (NSString*) serializeDocumentDvsInfo:(DocumentDvsInfo *) info {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setObject:info.authToken forKey:@"authToken"];
-    [dict setObject:info.hash forKey:@"hash"];
+    [dict setObject:info.hashValue forKey:@"hash"];
     [dict setObject:[NSString stringWithFormat:@"%lu", info.timestamp] forKey:@"timestamp"];
     
     NSError *error;
@@ -130,7 +135,7 @@
     return [NSString stringWithString:hexString];
 }
 
-// UITextFieldDelegate
+#pragma UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;

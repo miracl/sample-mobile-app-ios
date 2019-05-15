@@ -12,7 +12,7 @@ This sample demonstrates how to use the [MIRACL iOS SDK](https://github.com/mira
 
 ## Requirements
 * MacOS Mojave
-* XCode 10.1.2 or newer
+* Xcode 10.1.2 or newer
 
 ## Setup
 1. Clone `https://github.com/miracl/sample-mobile-app-ios` 

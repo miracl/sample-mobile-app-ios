@@ -6,6 +6,6 @@
 
 + (NSString*) accessCodeServiceBaseUrl;
 
-+(NSString*) authBackend;
++ (NSString*) authBackend;
 
 @end

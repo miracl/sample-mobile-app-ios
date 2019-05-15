@@ -25,9 +25,6 @@
     return [[UIStoryboard storyboardWithName: @"Main" bundle:nil] instantiateViewControllerWithIdentifier: @"RegisterUserViewController"];
 }
 
-- (IBAction)onRegisterClicked:(id)sender {
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -76,7 +73,7 @@
         return;
     }
     [self execAsync:^{
-       MpinStatus *status = [MPinMFA FinishRegistration:self.currentUser pin0:pin pin1:nil];
+        MpinStatus *status = [MPinMFA FinishRegistration:self.currentUser pin0:pin pin1:nil];
         if(status.status == OK) {
             [self execOnUiThread:^{
                 LoginViewController *loginVc = [LoginViewController instantiate];
@@ -177,22 +174,22 @@
 }
 
 - (void) enableControls {
-    [self execOnUiThread:^{
-        self.submitButton.enabled = YES;
-        self.resendEmailBtn.enabled = YES;
-        self.confirmRegButton.enabled = YES;
-    }];
+    [self toggleControls: YES];
 }
 
 - (void) disableControls {
+    [self toggleControls: NO];
+}
+
+- (void) toggleControls:(BOOL)enabled {
     [self execOnUiThread:^{
-        self.submitButton.enabled = NO;
-        self.resendEmailBtn.enabled = NO;
-        self.confirmRegButton.enabled = NO;
+        self.submitButton.enabled = enabled;
+        self.resendEmailBtn.enabled = enabled;
+        self.confirmRegButton.enabled = enabled;
     }];
 }
 
-// UITextFieldDelegate
+#pragma UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
