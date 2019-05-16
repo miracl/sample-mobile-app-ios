@@ -70,7 +70,13 @@
     [request setTimeoutInterval:10];
     NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[authCode, userID] forKeys:@[@"code", @"userID"]];
     NSError *error = nil;
-    NSData *bodyData = [NSKeyedArchiver archivedDataWithRootObject:dict requiringSecureCoding:NO error:&error];
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:dict
+                                                       options:0
+                                                         error:&error];
+    if(error) {
+        callback(error);
+        return;
+    }
     request.HTTPBody = bodyData;
     request.HTTPMethod = @"POST";
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -78,7 +84,15 @@
             NSLog(@"%@", error.localizedDescription);
             callback(error);
         } else {
-            callback(error);
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if([httpResponse statusCode] == 200) {
+                callback(nil);
+            } else {
+                NSMutableDictionary* details = [NSMutableDictionary dictionary];
+                [details setValue:@"Could not set auth token" forKey:NSLocalizedDescriptionKey];
+                NSError *apiError = [NSError errorWithDomain:@"AccessCodeError" code:200 userInfo:details];
+                callback(apiError);
+            }
         }
     }] resume];
 }
