@@ -1,9 +1,25 @@
 #import "EnterPinViewController.h"
 
+@interface EnterPinViewController()
+
+@property (weak, nonatomic) IBOutlet UILabel *pinPurposeLabel;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) NSString *purposeString;
+
+@end
 @implementation EnterPinViewController
 
-+ (EnterPinViewController*) instantiate {
-    return [[UIStoryboard storyboardWithName: @"Main" bundle:nil] instantiateViewControllerWithIdentifier: @"EnterPinViewController"];
++ (EnterPinViewController*) instantiate: (NSString *) title {
+    EnterPinViewController *pinViewController = [[UIStoryboard storyboardWithName: @"Main" bundle:nil] instantiateViewControllerWithIdentifier: @"EnterPinViewController"];
+
+    pinViewController.purposeString = title;
+    
+    return pinViewController;
+}
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    self.pinPurposeLabel.text = self.purposeString;
 }
 
 - (IBAction)onPinEntered:(id)sender {
@@ -16,7 +32,9 @@
 }
 
 - (IBAction)onPinCancel:(id)sender {
-    self.pinCancelCallback();
+    if(self.pinCancelCallback) {
+        self.pinCancelCallback();
+    }
 }
 
 #pragma UITextFieldDelegate

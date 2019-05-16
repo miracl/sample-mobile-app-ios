@@ -32,11 +32,14 @@
 }
 
 - (void) registerDVSClicked {
-    __weak EnterPinViewController *pinViewController = [EnterPinViewController instantiate];
+    __weak EnterPinViewController *pinViewController = [EnterPinViewController instantiate:[self.currentUser getIdentity]];
     pinViewController.pinCallback = ^(NSString* pin) {
         [pinViewController dismissViewControllerAnimated:YES completion:^{
             [self onPinEntered:pin];
         }];
+    };
+    pinViewController.pinCancelCallback = ^{
+        [pinViewController dismissViewControllerAnimated:YES completion:nil];
     };
     [self presentViewController:pinViewController animated:YES completion:nil];
 }
@@ -55,7 +58,7 @@
         if(status.status == OK) {
             self.registrationStarted = YES;
             [self execOnUiThread:^{
-                __weak EnterPinViewController *enterPinController = [EnterPinViewController instantiate];
+                __weak EnterPinViewController *enterPinController = [EnterPinViewController instantiate:@"Enter pin for signing"];
                 enterPinController.pinCallback = ^(NSString *pin) {
                     [enterPinController dismissViewControllerAnimated:YES completion:^{
                         [self onPinEntered:pin];
@@ -77,10 +80,12 @@
         MpinStatus *status = [MPinMFA FinishRegistrationDVS:self.appDelegate.currentUser pinDVS:pin nfc:nil];
         if(status.status == OK) {
             [self execOnUiThread:^{
-                [self.navigationController popViewControllerAnimated:NO];
+                NSMutableArray *viewcontrollers = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+                [viewcontrollers removeLastObject];
                 SignMessageViewController *controller = [SignMessageViewController instantiate];
                 controller.currentUser = self.currentUser;
-                [self.navigationController pushViewController:controller animated:YES];
+                [viewcontrollers addObject:controller];
+                [self.navigationController setViewControllers:viewcontrollers animated:YES];
             }];
         } else {
             [self showMessage:status.errorMessage];

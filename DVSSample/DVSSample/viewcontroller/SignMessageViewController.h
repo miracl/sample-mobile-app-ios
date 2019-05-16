@@ -6,8 +6,7 @@
 
 @interface SignMessageViewController : BaseViewController <UITextFieldDelegate>
 
-+ (SignMessageViewController*) instantiate;
-
 @property (nonatomic, strong) id<IUser> currentUser;
++ (SignMessageViewController*) instantiate;
 
 @end

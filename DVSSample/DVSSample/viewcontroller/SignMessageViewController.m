@@ -32,11 +32,14 @@
 
 -(void) onSignClick {
     [self.textField resignFirstResponder];
-    __weak EnterPinViewController *enterPinController = [EnterPinViewController instantiate];
+    __weak EnterPinViewController *enterPinController = [EnterPinViewController instantiate:@"Enter pin for signing"];
     enterPinController.pinCallback = ^(NSString *pin) {
         [enterPinController dismissViewControllerAnimated:YES completion:^{
             [self onPinEntered:pin];
         }];
+    };
+    enterPinController.pinCancelCallback = ^{
+        [enterPinController dismissViewControllerAnimated:YES completion:nil];
     };
     [self presentViewController:enterPinController animated:YES completion:nil];
 }
@@ -50,7 +53,8 @@
     AccessCodeServiceApi *api = [[AccessCodeServiceApi alloc] init];
     [api createDocumentHash:message withCallback:^(NSError *error, DocumentDvsInfo *info) {
         if(error) {
-            [self showMessage: error.localizedDescription];
+            NSString *errorMessage = [NSString stringWithFormat:@"Create document hash failed with error: %@", error.localizedDescription];
+            [self showMessage:errorMessage];
         } else {
             id<IUser> user = self.appDelegate.currentUser;
             double time = (double)info.timestamp;
@@ -58,6 +62,8 @@
             MpinStatus *status = [MPinMFA Sign:user documentHash:[info.hashValue dataUsingEncoding:NSUTF8StringEncoding] pin0:pin pin1:nil epochTime:time result:&bridgeSignature];
             if(status.status == OK) {
                 [self verifySignature:bridgeSignature documentDvsInfo:info];
+            } else {
+                [self showMessage:[NSString stringWithFormat:@"Signing failed with error: %@", status.errorMessage]];
             }
         }
     }];

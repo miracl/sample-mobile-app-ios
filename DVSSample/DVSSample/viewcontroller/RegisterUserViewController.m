@@ -54,11 +54,14 @@
         [self execOnUiThread:^{
             [self enableControls];
             if(status.status == OK) {
-                __weak EnterPinViewController *pinViewController = [EnterPinViewController instantiate];
+                __weak EnterPinViewController *pinViewController = [EnterPinViewController instantiate:@""];
                 pinViewController.pinCallback = ^(NSString* pin) {
                     [pinViewController dismissViewControllerAnimated:YES completion:^{
                         [self onPinEntered:pin];
                     }];
+                };
+                pinViewController.pinCancelCallback = ^{
+                    [pinViewController dismissViewControllerAnimated:YES completion:nil];
                 };
                 [self presentViewController:pinViewController animated:YES completion:nil];
             } else {
@@ -105,7 +108,7 @@
 }
 
 - (void) onEmailChanged:(NSString *)email {
-    if(!self.submitButton.enabled) {
+    if(!self.submitButton.enabled && [self validateEmailWithString:email]) {
         [self disableControls];
         [self execAsync:^{
             [self enableControls];

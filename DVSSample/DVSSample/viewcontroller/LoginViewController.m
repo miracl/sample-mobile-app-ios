@@ -101,11 +101,14 @@
 }
 
 -(void) startLogin {
-    __weak EnterPinViewController *pinViewController = [EnterPinViewController instantiate];
+    __weak EnterPinViewController *pinViewController = [EnterPinViewController instantiate:[self.currentUser getIdentity]];
     pinViewController.pinCallback = ^(NSString* pin) {
         [pinViewController dismissViewControllerAnimated:YES completion:^{
            [self onPinEntered:pin];
         }];
+    };
+    pinViewController.pinCancelCallback = ^{
+        [pinViewController dismissViewControllerAnimated:YES completion:nil];
     };
     [self presentViewController:pinViewController animated:YES completion:nil];
 }

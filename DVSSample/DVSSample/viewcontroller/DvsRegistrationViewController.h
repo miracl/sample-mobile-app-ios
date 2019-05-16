@@ -5,7 +5,7 @@
 
 @interface DvsRegistrationViewController : BaseViewController
 
+@property (nonatomic, strong) id<IUser> currentUser;
 + (DvsRegistrationViewController*) instantiate;
 
-@property (nonatomic, strong) id<IUser> currentUser;
 @end

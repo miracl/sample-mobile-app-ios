@@ -5,8 +5,5 @@
 
 + (LoginViewController *) instantiate;
 
-
-
-
 @end
 

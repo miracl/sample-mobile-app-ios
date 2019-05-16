@@ -6,10 +6,16 @@
 
 - (void) verifySignature: (NSString *)verificationData documentData: (NSString *) docData withCallback:(void (^)(NSString* result, NSError* error)) callback {
     NSString *strBaseURL = [Config accessCodeServiceBaseUrl];
-    docData = [docData stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
-    verificationData = [verificationData stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
-    NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/login/VerifySignature?verificationData=%@&documentData=%@", strBaseURL, verificationData, docData]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+    NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/login/VerifySignature", strBaseURL]];
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:theUrl resolvingAgainstBaseURL:NO];
+    
+    NSArray *queryItems = @[
+                            [NSURLQueryItem queryItemWithName:@"verificationData" value:verificationData],
+                            [NSURLQueryItem queryItemWithName:@"documentData" value:docData]
+                            ];
+    urlComponents.queryItems = queryItems;
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlComponents.URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];
     
     request.HTTPMethod = @"POST";
@@ -25,11 +31,17 @@
 }
 
 - (void) createDocumentHash:(NSString *)document withCallback:(void (^)(NSError* error, DocumentDvsInfo *info)) callback {
-    document = [document stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
     
     NSString *strBaseURL = [Config accessCodeServiceBaseUrl];
-    NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/login/CreateDocumentHash?document=%@", strBaseURL, document]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+    NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/login/CreateDocumentHash", strBaseURL]];
+    
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:theUrl resolvingAgainstBaseURL:NO];
+    NSArray *queryItems = @[
+                            [NSURLQueryItem queryItemWithName:@"document" value:document]
+                            ];
+    urlComponents.queryItems = queryItems;
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlComponents.URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];
 
     request.HTTPMethod = @"POST";

@@ -3,8 +3,7 @@
 
 @interface EnterPinViewController : BaseViewController <UITextFieldDelegate>
 
-+ (EnterPinViewController*) instantiate;
-@property (weak, nonatomic) IBOutlet UITextField *textField;
++ (EnterPinViewController*) instantiate: (NSString *) title;
 @property (nonatomic) void (^pinCallback)(NSString*);
 @property (nonatomic) void (^pinCancelCallback)(void);
 
