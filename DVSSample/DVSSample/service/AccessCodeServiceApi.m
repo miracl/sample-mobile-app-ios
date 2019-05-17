@@ -24,6 +24,14 @@
             NSLog(@"%@", error.localizedDescription);
             callback(nil, error);
         } else {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if([httpResponse statusCode] != 200) {
+                NSMutableDictionary* details = [NSMutableDictionary dictionary];
+                [details setValue:@"HTTP server error" forKey:NSLocalizedDescriptionKey];
+                NSError *apiError = [NSError errorWithDomain:@"VerifySignature" code:200 userInfo:details];
+                callback(nil, apiError);
+                return;
+            }
             NSString* result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             callback(result, nil);
         }
@@ -49,6 +57,14 @@
         if(error != nil) {
             callback(error, nil);
         } else {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if([httpResponse statusCode] != 200) {
+                NSMutableDictionary* details = [NSMutableDictionary dictionary];
+                [details setValue:@"HTTP server error" forKey:NSLocalizedDescriptionKey];
+                NSError *apiError = [NSError errorWithDomain:@"CreateDocumentHash" code:200 userInfo:details];
+                callback(apiError, nil);
+                return;
+            }
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             if(error) {
                 callback(error, nil);
@@ -112,8 +128,8 @@
             NSError *err;
             NSDictionary *config = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&err];
             if(err != nil) {
-                NSLog(@"%@", error.localizedDescription);
-                callback(nil, error);
+                NSLog(@"%@", err.localizedDescription);
+                callback(nil, err);
             } else {
                 NSString *authorizeURL = config[@"authorizeURL"];
                 if(authorizeURL.length > 0) {
