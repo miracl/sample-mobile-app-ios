@@ -7,7 +7,15 @@
 }
 
 + (NSString*) accessCodeServiceBaseUrl {
-    return <# Replace with backend ip/domain port #>;
+    return  <# Replace with backend ip/domain hostname #> ;
+}
+
++ (NSNumber*) accessCodeServicePort {
+    return [NSNumber numberWithInteger: <# Replace with backend ip/domain port number #>];
+}
+
++ (NSString*) httpScheme {
+    return <# Replace with http scheme value #>;
 }
 
 + (NSString*) authBackend {

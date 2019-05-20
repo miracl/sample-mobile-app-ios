@@ -5,9 +5,11 @@
 @implementation AccessCodeServiceApi
 
 - (void) verifySignature: (NSString *)verificationData documentData: (NSString *) docData withCallback:(void (^)(NSString* result, NSError* error)) callback {
-    NSString *strBaseURL = [Config accessCodeServiceBaseUrl];
-    NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/login/VerifySignature", strBaseURL]];
-    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:theUrl resolvingAgainstBaseURL:NO];
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] init];
+    urlComponents.path = @"/login/VerifySignature";
+    urlComponents.scheme = [Config httpScheme];
+    urlComponents.host = [Config accessCodeServiceBaseUrl];
+    urlComponents.port = [Config accessCodeServicePort];
     
     NSArray *queryItems = @[
                             [NSURLQueryItem queryItemWithName:@"verificationData" value:verificationData],
@@ -15,7 +17,16 @@
                             ];
     urlComponents.queryItems = queryItems;
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlComponents.URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+    NSURL *fullUrl = urlComponents.URL;
+    if(fullUrl == nil || fullUrl.absoluteString.length == 0 ||
+       ![self isSchemeValid:urlComponents.scheme]) {
+        NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:@"Invalid input parameters" forKey:NSLocalizedDescriptionKey];
+        NSError *apiError = [NSError errorWithDomain:@"VerifySignature" code:200 userInfo:details];
+        callback(nil, apiError);
+        return;
+    }
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:fullUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];
     
     request.HTTPMethod = @"POST";
@@ -39,17 +50,25 @@
 }
 
 - (void) createDocumentHash:(NSString *)document withCallback:(void (^)(NSError* error, DocumentDvsInfo *info)) callback {
-    
-    NSString *strBaseURL = [Config accessCodeServiceBaseUrl];
-    NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/login/CreateDocumentHash", strBaseURL]];
-    
-    NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:theUrl resolvingAgainstBaseURL:NO];
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] init];
+    urlComponents.path = @"/login/CreateDocumentHash";
+    urlComponents.host = [Config accessCodeServiceBaseUrl];
+    urlComponents.port = [Config accessCodeServicePort];
     NSArray *queryItems = @[
                             [NSURLQueryItem queryItemWithName:@"document" value:document]
                             ];
     urlComponents.queryItems = queryItems;
+    urlComponents.scheme = [Config httpScheme];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlComponents.URL cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+    NSURL *fullUrl = urlComponents.URL;
+    if(fullUrl == nil || fullUrl.absoluteString.length == 0 || ![self isSchemeValid:urlComponents.scheme]) {
+        NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:@"Invalid input parameters" forKey:NSLocalizedDescriptionKey];
+        NSError *apiError = [NSError errorWithDomain:@"VerifySignature" code:200 userInfo:details];
+        callback(apiError, nil);
+        return;
+    }
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:fullUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];
 
     request.HTTPMethod = @"POST";
@@ -79,16 +98,31 @@
     }] resume];
 }
 
-- (void) setAuthToken:(NSString *) authCode userID:(NSString *)userID withCallback:(void (^)(NSError* error)) callback  {
-    NSString *strBaseURL = [Config accessCodeServiceBaseUrl];
-    NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/authtoken",strBaseURL]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+- (void) setAuthToken:(NSString *) authCode userID:(NSString *)userID
+         withCallback:(void (^)(NSError* error)) callback  {
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] init];
+    urlComponents.path = @"/authtoken";
+    urlComponents.host = [Config accessCodeServiceBaseUrl];
+    urlComponents.port = [Config accessCodeServicePort];
+    urlComponents.scheme = [Config httpScheme];
+    
+    NSURL *fullUrl = urlComponents.URL;
+    if(fullUrl == nil || fullUrl.absoluteString.length == 0 || ![self isSchemeValid:urlComponents.scheme]) {
+        NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:@"Invalid input parameters" forKey:NSLocalizedDescriptionKey];
+        NSError *apiError = [NSError errorWithDomain:@"VerifySignature" code:200 userInfo:details];
+        callback(apiError);
+        return;
+    }
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:fullUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];
     NSDictionary *dict = [NSDictionary dictionaryWithObjects:@[authCode, userID] forKeys:@[@"code", @"userID"]];
     NSError *error = nil;
     NSData *bodyData = [NSJSONSerialization dataWithJSONObject:dict
                                                        options:0
                                                          error:&error];
+    
     if(error) {
         callback(error);
         return;
@@ -114,9 +148,23 @@
 }
 
 - (void) obtainAccessCode:(void (^)(NSString *accessCode, NSError* error)) callback {
-    NSString *strBaseURL = [Config accessCodeServiceBaseUrl];
-    NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/authzurl",strBaseURL]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
+    NSURLComponents *urlComponents = [[NSURLComponents alloc] init];
+    urlComponents.path = @"/authzurl";
+    urlComponents.host = [Config accessCodeServiceBaseUrl];
+    urlComponents.port = [Config accessCodeServicePort];
+    urlComponents.scheme = [Config httpScheme];
+    
+    NSURL *fullUrl = urlComponents.URL;
+    if(fullUrl == nil || fullUrl.absoluteString.length == 0
+       || ![self isSchemeValid:urlComponents.scheme]) {
+        NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:@"Invalid input parameters" forKey:NSLocalizedDescriptionKey];
+        NSError *apiError = [NSError errorWithDomain:@"VerifySignature" code:200 userInfo:details];
+        callback(nil, apiError);
+        return;
+    }
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:fullUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     [request setTimeoutInterval:10];
     request.HTTPMethod = @"POST";
         
@@ -152,6 +200,11 @@
             }
         }
     }] resume];
+}
+
+
+- (BOOL) isSchemeValid:(NSString *) scheme {
+    return [scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"];
 }
 
 @end

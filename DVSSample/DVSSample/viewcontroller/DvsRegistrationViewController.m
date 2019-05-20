@@ -17,7 +17,6 @@
 @end
 
 @implementation DvsRegistrationViewController
-@synthesize registrationStarted = _registrationStarted;
 
 + (DvsRegistrationViewController*) instantiate {
     return [[UIStoryboard storyboardWithName: @"Main" bundle:nil] instantiateViewControllerWithIdentifier: @"DvsRegistrationViewController"];

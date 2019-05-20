@@ -3,7 +3,6 @@
 #import "Config.h"
 
 @implementation AppDelegate
-@synthesize currentUser = _currentUser;
 
 + (AppDelegate *) delegate {
     return (AppDelegate *)[UIApplication sharedApplication].delegate;

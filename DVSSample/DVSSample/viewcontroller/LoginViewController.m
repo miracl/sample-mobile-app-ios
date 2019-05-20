@@ -23,8 +23,6 @@
 @end
 
 @implementation LoginViewController
-@synthesize currentUser = _currentUser;
-@synthesize appDelegate = _appDelegate;
 
 + (LoginViewController *) instantiate {
     return [[UIStoryboard storyboardWithName: @"Main" bundle:nil] instantiateViewControllerWithIdentifier: @"LoginViewController"];
@@ -37,6 +35,9 @@
     AccessCodeServiceApi* api = [[AccessCodeServiceApi alloc] init];
     [api obtainAccessCode:^(NSString *accessCode, NSError *error) {
         self.appDelegate.accessCode = accessCode;
+        if(error) {
+            [self showMessage: error.localizedDescription];
+        }
     }];
     
     [self.btnDeleteUser addTarget:self action:@selector(onDeleteClick) forControlEvents: UIControlEventTouchUpInside];
