@@ -1,0 +1,11 @@
+workspace 'MobileAppLoginSample'
+project 'MobileAppLoginSample/MobileAppLoginSample.xcodeproj/'
+
+platform :ios, '8.0'
+
+abstract_target 'WhiteLabels' do
+    pod 'ATMHud@dhoerl'
+    pod 'AFNetworking'
+    
+    target 'MobileAppLoginSample'
+end

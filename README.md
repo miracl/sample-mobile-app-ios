@@ -5,7 +5,7 @@
 # sample-mobile-app-ios
 
 This repository contains sample applications for the following flows:
-##### In App login - located in folder [InAppLoginSample](InAppLoginSample/README.md)
+##### Mobile App Login - located in folder [MobileAppLoginSample](MobileAppLoginSample/README.md)
 This flow is used to login into the mobile app itself.
 
 ##### Webside login - located in folder [WebsiteLoginSample](WebsiteLoginSample/README.md)
