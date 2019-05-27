@@ -252,7 +252,7 @@
     NSString *strUserName = _txtAddUser.text;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
         self.user = [MPinMFA MakeNewUser:strUserName deviceName:@"SampleDevName"];
-        MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user accessCode:self.accessCode pmi:@"PMI-TEST"];
+        MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user accessCode:self.accessCode pmi:@""];
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
             [self.btnAdd setEnabled:YES];
             if ( mpinStatus.status == OK )  {
@@ -366,7 +366,7 @@
         self.user = [MPinMFA MakeNewUser:strUserID deviceName:@"SampleDevName"];
         MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user
                                                accessCode:self.accessCode
-                                                        pmi:@"PMI-TEST"];
+                                                        pmi:@""];
 
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
             NSString * msg = ( mpinStatus.status == OK ) ? ( @"The Email has been resent" ) :
