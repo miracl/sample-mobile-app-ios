@@ -337,15 +337,15 @@ Service paramenter of serviceReaded method contains backend url that each user w
  In any other User state an Error messge is shown.
 */
 - (void) onSetBackendCompleted:(NSString *) accessCode {
-    NSArray* arr = [MPinMFA listUsers];
-    if (arr.count == 0) {
+    NSArray* usersList = [MPinMFA listUsers];
+    if (usersList.count == 0) {
         [[ErrorHandler sharedManager] hideMessage];
         RegisterViewController *vc = (RegisterViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:nil]
                                                                 instantiateViewControllerWithIdentifier:@"RegisterViewController"];
         vc.accessCode = accessCode;
         [self.navigationController pushViewController:vc animated:YES];
     } else {
-        id<IUser> user  = arr[0];
+        id<IUser> user  = usersList[0];
         if([user getState] == STARTED_REGISTRATION) {
             [[ErrorHandler sharedManager] hideMessage];
             RegisterViewController *vc = (RegisterViewController *)[[UIStoryboard storyboardWithName:@"Main" bundle:nil]
