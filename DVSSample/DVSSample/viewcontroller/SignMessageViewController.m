@@ -55,10 +55,22 @@
             NSString *errorMessage = [NSString stringWithFormat:@"Create document hash failed with error: %@", error.localizedDescription];
             [self showMessage:errorMessage];
         } else {
+            NSData *documentHash = [info.hashValue dataUsingEncoding:NSUTF8StringEncoding];
+            BOOL verifiedDocument = [MPinMFA VerifyDocument:message hash:documentHash];
+            if (!verifiedDocument) {
+                [self showMessage:@"Document cannot be verified."];
+                return;
+            }
+            
             id<IUser> user = self.appDelegate.currentUser;
             double time = (double)info.timestamp;
             BridgeSignature *bridgeSignature = nil;
-            MpinStatus *status = [MPinMFA Sign:user documentHash:[info.hashValue dataUsingEncoding:NSUTF8StringEncoding] pin0:pin pin1:nil epochTime:time result:&bridgeSignature];
+            MpinStatus *status = [MPinMFA Sign:user
+                                  documentHash:documentHash
+                                          pin0:pin
+                                          pin1:nil
+                                     epochTime:time
+                                        result:&bridgeSignature];
             if(status.status == OK) {
                 [self verifySignature:bridgeSignature documentDvsInfo:info];
             } else {
