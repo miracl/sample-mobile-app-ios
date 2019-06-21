@@ -23,7 +23,7 @@
 #import "PinPadViewController.h"
 #import "QRViewController.h"
 #import "ErrorHandler.h"
-#import <MPinSDK/MPinMFA.h>
+#import <MfaSdk/MPinMFA.h>
 #import "Utils.h"
 
 @interface RegisterViewController ()

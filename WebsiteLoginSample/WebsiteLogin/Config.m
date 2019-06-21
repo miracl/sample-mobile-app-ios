@@ -2,9 +2,9 @@
 
 @implementation Config
 +(NSString*) companyId {
-    return <# Replace with your company id from the platform #>;
+    return @"6e6a1d7a-4ecd-482a-becb-f0b4e266a5cc";
 }
 +(NSArray*) trustedDomains {
-    return @[@"miracl.net", @"mpin.io", @"<# Replace with backend ip/domain #>"];
+    return @[@"miracl.net", @"mpin.io", @"127.0.0.1"];
 }
 @end
