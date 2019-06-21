@@ -25,7 +25,7 @@
 #import "LoginSuccessfulViewController.h"
 #import "QRViewController.h"
 #import "ErrorHandler.h"
-#import <MPinSDK/MPinMFA.h>
+#import <MfaSdk/MPinMFA.h>
 
 @interface PinPadViewController ()
 
