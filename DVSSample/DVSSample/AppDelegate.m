@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import <MpinSdk/MPinMFA.h>
+#import <MfaSdk/MPinMFA.h>
 #import "Config.h"
 
 @implementation AppDelegate

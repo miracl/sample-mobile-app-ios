@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-#import <MpinSdk/IUser.h>
+#import <MfaSdk/IUser.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

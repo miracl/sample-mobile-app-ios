@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import <MpinSdk/MPinMFA.h>
+#import <MfaSdk/MPinMFA.h>
 
 @interface DocumentDvsInfo : NSObject
 
