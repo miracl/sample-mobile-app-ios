@@ -1,107 +1,209 @@
+# Website Login Sample
+
 * **category**: Samples
-* **copyright**: 2019 MIRACL UK LTD
-* **link**: https://github.com/miracl/sample-mobile-app-ios
+* **copyright**: 2019 MIRACL Technologies LTD
+* **link**: https://github.com/miracl/sample-mobile-app-ios/tree/master/WebsiteLoginSample
 
 ## Description
 
-Sequence diagram of the `Website login` flow:
-<img src="Docs/MFA-Platform-Login.png" width="700">
+This sample demonstrates how to use the [MIRACL iOS SDK](https://github.com/miracl/mfa-client-sdk-ios) in order to login into a MIRACL Trust-enabled website using [MIRACL MFA Platform](https://trust.miracl.cloud) authentication via an iOS device. This is the so-called **MFA Platform Login** flow and here is the methods sequence you need to achieve it:
 
-## Initialization
+<img src="https://raw.githubusercontent.com/miracl/mfa-client-sdk-ios/master/docs/MFAPlatformLogin_short.png" width="700">
 
-In order to download and build the projects you have to do the following steps:
+## Requirements
+
+* iOS 12 or higher
+* Cocoapods
+
+## Setup
+
 1. Checkout the sample project from : https://github.com/miracl/sample-mobile-app-ios.git
 >> git clone https://github.com/miracl/sample-mobile-app-ios.git
-2. Open the root dir from the checked out project. Navigate to folder WebsiteLoginSample and execute
->> pod install
-
-After this steps you have to go to the desired project dir and open the .xcworkspace file. 
+2. [Run a demo web app](#create-a-demo-web-app-to-log-into)
+3. [Configure the app with the issued credentials](#configure-the-app-with-the-issued-credentials)
+4. Build the project:
+    1. From command line open the root dir from the checked out project. Navigate to folder WebsiteLoginSample.
+    2. Execute the following command:
+        >> pod install
+    3. Open the .xcworkspace file which is located in the current directory.
 
 ## Create a demo web app to log into
-In order to be able to test the demo iOS app you need to run a backend service as a demo web app. You could use one of our web SDKs as explained in the [SDK Instructions](https://devdocs.trust.miracl.cloud/mobile-sdk-instructions/) section of this documentation. It is used to register and authenticate the user logging into your iOS app to the [MIRACL Trust authentication portal](https://trust.miracl.cloud/), called also a platform.
 
-This involves the following:
+In order to be able to test the demo iOS app, you need to run a backend service as a relying party demo web app (RPA). You could use one of our web SDKs as explained in the [SDK Instructions](https://devdocs.trust.miracl.cloud/sdk-instructions/) of our documentation.
+The SDK authenticates to the [MIRACL Trust authentication portal](https://trust.miracl.cloud/), called also MFA, using [OpenIDConnect](https://openid.net/connect/) protocol. This means you need to login and create an application in it so you can take credentials (`client id` and `client secret`) for the communication. Note that the redirect URL set in this MFA web application needs to match your demo web application, concatenated with `/login` by default.
 
-* You will need a new app in the [MIRACL Trust authentication portal](https://trust.miracl.cloud/) to get the authentication credentials (client id, client secret) with a properly set redirect url to the demo web app (this is detailed in the instructions for each web SDK).
-* Run a demo app using one of our web SDKs ([flask](https://devdocs.trust.miracl.cloud/sdk-instructions/python/), [django](https://devdocs.trust.miracl.cloud/sdk-instructions/django/), [nodejs](https://devdocs.trust.miracl.cloud/sdk-instructions/nodejs/), [ruby](https://devdocs.trust.miracl.cloud/sdk-instructions/ruby/), [php](https://devdocs.trust.miracl.cloud/sdk-instructions/phpsdk/), [go](https://devdocs.trust.miracl.cloud/sdk-instructions/go/), [java](https://devdocs.trust.miracl.cloud/sdk-instructions/java/), [dotnet](https://devdocs.trust.miracl.cloud/sdk-instructions/dotnet/)).
-In your web browser, visit the configured url for the demo web app. It is important the web app to be accessible from the iOS app, so make sure that the web app is properly hosted. It is also important to set the proper redirect url in the platform app you're using as `webAppUrl/login.`
-<img src="Docs/redirect-url-private-ip.png" width="300">
+<img src="images/redirect-url-private-ip.png" width="400">
 
+## Configure the app with the issued credentials
 
-Before building an iOS app, you will need to obtain your company id as the owner of the MFA web app. This is visible as a tooltip in the top right corner of your company dashboard in the portal:
-
-<img src="Docs/view-co-id.png" width="300">
-
-## Xcode Project Setup
-
-<img src="Docs/demo-proj-navigator.png" width="300">
-
-The main storyboard view `WebsiteLoginSample⁩/⁨WebsiteLogin⁩/⁨WebsiteLogin⁩/⁨Base.lproj⁩/Main.storyboard` shows the configuration of the different views and associated messages:
-
-<img src="Docs/ios-main-storyboard.png" width="300">
-
-### Config.m
-
-To build the project you will need to replace the placeholders with the appropriate parameters:
-
-<img src="Docs/configm-placeholder.png" width="300">
-
-```+(NSString*) companyId``` replace with your `company id`.
-
-`+(NSArray*) trustedDomains` - fill in with the uri of the hosted web app, visible to the iOS which you've run in the [previous section](https://github.com/miracl/sample-mobile-app-ios/tree/master/WebsiteLoginSample/#create-a-demo-web-app-to-log-into).
-
-Then click on the web app Login button and you can scan the resulting QR code with the iOS app to login and authenticate to the platform.
-
-### QRViewController.m
-
-The `captureOutput` method is called to extract the raw information from the QR code image and parse it with:
-
-`[self parseResponse:[metadataObj stringValue]];`
-
-`parseResponse` extracts the information, including the base url and access code from the QR code. The extracted information is obtained as a JSON data structure and passed to the `serviceReaded` method for further processing.
-
-Then `setBackend` is called to set the backend url to authenticate to.
-
-The key section in it is:
+Before building an iOS app, you need to configure it through the [`Config.m`](WebsiteLogin/Config.m) file:
 
 ```
-MpinStatus *mpinStatus = [MPinMFA SetBackend:config[@"url"]
-dispatch_async(dispatch_get_main_queue(), ^ (void) {
-    if ( mpinStatus.status == OK )  {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [self onSetBackendCompleted:accessCode];
-        });
-    }
-
++ (NSString *)companyId
+{
+  return <# Replace with your company id from the platform #>;
+}
++ (NSArray *)trustedDomains
+{
+  return @[@"miracl.net", @"mpin.io", <# Replace with backend ip/domain #>];
+}
 ```
 
-This sets the backend using the base url retrieved from the QR code, and then calls `onSetBackendCompleted`.
+As the owner of the MFA web app, your `Company ID` is visible as a tooltip in the top right corner of your company dashboard in the MFA portal:
 
-Then if no users are registered then the app navigates to the User Registration page (RegisterViewController.m). If there is a user it checks the user's state:
+<img src="images/view-co-id.png" width="400">
 
-* If the user is in the `STARTED_REGISTRATION` state, the app navigates to the finish registration stage. This is also handled by the RegisterViewController.m page.
-* If the user is in the `REGISTERED` state, the app navigates to the Authentication page (PinPadViewController.m). From here the user can authenticate and login to the service.
-* If the user is in any other User state, an Error message is shown.
+In the `trustedDomains` method, you need to add the URL of your demo RPA [configured here](#create-a-demo-web-app-to-log-into).
 
+## MFA Platform Login implementation by MFA iOS SDK
 
-### RegisterViewController.m
+### QRViewController
 
-<img src="Docs/register-confirm.png" width="300">
+This is the first screen the user sees as a part of the demo. First, the `SDK` is initialized through [`[MPinMFA initSDK]`](https://github.com/miracl/mfa-client-sdk-ios#void-initsdk). Then the SDK needs to be setup with the Authentication Server by the Company ID (using [`[MPinMFA SetClientId:]`](https://github.com/miracl/mfa-client-sdk-ios#void-setclientid-nsstring-clientid)). For improved security [`[MPinMFA AddTrustedDomain:]`](https://github.com/miracl/mfa-client-sdk-ios#void-addtrusteddomain-nsstring--domain) is also called (note that this is an optional step):
 
-Once the user has entered their email address, the Submit button starts the registration process. `onClickAddmButton` uses `getIUserById` to check if the email is already registered with the backend. If not and a valid new email address is entered, then `MakeNewUser` begins the registration process.
+```
+[MPinMFA initSDK];
+[MPinMFA SetClientId:[Config companyId]];
+for (NSString *domain in [Config trustedDomains]) {
+  [MPinMFA AddTrustedDomain: domain];
+}
+```
 
-A message "Your Identity has been created!" is displayed on the screen and the user needs to confirm their identity from the received mail by clicking on the confirmation link. Then, back in the iOS app screen, click the `Confirmed` button which is controlled by `onClickConfirmButton`. Here the `ConfirmRegistration` method is used to make a status check if the confirmation link has been followed in the user's email. Then a `client key` is retrieved for the user and the PinPadViewController.m view is instantiated to enable the user to create their PIN.
+Note: Since most of the Miracl iOS SDK methods can be time-consuming operations, it is recommended to be called on background queue with `NSOperationQueue` or `Grand Central Dispatch`. You could see this pattern through the sample application.
 
-If there is a problem (i.e. email does not arrive) the user has the option to press the Re-send email button, which is controlled by `onClickResendButton`. This invalidates the registration with `DeleteUser` and starts it again with `MakeNewUser`.
+When the app is first loaded and launched on your phone the QR reader will be displayed. Click on the `Login` button of your web browser app:
 
-### PinPadViewController.m
+<img src="images/be_demo_login.png" width="400">
 
-This controller uses `listUsers` to create an array and check to see if any users are already registered with the backend. If so, it displays the PIN pad for the registered user. Note that the demo app is made to allow only one identity per backend.
+Then a QR code appears and you can scan it with your phone:
 
-<img src="Docs/4-enterpin.jpg" width="300">
+<img src="images/qr_reader.png" width="400">
 
-Once a PIN is entered, the user taps the Send button. If the user state is `STARTED_REGISTRATION`, `onClickSendButton` call the `FinishRegistration` method to finalizes the user registration process. It extracts the M-Pin Token from the `client key` for the provided PIN (secret), and then stores the token in the secure storage. On successful completion, the user state will be set to `REGISTERED` and the method will return status OK.
+Once the information from the QR code has been read within `- (void)parseResponse:(NSString *)strResponse`, the access code, and the `base url` are obtained from the qr-read URL. This is followed by an `HTTP GET` request to the `/service` endpoint located at the `base url` to get the service details. Note that there is a SDK method [`[MPinMFA GetServiceDetails: serviceDetails:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-getservicedetails-nsstring-url-servicedetails-servicedetails-sd) available which does the same thing and it should be used instead.
+If there is an error in the returned response it will be displayed (considered errors are `HTTP Status codes` `412`, `406` or general JSON parsing errors). 
 
-If the user's state is `REGISTERED` they are able to authenticate and login using their PIN. If the PIN is correct the user is successfully authenticated and the app navigates the user to the Login Successful page:
+After the service details are obtained the SDK sets its authentication API URI by [`[MPinMFA SetBackend:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-setbackend-const-nsstring-url) method using them:
 
-<img src="Docs/5-success.jpg" width="300">
+```
+MpinStatus *mpinStatus = [MPinMFA SetBackend:config[@"url"]];
+```
+The [`config`](#configure-the-app-with-the-issued-credentials) dictionary variable contains the service details data.
+
+An optional step, not included in the demo is to make an SDK call to [`[MPinMFA GetSessionDetails:]`](https://github.com/miracl/mfa-client-sdk-ios#sessiondetails-getsessiondetails-nsstring-accesscode). This can be used to obtain the `preroll id` if needed.
+
+If the value of `mpinStatus.status` is `OK`, then the next step is to check if any users are available. This is done in the `- (void)onSetBackendCompleted:(NSString *)accessCode` method. The list with available users is obtained via SDK call to [`[MPinMFA listUsers]`](https://github.com/miracl/mfa-client-sdk-ios#nsmutablearray-listusers):
+
+```
+NSArray* usersList = [MPinMFA listUsers];
+```
+
+If there are no saved users the user will be redirected to [RegisterViewController](#RegisterViewController) in order to create a new user. For simplicity of the sample app, it is designed to work with the first user from the list:
+
+```
+id<IUser> user = usersList[0];
+```
+
+Depending on the [`[user getState]`](https://github.com/miracl/mfa-client-sdk-ios#idiuser-makenewuser-const-nsstring-identity-devicename-const-nsstring-devname):
+* If the user state is `REGISTERED`, continue with [authentication](#Identity-Authentication) of the user identity
+* If the user state is `STARTED_REGISTRATION`, the user will be sent to [`RegisterViewController`](#RegisterViewController) in order to complete the registration
+* Otherwise, an error message will be displayed.
+
+#### Identity Authentication
+
+When the user is in `REGISTERED` state, a call to [`[MPinMFA StartAuthentication: accessCode:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startauthentication-const-idiuser-user-accesscode-nsstring-accesscode) needs to be made. This sends the `user instance` and the `access code` to the MFA server in order to start the authentication process:
+
+```
+MpinStatus *mpinStatus = [MPinMFA StartAuthentication:user accessCode:accessCode];
+```
+
+If `mpinStatus.status` has value `OK` then the [`PinPadViewController`](#PinPadViewController) will be presented to the user to enter their `PIN` number so they can [finalize the authentication](#Finish-Identity-Authentication).
+
+### RegisterViewController
+
+The purpose of this view controller is to either create a new user registration or facilitate the completion of a started registration. First in the `- (void)viewWillAppear:(BOOL)animated` method [`[MPinMFA listUsers]`](https://github.com/miracl/mfa-client-sdk-ios#nsmutablearray-listusers) is called to check if any users are available. 
+
+#### Identity Registration
+
+If no users are available then the user will be shown a form to fill in their email in order to start a new registration:
+
+<img src="images/email_fill_form.png" width="400">
+
+Once the user enters their email and taps on the `Submit` button the `- (IBAction)onClickAddmButton:(id)sender` is called. First, the email will be validated and if validation fails an error message will be shown. Then the app will check if there already is a user with the desired email by making an SDK call to [`[MPinMFA getIUserById:]`](https://github.com/miracl/mfa-client-sdk-ios#idiuser-getiuserbyidnsstring--userid). If there is such user an error message will be shown.
+If all validations pass then the app will try to create a new user (via SDK call to [`[MPinMFA MakeNewUser: deviceName:]`](https://github.com/miracl/mfa-client-sdk-ios#idiuser-makenewuser-const-nsstring-identity-devicename-const-nsstring-devname)) and start a new registration (via SDK call to [`[MPinMFA StartRegistration: accessCode: pmi:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startregistration-const-idiuser-user-accesscode-nsstring-accesscode-pmi-nsstring-pmi)):
+
+```
+self.user = [MPinMFA MakeNewUser:_txtAddUser.text deviceName:@"SampleDevName"];
+MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user accessCode:self.accessCode pmi:@""];
+```
+
+Note that, for demonstration purposes, the `deviceName` variable is statically set here but it could be determined by user's requirements.
+
+If `mpinStatus.status` has value `OK` this means the identity was created and the user will be presented with the following UI:
+
+<img src="images/confirm_reg.png" width="400">
+
+The message utilizes a call to the `[self.user  getIdentity]` [method](https://github.com/miracl/mfa-client-sdk-ios#idiuser-makenewuser-const-nsstring-identity-devicename-const-nsstring-devname) in order to display the information. 
+If the registration was started successfully, a confirmation message is sent to the user's email in order to verify their identity registration. After the email verification, they need to click the `Confirmed` button which will result in a call to the `- (IBAction)onClickConfirmButton:(id)sender` method. There the app will check if the email confirmation is successful by calling [`[MPinMFA ConfirmRegistration:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-confirmregistration-const-idiuser-user):
+
+```
+MpinStatus *mpinStatus = [MPinMFA ConfirmRegistration:self.user];
+```
+If `mpinStatus.status` has value `OK` this means that the user confirmed their identity by following the link from the email they received. The next step is to present the [`PinPadViewController`](#PinPadViewController) where the user will be able to [finalize the registration](#Finish-Identity-Registration).
+
+The user also has an option to tap on the `Resend e-mail` button in case they didn't receive an email. This will result in a call to the `- (IBAction)onClickResendButton:(id)sender` method. Getting a new email requires the current user to be deleted and a new registration to start with the same identity. The user is deleted with an SDK call to [`[MPinMFA DeleteUser:]`](https://github.com/miracl/mfa-client-sdk-ios#void-deleteuser-const-idiuser-user) followed by an SDK call to [`[MPinMFA MakeNewUser: deviceName:]`](https://github.com/miracl/mfa-client-sdk-ios#idiuser-makenewuser-const-nsstring-identity-devicename-const-nsstring-devname) to create a new user with the same identity. Finally, SDK call to [`[MPinMFA StartRegistration: accessCode: pmi:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-startregistration-const-idiuser-user-accesscode-nsstring-accesscode-pmi-nsstring-pmi) is made to start the new registration which will result in a new email being sent:
+
+```
+NSString *strUserID = [self.user getIdentity];
+[MPinMFA DeleteUser:self.user];
+self.user = [MPinMFA MakeNewUser:strUserID deviceName:@"SampleDevName"];
+MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user accessCode:self.accessCode pmi:@""];
+```
+
+If `mpinStatus.status` has value `OK` this means that the registration was started successfully and the user can check their email.
+
+### PinPadViewController
+
+The purpose of the view controller is to present UI to the user where they can enter their `PIN` number and then handle it. First, the user is presented with an input field where they need to enter their 4-digit `PIN` number:
+
+<img src="images/4-enterpin.png" width="400">
+
+Once the user taps on the `Send` button `- (IBAction)onClickSendButton:(id)sender` will be called to handle the `PIN`. The next step is determined from the value of `[self.user getState]`.
+
+#### Finish Identity Registration
+
+If `[self.user getState]` has a value `STARTED_REGISTRATION` the user has started and confirmed their identity registration. They need to finalize it by calling [`[MPinMFA FinishRegistration: pin0: pin1:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishregistration-const-idiuser-user-pin0-nsstring-pin0-pin1-nsstring-pin1) and pass as parameters the current `user instance` and the desired `PIN` number:
+
+```
+MpinStatus *mpinStatus = [MPinMFA FinishRegistration:self.user pin0:_txtPinPad.text pin1:nil];
+```
+
+If the value of `mpinStatus.status` is `OK` then [`SuccessfulViewController`](#SuccessfulViewController) will be presented to inform the user that the registration was completed.
+
+#### Finish Identity Authentication
+
+If `[self.user getState]` has a value `REGISTERED` this means that the user is trying to authenticate. To finish the authentication the [`[MPinMFA FinishAuthentication: pin: pin1:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishauthentication-const-idiuser-user-pin-nsstring-pin-pin1-nsstring-pin1-accesscode-nsstring-accesscode-authzcode-nsstring-authzcode) method is called:
+
+```
+MpinStatus *mpinStatus = [MPinMFA FinishAuthentication:self.user pin0:_txtPinPad.text pin1:nil accessCode:qvc.accessCode];
+```
+
+If `mpinStatus.status` has value different than `OK` then an error message will be displayed.
+If `mpinStatus.status` has value `OK` this means the user is authenticated successfully and [`LoginSuccessfulViewController`](#LoginSuccessfulViewController) is displayed.
+
+### SuccessfulViewController
+
+This view controller is presented to the user when the registration finishes.
+Once the user taps the `Login` button they will be presented with the [`PinPadViewController`](#PinPadViewController)
+
+<img src="images/identity_created_confirm.png" width="400">
+
+### LoginSuccessfulViewController
+
+This view controller is shown to the user just to inform them that authentication passed successfully and they are now logged in to the desired website and can go back to their browser and check:
+
+<img src="images/5-success.png" width="400">
+
+## See also
+
+* [DvsSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/DVSSample)
+* [MobileAppLoginSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/MobileAppLoginSample)

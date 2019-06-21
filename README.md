@@ -1,5 +1,5 @@
 * **category**: Samples
-* **copyright**: 2019 Miracl Technologies LTD
+* **copyright**: 2019 MIRACL Technologies LTD
 * **link**: https://github.com/miracl/sample-mobile-app-ios
 
 # sample-mobile-app-ios

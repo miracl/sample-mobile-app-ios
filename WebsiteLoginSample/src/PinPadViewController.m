@@ -51,12 +51,12 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    NSArray* arr = [MPinMFA listUsers];
-    if (arr.count == 0) {
+    NSArray* usersList = [MPinMFA listUsers];
+    if (usersList.count == 0) {
         [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"Identity list is empty" addActivityIndicator:NO minShowTime:3.0];
         return;
     }
-    self.user = arr[0];
+    self.user = usersList[0];
     _lblIdentity.text = [_user getIdentity];
     _txtPinPad.text = @"";
     
