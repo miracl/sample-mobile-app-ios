@@ -20,8 +20,8 @@
 #import "RegisterViewController.h"
 #import "PinPadViewController.h"
 #import "ErrorHandler.h"
-#import <MpinSdk/MPinMFA.h>
-#import <MpinSdk/MpinStatus.h>
+#import <MfaSdk/MPinMFA.h>
+#import <MfaSdk/MpinStatus.h>
 #import "Utils.h"
 #import "Config.h"
 
