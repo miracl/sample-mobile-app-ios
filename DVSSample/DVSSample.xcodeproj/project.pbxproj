@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5639C30842BB5AF86E02CCDF /* libPods-DVSSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E4CC8B319B1E08A28BBF2A /* libPods-DVSSample.a */; };
 		B0712E4E22817A84007772CF /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B0712E4D22817A84007772CF /* Config.m */; };
 		B0712E5122817B7E007772CF /* AccessCodeServiceApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B0712E5022817B7E007772CF /* AccessCodeServiceApi.m */; };
 		B0712E542281A7E2007772CF /* SignMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0712E532281A7E2007772CF /* SignMessageViewController.m */; };
@@ -21,26 +22,11 @@
 		B07E5EA2225FB7CE000BDBE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E5EA1225FB7CE000BDBE6 /* main.m */; };
 		B07E5EB1225FBA4E000BDBE6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07E5EB0225FBA4E000BDBE6 /* BaseViewController.m */; };
 		B0F9DB36225FC95C00EC0A42 /* RegisterUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F9DB35225FC95C00EC0A42 /* RegisterUserViewController.m */; };
-		B0FCB781228AC515004818C6 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FCB780228AC515004818C6 /* MpinSdk.framework */; };
-		B0FCB782228AC520004818C6 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FCB780228AC515004818C6 /* MpinSdk.framework */; };
-		B0FCB783228AC520004818C6 /* MpinSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0FCB780228AC515004818C6 /* MpinSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B07E5EAD225FB86A000BDBE6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B0FCB783228AC520004818C6 /* MpinSdk.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		7909C33DFAFA95D0F4D21B9D /* Pods-DVSSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVSSample.debug.xcconfig"; path = "Target Support Files/Pods-DVSSample/Pods-DVSSample.debug.xcconfig"; sourceTree = "<group>"; };
+		98E4CC8B319B1E08A28BBF2A /* libPods-DVSSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DVSSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0712E4C22817A84007772CF /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		B0712E4D22817A84007772CF /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		B0712E4F22817B7E007772CF /* AccessCodeServiceApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessCodeServiceApi.h; sourceTree = "<group>"; };
@@ -67,7 +53,7 @@
 		B07E5EB0225FBA4E000BDBE6 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		B0F9DB34225FC95C00EC0A42 /* RegisterUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterUserViewController.h; sourceTree = "<group>"; };
 		B0F9DB35225FC95C00EC0A42 /* RegisterUserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterUserViewController.m; sourceTree = "<group>"; };
-		B0FCB780228AC515004818C6 /* MpinSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MpinSdk.framework; path = ../../MpinSdk.framework; sourceTree = "<group>"; };
+		BD948CE2E1DC130A1C16038A /* Pods-DVSSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DVSSample.release.xcconfig"; path = "Target Support Files/Pods-DVSSample/Pods-DVSSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,14 +61,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0FCB781228AC515004818C6 /* MpinSdk.framework in Frameworks */,
-				B0FCB782228AC520004818C6 /* MpinSdk.framework in Frameworks */,
+				5639C30842BB5AF86E02CCDF /* libPods-DVSSample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B77747AAA707B1359CFC819 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98E4CC8B319B1E08A28BBF2A /* libPods-DVSSample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E882FF208961B06E3D07BD9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7909C33DFAFA95D0F4D21B9D /* Pods-DVSSample.debug.xcconfig */,
+				BD948CE2E1DC130A1C16038A /* Pods-DVSSample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B0712E552281B29B007772CF /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +120,8 @@
 			children = (
 				B07E5E91225FB7CD000BDBE6 /* DVSSample */,
 				B07E5E90225FB7CD000BDBE6 /* Products */,
+				8E882FF208961B06E3D07BD9 /* Pods */,
+				3B77747AAA707B1359CFC819 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,17 +144,8 @@
 				B07E5E93225FB7CD000BDBE6 /* AppDelegate.m */,
 				B07E5EA0225FB7CE000BDBE6 /* Info.plist */,
 				B07E5EA1225FB7CE000BDBE6 /* main.m */,
-				B0FCB780228AC515004818C6 /* MpinSdk.framework */,
-				B07E5EA8225FB855000BDBE6 /* Frameworks */,
 			);
 			path = DVSSample;
-			sourceTree = "<group>";
-		};
-		B07E5EA8225FB855000BDBE6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		B07E5EAE225FBA3D000BDBE6 /* viewcontroller */ = {
@@ -179,10 +174,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B07E5EA5225FB7CE000BDBE6 /* Build configuration list for PBXNativeTarget "DVSSample" */;
 			buildPhases = (
+				F8CA502CC7607AC3551AEF40 /* [CP] Check Pods Manifest.lock */,
 				B07E5E8B225FB7CD000BDBE6 /* Sources */,
 				B07E5E8C225FB7CD000BDBE6 /* Frameworks */,
 				B07E5E8D225FB7CD000BDBE6 /* Resources */,
-				B07E5EAD225FB86A000BDBE6 /* Embed Frameworks */,
+				E5AF2316BF81BF4BC86087AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,6 +233,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E5AF2316BF81BF4BC86087AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DVSSample/Pods-DVSSample-frameworks.sh",
+				"${PODS_ROOT}/MfaSdk/MfaSdk.framework",
+				"${PODS_ROOT}/MfaSdk/MpinCoreLib.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MfaSdk.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MpinCoreLib.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DVSSample/Pods-DVSSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8CA502CC7607AC3551AEF40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DVSSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B07E5E8B225FB7CD000BDBE6 /* Sources */ = {
@@ -393,13 +438,12 @@
 		};
 		B07E5EA6225FB7CE000BDBE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7909C33DFAFA95D0F4D21B9D /* Pods-DVSSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"../../**",
-					"$(PROJECT_DIR)/DVSSample/Frameworks",
-				);
+				DEVELOPMENT_TEAM = WF6XYF7P2L;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DVSSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -413,13 +457,12 @@
 		};
 		B07E5EA7225FB7CE000BDBE6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD948CE2E1DC130A1C16038A /* Pods-DVSSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"../../**",
-					"$(PROJECT_DIR)/DVSSample/Frameworks",
-				);
+				DEVELOPMENT_TEAM = WF6XYF7P2L;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DVSSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

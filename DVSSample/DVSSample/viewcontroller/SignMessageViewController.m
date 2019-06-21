@@ -1,7 +1,7 @@
 #import "SignMessageViewController.h"
 #import "AccessCodeServiceApi.h"
-#import <MpinSdk/MPinMFA.h>
-#import <MpinSdk/IUser.h>
+#import <MfaSdk/MPinMFA.h>
+#import <MfaSdk/IUser.h>
 #import "AppDelegate.h"
 #import "EnterPinViewController.h"
 
