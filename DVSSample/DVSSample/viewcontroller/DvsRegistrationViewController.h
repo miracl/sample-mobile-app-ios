@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "BaseViewController.h"
-#import <MpinSdk/MPinMFA.h>
-#import <MpinSdk/IUser.h>
+#import <MfaSdk/MPinMFA.h>
+#import <MfaSdk/IUser.h>
 
 @interface DvsRegistrationViewController : BaseViewController
 

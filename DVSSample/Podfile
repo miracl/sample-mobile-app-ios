@@ -1,0 +1,10 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DVSSample' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for DVSSample
+  pod 'MfaSdk', :podspec => 'https://raw.githubusercontent.com/avlaev/podtest/master/mfa_pod/MfaSdk.podspec'
+end

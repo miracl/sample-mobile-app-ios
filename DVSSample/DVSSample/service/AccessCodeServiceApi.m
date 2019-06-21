@@ -1,6 +1,6 @@
 #import "AccessCodeServiceApi.h"
-#import <MpinSdk/MPinMFA.h>
-#import <MpinSdk/IUser.h>
+#import <MfaSdk/MPinMFA.h>
+#import <MfaSdk/IUser.h>
 
 @implementation AccessCodeServiceApi
 
