@@ -14,8 +14,6 @@
 		B0A16E162295333A005EC1DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A16E152295333A005EC1DD /* main.m */; };
 		B0A16E1B2295334B005EC1DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A16E172295334B005EC1DD /* Main.storyboard */; };
 		B0A16E1C2295334B005EC1DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A16E192295334B005EC1DD /* LaunchScreen.storyboard */; };
-		B0C2E46D225DFA4E00E614E1 /* MpinSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */; };
-		B0C2E46E225DFA5500E614E1 /* MpinSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0C2E469225DFA2C00E614E1 /* MpinSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0FB7DE4226750C100FB560E /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FB7DE3226750C100FB560E /* Config.m */; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
@@ -26,20 +24,6 @@
 		FEC33C7B1DE5B79F00F8EFF0 /* SuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */; };
 		FEC33C7E1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		B0C2E460225DF5E500E614E1 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B0C2E46E225DFA5500E614E1 /* MpinSdk.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1171D945CC4F4056EA17FF2C /* libPods-WhiteLabels-MobileAppLoginSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-MobileAppLoginSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +80,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0C2E46D225DFA4E00E614E1 /* MpinSdk.framework in Frameworks */,
 				39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */,
 				39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */,
 				966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */,
@@ -196,7 +179,7 @@
 				966D42B61BDF674B0095913D /* Frameworks */,
 				966D42C61BDF674B0095913D /* Resources */,
 				8799931EEEF3160ACB05D0E9 /* [CP] Copy Pods Resources */,
-				B0C2E460225DF5E500E614E1 /* Embed Frameworks */,
+				7854A39C6773C7B261922C0E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,13 +264,37 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7854A39C6773C7B261922C0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-frameworks.sh",
+				"${PODS_ROOT}/MfaSdk/MfaSdk.framework",
+				"${PODS_ROOT}/MfaSdk/MpinCoreLib.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MfaSdk.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MpinCoreLib.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8799931EEEF3160ACB05D0E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-resources.sh",
 				"${PODS_ROOT}/ATMHud@dhoerl/11-x.png",
 				"${PODS_ROOT}/ATMHud@dhoerl/19-check.png",
 			);
@@ -298,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -454,11 +461,7 @@
 				CURRENT_PROJECT_VERSION = 99;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"../../**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileAppLoginSample/MobileAppLoginSample-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -494,11 +497,7 @@
 				CURRENT_PROJECT_VERSION = 99;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"../../**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileAppLoginSample/MobileAppLoginSample-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -534,11 +533,7 @@
 				CURRENT_PROJECT_VERSION = 99;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"../../**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileAppLoginSample/MobileAppLoginSample-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -573,11 +568,7 @@
 				CURRENT_PROJECT_VERSION = 99;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"../../**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileAppLoginSample/MobileAppLoginSample-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -719,11 +710,7 @@
 				CURRENT_PROJECT_VERSION = 99;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-					"../../**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MobileAppLoginSample/MobileAppLoginSample-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (

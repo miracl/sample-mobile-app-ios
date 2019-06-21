@@ -23,7 +23,7 @@
 #import "SuccessfulViewController.h"
 #import "LoginSuccessfulViewController.h"
 #import "ErrorHandler.h"
-#import <MpinSdk/MPinMFA.h>
+#import <MfaSdk/MPinMFA.h>
 #import "Config.h"
 
 @interface PinPadViewController ()
