@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */; };
 		39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DBB9331DE43D6600D62925 /* AVFoundation.framework */; };
-		8A254F070204B66815EA14FC /* libPods-WhiteLabels-WebsiteLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BDB923F3F3F12909282D724 /* libPods-WhiteLabels-WebsiteLogin.a */; };
 		966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9620FB301BBAAF8A00DC15EF /* libc++.tbd */; };
 		B066BF672250C5C60054BAA9 /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE91464C1E3F716C00ED8F65 /* QRViewController.m */; };
 		B066BF682250C5C60054BAA9 /* SuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */; };
@@ -23,33 +22,28 @@
 		B0FB40462265D64000A015C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB40422265D64000A015C2 /* Main.storyboard */; };
 		B0FB40472265D64000A015C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB40442265D64000A015C2 /* LaunchScreen.storyboard */; };
 		B0FB7DE722676C8C00FB560E /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FB7DE622676C8C00FB560E /* Config.m */; };
+		F48186B5D38DAE63F49468F7 /* libPods-WhiteLabels-WebsiteLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 123699FAC85DA7FD272C8013 /* libPods-WhiteLabels-WebsiteLogin.a */; };
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		123699FAC85DA7FD272C8013 /* libPods-WhiteLabels-WebsiteLogin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-WebsiteLogin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		179F4D1B0217C02CF329E789 /* Pods-WhiteLabels-WebsiteLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.debug.xcconfig"; path = "Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.debug.xcconfig"; sourceTree = "<group>"; };
 		39BB1B9B1DE2FC2600F05831 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		39DBB9331DE43D6600D62925 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		5C88417012C07A9C72654B2B /* Pods-WhiteLabels-WebsiteLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.debug.xcconfig"; sourceTree = "<group>"; };
-		7170094E7E6E46EF61FBDB12 /* Pods-WhiteLabels-Milagro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.debug.xcconfig"; sourceTree = "<group>"; };
-		768BDB0C025910D536C23251 /* Pods-WhiteLabels-WebsiteLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.release.xcconfig"; sourceTree = "<group>"; };
 		9620FB301BBAAF8A00DC15EF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		966D42E51BDF674B0095913D /* Sample App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BDB923F3F3F12909282D724 /* libPods-WhiteLabels-WebsiteLogin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WhiteLabels-WebsiteLogin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D95999DB87889960A98067B /* Pods-WhiteLabels-Milagro.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.appstore.xcconfig"; sourceTree = "<group>"; };
+		A728210EEF6BE52A6D6A2A0E /* Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; path = "Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; sourceTree = "<group>"; };
 		B0B370C4227885AC00E4BCA5 /* MpinSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MpinSdk.framework; sourceTree = "<group>"; };
 		B0FB40402265D63600A015C2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WebsiteLogin/main.m; sourceTree = "<group>"; };
 		B0FB40432265D64000A015C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WebsiteLogin/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0FB40452265D64000A015C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = WebsiteLogin/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0FB7DE522676C8C00FB560E /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		B0FB7DE622676C8C00FB560E /* Config.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
-		C9AE20E51D9216F75AC5AF7D /* Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig"; sourceTree = "<group>"; };
-		D21BF8E5D65CF1E7E9F0FA60 /* Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; sourceTree = "<group>"; };
-		DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.qa.xcconfig"; sourceTree = "<group>"; };
-		DC813C5F9BFE2678ACECBD73 /* Pods-WhiteLabels-WebsiteLogin.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.qa.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.qa.xcconfig"; sourceTree = "<group>"; };
-		F4783CAED134EAA73090B790 /* Pods-WhiteLabels-Milagro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.release.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.release.xcconfig"; sourceTree = "<group>"; };
-		F5EBCFD978797205E0FC6E27 /* Pods-WhiteLabels-Milagro.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-Milagro.adhoc.xcconfig"; path = "../Pods/Target Support Files/Pods-WhiteLabels-Milagro/Pods-WhiteLabels-Milagro.adhoc.xcconfig"; sourceTree = "<group>"; };
+		CCED473A0E0A8C029D73FEC7 /* Pods-WhiteLabels-WebsiteLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.release.xcconfig"; path = "Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.release.xcconfig"; sourceTree = "<group>"; };
+		DF41F87B347578AB85EA040E /* Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; path = "Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig"; sourceTree = "<group>"; };
 		FE91464B1E3F716C00ED8F65 /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRViewController.h; path = ../src/QRViewController.h; sourceTree = "<group>"; };
 		FE91464C1E3F716C00ED8F65 /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRViewController.m; path = ../src/QRViewController.m; sourceTree = "<group>"; };
 		FEBBBFEC1C5F88270011001A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../src/AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +63,7 @@
 		FEC33C7D1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginSuccessfulViewController.m; path = ../src/LoginSuccessfulViewController.m; sourceTree = "<group>"; };
 		FEC33C7F1DE5E93700F8EFF0 /* SuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SuperViewController.h; path = ../src/SuperViewController.h; sourceTree = "<group>"; };
 		FEC33C801DE5E93700F8EFF0 /* SuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SuperViewController.m; path = ../src/SuperViewController.m; sourceTree = "<group>"; };
+		FF7F3C0DEA5BC5FC8455545A /* Pods-WhiteLabels-WebsiteLogin.qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteLabels-WebsiteLogin.qa.xcconfig"; path = "Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin.qa.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,28 +74,24 @@
 				39DBB9341DE43D6600D62925 /* AVFoundation.framework in Frameworks */,
 				39DBB9321DE43D5900D62925 /* SystemConfiguration.framework in Frameworks */,
 				966D42B71BDF674B0095913D /* libc++.tbd in Frameworks */,
-				8A254F070204B66815EA14FC /* libPods-WhiteLabels-WebsiteLogin.a in Frameworks */,
+				F48186B5D38DAE63F49468F7 /* libPods-WhiteLabels-WebsiteLogin.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		81CD8D8F9FA244C998C416A2 /* Pods */ = {
+		5BF049746E03F0BE43B7D14B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7170094E7E6E46EF61FBDB12 /* Pods-WhiteLabels-Milagro.debug.xcconfig */,
-				DA6042AA2F910A3D7087D0F0 /* Pods-WhiteLabels-Milagro.qa.xcconfig */,
-				F4783CAED134EAA73090B790 /* Pods-WhiteLabels-Milagro.release.xcconfig */,
-				9D95999DB87889960A98067B /* Pods-WhiteLabels-Milagro.appstore.xcconfig */,
-				F5EBCFD978797205E0FC6E27 /* Pods-WhiteLabels-Milagro.adhoc.xcconfig */,
-				5C88417012C07A9C72654B2B /* Pods-WhiteLabels-WebsiteLogin.debug.xcconfig */,
-				DC813C5F9BFE2678ACECBD73 /* Pods-WhiteLabels-WebsiteLogin.qa.xcconfig */,
-				768BDB0C025910D536C23251 /* Pods-WhiteLabels-WebsiteLogin.release.xcconfig */,
-				D21BF8E5D65CF1E7E9F0FA60 /* Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig */,
-				C9AE20E51D9216F75AC5AF7D /* Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig */,
+				179F4D1B0217C02CF329E789 /* Pods-WhiteLabels-WebsiteLogin.debug.xcconfig */,
+				FF7F3C0DEA5BC5FC8455545A /* Pods-WhiteLabels-WebsiteLogin.qa.xcconfig */,
+				CCED473A0E0A8C029D73FEC7 /* Pods-WhiteLabels-WebsiteLogin.release.xcconfig */,
+				DF41F87B347578AB85EA040E /* Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig */,
+				A728210EEF6BE52A6D6A2A0E /* Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig */,
 			);
 			name = Pods;
+			path = ../Pods;
 			sourceTree = "<group>";
 		};
 		FE49000E1A1A3CEB000030A4 = {
@@ -133,7 +124,7 @@
 				B0FB40422265D64000A015C2 /* Main.storyboard */,
 				FE4900191A1A3CEB000030A4 /* Frameworks */,
 				FE4900181A1A3CEB000030A4 /* Products */,
-				81CD8D8F9FA244C998C416A2 /* Pods */,
+				5BF049746E03F0BE43B7D14B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,7 +143,7 @@
 				39DBB9331DE43D6600D62925 /* AVFoundation.framework */,
 				39DBB9311DE43D5900D62925 /* SystemConfiguration.framework */,
 				9620FB301BBAAF8A00DC15EF /* libc++.tbd */,
-				9BDB923F3F3F12909282D724 /* libPods-WhiteLabels-WebsiteLogin.a */,
+				123699FAC85DA7FD272C8013 /* libPods-WhiteLabels-WebsiteLogin.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -164,12 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 966D42DF1BDF674B0095913D /* Build configuration list for PBXNativeTarget "WebsiteLogin" */;
 			buildPhases = (
-				106D9C3F51C8C5E02B7C37B1 /* [CP] Check Pods Manifest.lock */,
+				5F6C228A77CE764ABFFBA2A4 /* [CP] Check Pods Manifest.lock */,
 				966D42851BDF674B0095913D /* Sources */,
 				966D42B61BDF674B0095913D /* Frameworks */,
 				966D42C61BDF674B0095913D /* Resources */,
-				8799931EEEF3160ACB05D0E9 /* [CP] Copy Pods Resources */,
-				8EE83420D0624046EA8AE722 /* [CP] Embed Pods Frameworks */,
+				6F15E973F524E6F437FD8596 /* [CP] Embed Pods Frameworks */,
+				E448DA661C392B395E5E2203 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -237,16 +228,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		106D9C3F51C8C5E02B7C37B1 /* [CP] Check Pods Manifest.lock */ = {
+		5F6C228A77CE764ABFFBA2A4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-WhiteLabels-WebsiteLogin-checkManifestLockResult.txt",
 			);
@@ -255,7 +250,27 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8799931EEEF3160ACB05D0E9 /* [CP] Copy Pods Resources */ = {
+		6F15E973F524E6F437FD8596 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin-frameworks.sh",
+				"${PODS_ROOT}/MfaSdk/MfaSdk.framework",
+				"${PODS_ROOT}/MfaSdk/MpinCoreLib.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MfaSdk.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MpinCoreLib.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E448DA661C392B395E5E2203 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,30 +288,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8EE83420D0624046EA8AE722 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin-frameworks.sh",
-				"${PODS_ROOT}/MfaSdk/MfaSdk.framework",
-				"${PODS_ROOT}/MfaSdk/MpinCoreLib.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MfaSdk.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MpinCoreLib.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-WebsiteLogin/Pods-WhiteLabels-WebsiteLogin-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -426,7 +417,7 @@
 		};
 		966D42E01BDF674B0095913D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C88417012C07A9C72654B2B /* Pods-WhiteLabels-WebsiteLogin.debug.xcconfig */;
+			baseConfigurationReference = 179F4D1B0217C02CF329E789 /* Pods-WhiteLabels-WebsiteLogin.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -464,7 +455,7 @@
 		};
 		966D42E21BDF674B0095913D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 768BDB0C025910D536C23251 /* Pods-WhiteLabels-WebsiteLogin.release.xcconfig */;
+			baseConfigurationReference = CCED473A0E0A8C029D73FEC7 /* Pods-WhiteLabels-WebsiteLogin.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -502,7 +493,7 @@
 		};
 		966D42E31BDF674B0095913D /* AppStore */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D21BF8E5D65CF1E7E9F0FA60 /* Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig */;
+			baseConfigurationReference = DF41F87B347578AB85EA040E /* Pods-WhiteLabels-WebsiteLogin.appstore.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -539,7 +530,7 @@
 		};
 		966D42E41BDF674B0095913D /* AdHoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9AE20E51D9216F75AC5AF7D /* Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig */;
+			baseConfigurationReference = A728210EEF6BE52A6D6A2A0E /* Pods-WhiteLabels-WebsiteLogin.adhoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -665,7 +656,7 @@
 		};
 		96CB435E1D129A3D00552745 /* QA */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC813C5F9BFE2678ACECBD73 /* Pods-WhiteLabels-WebsiteLogin.qa.xcconfig */;
+			baseConfigurationReference = FF7F3C0DEA5BC5FC8455545A /* Pods-WhiteLabels-WebsiteLogin.qa.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
