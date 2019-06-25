@@ -269,16 +269,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-frameworks.sh",
 				"${PODS_ROOT}/MfaSdk/MfaSdk.framework",
 				"${PODS_ROOT}/MfaSdk/MpinCoreLib.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MfaSdk.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MpinCoreLib.framework",
