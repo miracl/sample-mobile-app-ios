@@ -43,4 +43,12 @@
     return  ( regExMatches != 0 );
 }
 
++ (void)showAlert:(UIViewController *)presenter withTitle:(NSString*)title withBody:(NSString *)body {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:body preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction: [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [presenter presentViewController:alertController animated:YES completion:nil];
+}
+
 @end

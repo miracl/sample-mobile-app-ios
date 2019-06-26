@@ -22,9 +22,9 @@
 #import "PinPadViewController.h"
 #import "SuccessfulViewController.h"
 #import "LoginSuccessfulViewController.h"
-#import "ErrorHandler.h"
 #import <MfaSdk/MPinMFA.h>
 #import "Config.h"
+#import "Utils.h"
 
 @interface PinPadViewController ()
 
@@ -92,7 +92,7 @@ In any other User state an Error messge is shown.
                 {
                     NSString *strMessage =  [NSString stringWithFormat:@"An error has occurred during Finishing Registration! Info - %@ , the current user will be deleted!",
                                              mpinStatus.statusCodeAsString];
-                    [[[UIAlertView alloc] initWithTitle:@"Error" message:strMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+                    [self showAlert:@"Error" withBody:strMessage];
                     [MPinMFA DeleteUser:self.user];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                         [self.navigationController popToRootViewControllerAnimated:YES];
@@ -133,8 +133,7 @@ In any other User state an Error messge is shown.
                         }
                         else
                         {
-                            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Wrong PIN" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
-
+                            [self showAlert:@"Error" withBody:@"Wrong PIN"];
                         }
                         self.txtPinPad.text = @"";
                         
@@ -142,7 +141,7 @@ In any other User state an Error messge is shown.
                         
                         break;
                     default:
-                        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"User cannot be authenticated" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+                        [self showAlert:@"Error" withBody:@"User cannot be authenticated"];
                         [self.navigationController popToRootViewControllerAnimated:YES];
                         break;
                 }
@@ -177,52 +176,44 @@ In any other User state an Error messge is shown.
     [request setTimeoutInterval:10];
     request.HTTPMethod = @"POST";
     NSString *str = [NSString stringWithFormat:@"{ \"code\": \"%@\",\"userID\": \"%@\" }",strAuthzCode, [_user getIdentity]];
-    
-    NSHTTPURLResponse *response;
-    NSError *error;
-    
     request.HTTPBody = [str dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSData *dataResponse = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    dispatch_async(dispatch_get_main_queue(), ^ (void) {
-        if (response.statusCode != 200)
-        {
-            NSString *newStr = [[NSString alloc] initWithData:dataResponse encoding:NSUTF8StringEncoding];
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                message:newStr
-                                                               delegate:self
-                                                      cancelButtonTitle:@"Ok"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-        
-        }
-        else if ( error != nil )
-        {
-                [[[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:error.description
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil] show];
-        }
-        else
-        {
-            UIAlertController * alert=   [UIAlertController alertControllerWithTitle:@"Congrats"
-                                                                             message:@"You have been logged in successfully"
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* yesButton = [UIAlertAction actionWithTitle:@"Start over"
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:^(UIAlertAction * action){
-                                                                  [self.navigationController popToRootViewControllerAnimated:YES];
-                                                              }
-                                        ];
-            [alert addAction:yesButton];
-            alert.view.alpha = 1.0;
-            alert.view.backgroundColor = [UIColor whiteColor];
-            alert.view.layer.cornerRadius = 8.0;
-            alert.view.clipsToBounds = YES;
-            [self presentViewController:alert animated:YES completion:nil];
-        }
-    });
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable dataResponse, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+        dispatch_async(dispatch_get_main_queue(), ^ (void) {
+            if (httpResponse.statusCode != 200)
+            {
+                NSString *newStr = [[NSString alloc] initWithData:dataResponse encoding:NSUTF8StringEncoding];
+                [self showAlert:@"Error" withBody:newStr];
+            }
+            else if ( error != nil )
+            {
+                [self showAlert:@"Error" withBody:error.description];
+            }
+            else
+            {
+                UIAlertController * alert=   [UIAlertController alertControllerWithTitle:@"Congrats"
+                                                                                 message:@"You have been logged in successfully"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* yesButton = [UIAlertAction actionWithTitle:@"Start over"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action){
+                                                                      [self.navigationController popToRootViewControllerAnimated:YES];
+                                                                  }
+                                            ];
+                [alert addAction:yesButton];
+                alert.view.alpha = 1.0;
+                alert.view.backgroundColor = [UIColor whiteColor];
+                alert.view.layer.cornerRadius = 8.0;
+                alert.view.clipsToBounds = YES;
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+        });
+    }] resume];
+}
+
+- (void) showAlert:(NSString*)title withBody:(NSString *)body {
+    [Utils showAlert:self withTitle:title withBody:body];
 }
 
 - ( BOOL )textFieldShouldReturn:( UITextField * )textField {

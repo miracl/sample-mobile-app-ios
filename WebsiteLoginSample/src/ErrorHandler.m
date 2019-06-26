@@ -19,27 +19,10 @@
 
 
 #import "ErrorHandler.h"
-#import "ATMHud.h"
+#import "MBProgressHUD.h"
 
-@interface CVXATMHud ( )
-
-@end
-
-@implementation CVXATMHud
-
-- ( instancetype )init
-{
-    if ( ( self = [super init] ) )
-    {}
-    
-    return self;
-}
-
-@end
-
-
-@interface ErrorHandler ( ) {}
-
+@interface ErrorHandler()
+@property (nonatomic, strong) MBProgressHUD *hud;
 @end
 
 @implementation ErrorHandler
@@ -60,19 +43,9 @@
     self = [super init];
     if ( self )
     {
-        dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue(), ^ (void){
-            self.hud = [[CVXATMHud alloc] initWithDelegate:self];
-        });
     }
     
     return self;
-}
-
--( void ) startLoadingInController:( UIViewController * )viewController message:( NSString * )message
-{
-    [_hud setActivity:YES];
-    [_hud setCaption:message];
-    [_hud showInView:viewController.view];
 }
 
 -( void ) stopLoading
@@ -85,17 +58,10 @@
                hideAfter:( NSInteger ) hideAfter
 {
     dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue(), ^ (void){
-        _hud.minShowTime = hideAfter;
-        if ( addActivityIndicator )
-        {
-            [_hud setActivity:YES];
+        if(!addActivityIndicator) {
+            [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = [UIColor clearColor];
         }
-        else
-        {
-            [_hud setActivity:NO];
-        }
-        [_hud setCaption:strMessage];
-        [_hud update];
+        self.hud.label.text = strMessage;
         if ( hideAfter > 0 )
         {
             [self performSelector:@selector( hideMessage ) withObject:nil afterDelay:hideAfter];
@@ -108,75 +74,28 @@
                     addActivityIndicator:( BOOL )addActivityIndicator
                              minShowTime:( NSInteger ) seconds
 {
-    dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue(), ^ (void){
-        _hud.center = CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 4);
-        _hud.minShowTime = seconds;
-        [_hud setCaption:strError];
-        
-        if ( addActivityIndicator )
-        {
-            [_hud setActivity:YES];
-        }
-        else
-        {
-            [_hud setActivity:NO];
-        }
-        
-        [_hud showInView:viewController.view];
-        
-        if ( seconds > 0 )
-        {
-            [_hud hide];
-        }
-    });
-}
-
-
--( void ) presentMessageInViewController:( UIViewController * )viewController
-                             errorString:( NSString * )strError
-                    addActivityIndicator:( BOOL )addActivityIndicator
-                             minShowTime:( NSInteger ) seconds
-                              atPosition: ( CGPoint ) point {
     
-    dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue(), ^ (void){
-        _hud.center = point;
-        _hud.minShowTime = seconds;
-        [_hud setCaption:strError];
+    dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue(), ^ (void) {
+        [self hideMessage];
+        self.hud = [MBProgressHUD showHUDAddedTo:viewController.view animated:YES];
+        self.hud.mode = MBProgressHUDModeAnnularDeterminate;
+        self.hud.label.text = strError;
+        self.hud.minShowTime = seconds;
         
-        if ( addActivityIndicator )
-        {
-            [_hud setActivity:YES];
+        UIColor *color;
+        if(!addActivityIndicator) {
+            color = [UIColor clearColor];
+        } else {
+            color = [UIColor darkGrayColor];
         }
-        else
-        {
-            [_hud setActivity:NO];
-        }
-        
-        [_hud showInView:viewController.view];
-        
-        if ( seconds > 0 )
-        {
-            [_hud hide];
-        }
-    });
-}
-
-
--( void ) presentNoNetworkMessageInViewController:( UIViewController * )viewController
-{
-    dispatch_after(DISPATCH_TIME_NOW, dispatch_get_main_queue(), ^ (void){
-        _hud.center = CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 4);
-        [_hud setActivity:NO];
-        [_hud setImage:[UIImage imageNamed:@"CloudOffBar"]];
-        [_hud showInView:viewController.view];
-        [_hud setFixedSize:CGSizeMake(200, 100)];
-        [_hud hide];
+        [UIActivityIndicatorView appearanceWhenContainedInInstancesOfClasses:@[[MBProgressHUD class]]].color = color;
     });
 }
 
 -( void ) hideMessage
 {
-    [_hud hide];
+    [self.hud hideAnimated:YES];
+    self.hud = nil;
     NSLog(@"Hiding hud");
 }
 

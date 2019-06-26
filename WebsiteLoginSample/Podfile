@@ -4,8 +4,7 @@ project 'WebsiteLogin/WebsiteLogin.xcodeproj/'
 platform :ios, '12.0'
 
 abstract_target 'WhiteLabels' do
-    pod 'ATMHud@dhoerl'
-    pod 'AFNetworking'
+    pod 'MBProgressHUD', '~> 1.1.0'
     pod 'MfaSdk' , :podspec => 'https://github.com/miracl/mfa-client-sdk-ios/releases/download/1.0.0/MfaSdk.podspec'
     
     target 'WebsiteLogin'

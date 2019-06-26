@@ -19,7 +19,6 @@
 
 #import "RegisterViewController.h"
 #import "PinPadViewController.h"
-#import "ErrorHandler.h"
 #import <MfaSdk/MPinMFA.h>
 #import <MfaSdk/MpinStatus.h>
 #import "Utils.h"
@@ -156,56 +155,42 @@
     [self deleteID:nil];
 }
 
-
+- (void) showAlert:(NSString*)title withBody:(NSString *)body {
+    [Utils showAlert:self withTitle:title withBody:body];
+}
 
 - ( void ) getAccessCode
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        NSHTTPURLResponse *response;
-        NSError *error;
         NSURL *theUrl = [NSURL URLWithString:[Config authzUrl]];
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
         [request setTimeoutInterval:10];
         request.HTTPMethod = @"POST";
         
-        NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        if(error != nil)    {
-            dispatch_async(dispatch_get_main_queue(), ^ (void) {
-                
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:error.description
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];
-            });
-        }
-        else if (response.statusCode == 412)
-        {
-            dispatch_async(dispatch_get_main_queue(), ^ (void) {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:@"Deprecated version"
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];
-            });
-        }
-        else if(response.statusCode == 406) {
-            dispatch_async(dispatch_get_main_queue(), ^ (void) {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:@"You cannot use this app to login to this service."
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];
-            });
-        }
-        else
-        {
-            [self accessCodeReaded:jsonData];
-        }
+        [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable jsonData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+            if(error != nil)    {
+                dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                    [self showAlert:@"Error" withBody:error.description];
+                });
+            }
+            else if (httpResponse.statusCode == 412)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                    [self showAlert:@"Error" withBody:@"Deprecated version"];
+                });
+            }
+            else if(httpResponse.statusCode == 406) {
+                dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                    [self showAlert:@"Error" withBody:@"You cannot use this app to login to this service."];
+                });
+            }
+            else
+            {
+                [self accessCodeReaded:jsonData];
+            }
+        }] resume];
     });
 }
 
@@ -239,9 +224,9 @@
                 PinPadViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PinPadViewController"];
                 vc.accessCode = self.accessCode;
                 [self.navigationController pushViewController:vc animated:YES];
-            }   else {
+            } else {
                 NSString * errorMsg = [NSString stringWithFormat:@"An error has occurred during Start Authentication Method invocation: Info - %@", mpinStatus.statusCodeAsString];
-                [[[UIAlertView alloc] initWithTitle:@"Error" message:errorMsg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+                [self showAlert:@"Error" withBody:errorMsg];
             }
         });
     });
@@ -264,12 +249,7 @@
                 self.txtAddUser.text = @"";
                 self.user = nil;
                 self.txtAddUser.placeholder = @"Please enter your emial!";
-                [[[UIAlertView alloc] initWithTitle:@"Error"
-                                            message:[NSString stringWithFormat:@"An error has occurred during user registration! Info - %@",mpinStatus.statusCodeAsString]
-                                           delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles: nil]
-                 show];
+                [self showAlert:@"Error" withBody:[NSString stringWithFormat:@"An error has occurred during user registration! Info - %@",mpinStatus.statusCodeAsString]];
             }
         });
     });
@@ -318,12 +298,7 @@
                 vc.accessCode = self.accessCode;
                 [self.navigationController pushViewController:vc animated:YES];
             } else  {
-                [[[UIAlertView alloc] initWithTitle:@"Error"
-                                            message:[NSString stringWithFormat:@"An error has occurred during confirming registration! Info - %@", mpinStatus.statusCodeAsString]
-                                           delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles: nil]
-                 show];
+                [self showAlert:@"Error" withBody:[NSString stringWithFormat:@"An error has occurred during confirming registration! Info - %@", mpinStatus.statusCodeAsString]];
             }
         });
     });
@@ -339,7 +314,7 @@
     }
     else
     {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Cannot confirm email!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+        [self showAlert:@"Error" withBody:@"Cannot confirm email!"];
     }
 }
 
@@ -371,7 +346,7 @@
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
             NSString * msg = ( mpinStatus.status == OK ) ? ( @"The Email has been resent" ) :
                                                             ([NSString stringWithFormat:@"An error has occurred! Info - %@", [mpinStatus getStatusCodeAsString]] );
-            [[[UIAlertView alloc] initWithTitle:@"Info" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+            [self showAlert:@"Info" withBody:msg];
         });
     });
 }

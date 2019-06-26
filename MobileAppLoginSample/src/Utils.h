@@ -18,7 +18,9 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Utils : NSObject
 + ( BOOL )isValidEmail:( NSString * )emailString;
++ (void)showAlert:(UIViewController *)presenter withTitle:(NSString*)title withBody:(NSString *)body;
 @end
