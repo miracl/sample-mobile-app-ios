@@ -18,7 +18,6 @@
 		FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBBBFED1C5F88270011001A /* AppDelegate.m */; };
 		FEC33C6D1DE43D3000F8EFF0 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */; };
 		FEC33C6F1DE444E500F8EFF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */; };
-		FEC33C721DE451B200F8EFF0 /* ErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */; };
 		FEC33C751DE4722800F8EFF0 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C741DE4722800F8EFF0 /* Utils.m */; };
 		FEC33C781DE48B8300F8EFF0 /* PinPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C771DE48B8300F8EFF0 /* PinPadViewController.m */; };
 		FEC33C7B1DE5B79F00F8EFF0 /* SuccessfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC33C7A1DE5B79F00F8EFF0 /* SuccessfulViewController.m */; };
@@ -63,8 +62,6 @@
 		FEC33C6B1DE43D3000F8EFF0 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = ../src/RegisterViewController.h; sourceTree = "<group>"; };
 		FEC33C6C1DE43D3000F8EFF0 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = RegisterViewController.m; path = ../src/RegisterViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ErrorHandler.h; path = ../src/ErrorHandler.h; sourceTree = "<group>"; };
-		FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ErrorHandler.m; path = ../src/ErrorHandler.m; sourceTree = "<group>"; };
 		FEC33C731DE4722800F8EFF0 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ../src/Utils.h; sourceTree = "<group>"; };
 		FEC33C741DE4722800F8EFF0 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = ../src/Utils.m; sourceTree = "<group>"; };
 		FEC33C761DE48B8300F8EFF0 /* PinPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PinPadViewController.h; path = ../src/PinPadViewController.h; sourceTree = "<group>"; };
@@ -124,8 +121,6 @@
 				B0FB7DE3226750C100FB560E /* Config.m */,
 				FEC33C731DE4722800F8EFF0 /* Utils.h */,
 				FEC33C741DE4722800F8EFF0 /* Utils.m */,
-				FEC33C701DE451B200F8EFF0 /* ErrorHandler.h */,
-				FEC33C711DE451B200F8EFF0 /* ErrorHandler.m */,
 				FEC33C6E1DE444E500F8EFF0 /* Images.xcassets */,
 				39BB1B9B1DE2FC2600F05831 /* Info.plist */,
 				B0A16E152295333A005EC1DD /* main.m */,
@@ -178,7 +173,6 @@
 				966D42851BDF674B0095913D /* Sources */,
 				966D42B61BDF674B0095913D /* Frameworks */,
 				966D42C61BDF674B0095913D /* Resources */,
-				8799931EEEF3160ACB05D0E9 /* [CP] Copy Pods Resources */,
 				7854A39C6773C7B261922C0E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -284,26 +278,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8799931EEEF3160ACB05D0E9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-resources.sh",
-				"${PODS_ROOT}/ATMHud@dhoerl/11-x.png",
-				"${PODS_ROOT}/ATMHud@dhoerl/19-check.png",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/11-x.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/19-check.png",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WhiteLabels-MobileAppLoginSample/Pods-WhiteLabels-MobileAppLoginSample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -312,7 +286,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEBBC0681C5F88270011001A /* AppDelegate.m in Sources */,
-				FEC33C721DE451B200F8EFF0 /* ErrorHandler.m in Sources */,
 				FEC33C7E1DE5DFE000F8EFF0 /* LoginSuccessfulViewController.m in Sources */,
 				FEC33C7B1DE5B79F00F8EFF0 /* SuccessfulViewController.m in Sources */,
 				FEC33C751DE4722800F8EFF0 /* Utils.m in Sources */,

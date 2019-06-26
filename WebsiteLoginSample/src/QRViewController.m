@@ -21,7 +21,6 @@
 #import "QRViewController.h"
 #import "RegisterViewController.h"
 #import <MfaSdk/MPinMFA.h>
-#import "ATMHud.h"
 #import "ErrorHandler.h"
 #import "Config.h"
 
@@ -31,7 +30,6 @@
 @property ( nonatomic, strong ) AVCaptureDevice             *captureDevice;
 @property ( nonatomic, strong ) AVCaptureDeviceInput        *captureInput;
 @property ( nonatomic, strong ) AVCaptureVideoPreviewLayer  *videoPreviewLayer;
-@property ( nonatomic, strong ) ATMHud *hud;
 
 - ( void ) serviceReaded: (NSData *)service accessCode:(NSString *) accessCode;
 - (void) onSetBackendCompleted:(NSString *) accessCode;
@@ -51,6 +49,7 @@ On application launch the MPIN sdk must be initialized! In our sample app we nee
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSError *error;
+    [self.navigationController setNavigationBarHidden:YES];
     [MPinMFA initSDK];
     
     [MPinMFA SetClientId:[Config companyId]];
@@ -58,26 +57,15 @@ On application launch the MPIN sdk must be initialized! In our sample app we nee
         [MPinMFA AddTrustedDomain: domain];
     }
     
-    _hud = [ATMHud new];
     _captureSession = [[AVCaptureSession alloc] init];
     _captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     _captureInput = [AVCaptureDeviceInput deviceInputWithDevice:_captureDevice error:&error];
     if (error.code == -11852) {
-        [[[UIAlertView alloc] initWithTitle:@"Camera permission needed"
-                                    message:@"No camera permission"
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles: nil]
-         show];
+        [self showAlert:@"Camera permission needed" withBody:@"No camera permission" andCallback:nil];
     }
     else if ( error != nil )
     {
-        [[[UIAlertView alloc] initWithTitle:@""
-                                    message:error.description
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles: nil]
-         show];
+        [self showAlert:@"" withBody:error.description andCallback:nil];
     }
     else if ( [_captureSession canAddInput:_captureInput] )
     {
@@ -126,22 +114,11 @@ in viewDidAppear mehtod we run camera
         }
         else if ( status == AVAuthorizationStatusDenied )
         {
-            [[[UIAlertView alloc] initWithTitle:@"Not authorized"
-                                        message:@"The application needs permissions to use the camera in order to have full functionality."
-                                       delegate:nil
-                              cancelButtonTitle:@"Go to settings"
-                              otherButtonTitles: nil]
-             show];
+            [self showAlert:@"Not authorized" withBody:@"The application needs permissions to use the camera in order to have full functionality." andCallback:nil];
         }
         else if ( status == AVAuthorizationStatusRestricted )
         {
-            [[[UIAlertView alloc] initWithTitle:@"Not authorized"
-                                        message:@"The application needs permissions to use the camera in order to have full functionality."
-                                       delegate:nil
-                              cancelButtonTitle:@"Go to settings"
-                              otherButtonTitles: nil]
-             show];
-            
+            [self showAlert:@"Not authorized" withBody:@"The application needs permissions to use the camera in order to have full functionality." andCallback:nil];
         }
         else if ( status == AVAuthorizationStatusNotDetermined )
         {
@@ -152,12 +129,7 @@ in viewDidAppear mehtod we run camera
                 }
                 else
                 {
-                    [[[UIAlertView alloc] initWithTitle:@"Not authorized"
-                                                message:@"The application needs permissions to use the camera in order to have full functionality."
-                                               delegate:nil
-                                      cancelButtonTitle:@"Go to settings"
-                                      otherButtonTitles: nil]
-                     show];
+                    [self showAlert:@"Not authorized" withBody:@"The application needs permissions to use the camera in order to have full functionality." andCallback:nil];
                 }
             }];
         }
@@ -199,8 +171,6 @@ HERE Once the QR Code has been successfully detected the mehtod captureOutput is
         NSString *strBaseURL = [strResponse substringToIndex:range.location];
         NSString *strCode   = [strResponse substringFromIndex:range.location + 1];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-            NSHTTPURLResponse *response;
-            NSError *error;
             NSURL *theUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@/service",strBaseURL]];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:theUrl cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
             [request setTimeoutInterval:10];
@@ -208,53 +178,48 @@ HERE Once the QR Code has been successfully detected the mehtod captureOutput is
             
             [request setValue:[Config companyId] forHTTPHeaderField:@"X-MIRACL-CID"];
             
-            NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            if(error != nil)    {
-                dispatch_async(dispatch_get_main_queue(), ^ (void) {
-                    [[ErrorHandler sharedManager] hideMessage];
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                        message:error.description
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"Ok"
-                                                              otherButtonTitles:nil];
-                    [alertView show];
-                });
-            }
-            else if (response.statusCode == 412)
-            {
-                dispatch_async(dispatch_get_main_queue(), ^ (void) {
-                    [[ErrorHandler sharedManager] hideMessage];
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                        message:@"Deprecated version"
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"Ok"
-                                                              otherButtonTitles:nil];
-                    [alertView show];
-                });
-            }
-            else if(response.statusCode == 406) {
-                dispatch_async(dispatch_get_main_queue(), ^ (void) {
-                    [[ErrorHandler sharedManager] hideMessage];
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                        message:@"You cannot use this app to login to this service."
-                                                                       delegate:self
-                                                              cancelButtonTitle:@"Ok"
-                                                              otherButtonTitles:nil];
-                    [alertView show];
-                });
-            }
-            else
-            {
-                [self serviceReaded:jsonData accessCode:strCode];
-            }
+            [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable jsonData, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                if(error != nil)    {
+                    dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                        [[ErrorHandler sharedManager] hideMessage];
+                        [self showAlert:@"Error" withBody:error.description andCallback:^{
+                            [self startReading];
+                        }];
+                    });
+                }
+                else if (httpResponse.statusCode == 412)
+                {
+                    dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                        [[ErrorHandler sharedManager] hideMessage];
+                        [self showAlert:@"Error" withBody:@"Deprecated version" andCallback:^{
+                            [self startReading];
+                        }];
+                    });
+                }
+                else if(httpResponse.statusCode == 406) {
+                    dispatch_async(dispatch_get_main_queue(), ^ (void) {
+                        [[ErrorHandler sharedManager] hideMessage];
+                        [self showAlert:@"Error" withBody:@"You cannot use this app to login to this service." andCallback:^{
+                            [self startReading];
+                        }];
+                    });
+                }
+                else
+                {
+                    [self serviceReaded:jsonData accessCode:strCode];
+                }
+                
+            }] resume];
         });
     }
     else
     {
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
             [[ErrorHandler sharedManager] hideMessage];
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Invalid QR!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alertView show];
+            [self showAlert:@"Error" withBody:@"Invalid QR!" andCallback:^{
+                [self startReading];
+            }];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.f * NSEC_PER_SEC), dispatch_get_main_queue(), ^ (void){
                 [self performSelectorOnMainThread:@selector( startReading ) withObject:nil waitUntilDone:NO];
             });
@@ -277,12 +242,9 @@ Service paramenter of serviceReaded method contains backend url that each user w
         {
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 [[ErrorHandler sharedManager] hideMessage];
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:error.description
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];
+                [self showAlert:@"Error" withBody:error.description andCallback:^{
+                    [self startReading];
+                }];
                 
             });
         }
@@ -290,12 +252,9 @@ Service paramenter of serviceReaded method contains backend url that each user w
         {
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 [[ErrorHandler sharedManager] hideMessage];
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                    message:@"Invalid configuration"
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"Ok"
-                                                          otherButtonTitles:nil];
-                [alertView show];
+                [self showAlert:@"Error" withBody:@"Invalid configuration" andCallback:^{
+                    [self startReading];
+                }];
             });
         }   else    {
             MpinStatus *mpinStatus = [MPinMFA SetBackend:config[@"url"]];
@@ -319,12 +278,9 @@ Service paramenter of serviceReaded method contains backend url that each user w
     }   else    {
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
             [[ErrorHandler sharedManager] hideMessage];
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                message:@"Service unavailable!"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"Ok"
-                                                      otherButtonTitles:nil];
-            [alertView show];
+            [self showAlert:@"Error" withBody:@"Service unavailable!" andCallback:^{
+                [self startReading];
+            }];
         });
     }
 }
@@ -373,9 +329,15 @@ Service paramenter of serviceReaded method contains backend url that each user w
     }
 }
 
-- (void)alertView:(UIAlertView *)theAlert clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    [self  startReading];
+- (void)showAlert:(NSString*)title withBody:(NSString *)body andCallback:(void (^)())callback {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:body preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction: [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if(callback) {
+            callback();
+        }
+        [alertController dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

@@ -18,7 +18,11 @@ This sample demonstrates how to use the [MIRACL iOS SDK](https://github.com/mira
 1. Checkout the sample projects `https://github.com/miracl/sample-mobile-app-ios`
 2. [Run a backend application](#create-a-demo-web-app-to-act-as-a-backend-service)
 3. [Configure the app with the issued credentials](#configure-the-app-with-the-issued-credentials)
-4. Open the `DVSSample/DVSSample.xcodeproj` and run the demo app from `Xcode`.
+4. Build the project:
+	1. From command line open the root dir from the checked out project. Navigate to folder DVSSample.
+	2. Execute the following command:
+	>> pod install
+	3. Open the .xcworkspace file which is located in the current directory.
 
 ### Create a demo web app to act as a backend service
 In order to be able to test the demo `DVS` sample app, you need to run a backend service as a relying party demo web app (RPA). You could use our .NET SDK as explained in the [.NET SDK Instructions](https://devdocs.trust.miracl.cloud/sdk-instructions/dotnet-core/dvs/) of our documentation.
