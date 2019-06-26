@@ -163,22 +163,22 @@
     [[ErrorHandler sharedManager] presentMessageInViewController:self errorString:@"" addActivityIndicator:YES minShowTime:0.0];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-        self.user = [MPinMFA MakeNewUser:_txtAddUser.text deviceName:@"SampleDevName"];
+        self.user = [MPinMFA MakeNewUser:self->_txtAddUser.text deviceName:@"SampleDevName"];
         MpinStatus *mpinStatus = [MPinMFA StartRegistration:self.user accessCode:self.accessCode pmi:@""];
         dispatch_async(dispatch_get_main_queue(), ^ (void) {
-            [_btnAdd setEnabled:YES];
+            [self->_btnAdd setEnabled:YES];
             if ( mpinStatus.status == OK )  {
                 [[ErrorHandler sharedManager] hideMessage];
-                [_txtAddUser resignFirstResponder];
+                [self->_txtAddUser resignFirstResponder];
                 self.lblMsg.text = [NSString stringWithFormat:@"Your Identity %@ has been created!", [self.user getIdentity]];
                 [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                     self.addView.alpha = 0.0;
                     self.confirmView.alpha = 1.0;
                 } completion:nil];
             }   else    {
-                _txtAddUser.text = @"";
+                self->_txtAddUser.text = @"";
                 self.user = nil;
-                _txtAddUser.placeholder = @"Please enter your emial!";
+                self->_txtAddUser.placeholder = @"Please enter your emial!";
                 [[ErrorHandler sharedManager] updateMessage:[NSString stringWithFormat:@"An error has occured during user registration! Info - %@",mpinStatus.statusCodeAsString]
                                        addActivityIndicator:NO
                                                   hideAfter:3.0];

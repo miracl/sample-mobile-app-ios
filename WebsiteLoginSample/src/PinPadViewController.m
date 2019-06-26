@@ -87,7 +87,7 @@ In any other User state an Error messge is shown.
     if([_user getState] == STARTED_REGISTRATION) {
 
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
-            MpinStatus *mpinStatus = [MPinMFA FinishRegistration:_user pin0:_txtPinPad.text pin1:nil];
+            MpinStatus *mpinStatus = [MPinMFA FinishRegistration:self->_user pin0:self->_txtPinPad.text pin1:nil];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     [[ErrorHandler sharedManager] hideMessage];
@@ -109,14 +109,14 @@ In any other User state an Error messge is shown.
     } else if([_user getState] == REGISTERED) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
             QRViewController *qvc = [self.navigationController.viewControllers firstObject];
-            MpinStatus *mpinStatus = [MPinMFA FinishAuthentication:_user pin0:_txtPinPad.text pin1:nil accessCode:qvc.accessCode];
+            MpinStatus *mpinStatus = [MPinMFA FinishAuthentication:self->_user pin0:self->_txtPinPad.text pin1:nil accessCode:qvc.accessCode];
             dispatch_async(dispatch_get_main_queue(), ^ (void) {
                 if ( mpinStatus.status == OK )  {
                     [[ErrorHandler sharedManager] hideMessage];
                     UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginSuccessfulViewController"];
                     [self.navigationController pushViewController:vc animated:YES];
                 }   else if( mpinStatus.status == INCORRECT_PIN )   {
-                    if( [_user getState] == BLOCKED ) {
+                    if( [self->_user getState] == BLOCKED ) {
                         [[ErrorHandler sharedManager] updateMessage:@"The current user has been blocked! The identity is going to be deleted!" addActivityIndicator:NO hideAfter:0];
                         [MPinMFA DeleteUser:self.user];
                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
