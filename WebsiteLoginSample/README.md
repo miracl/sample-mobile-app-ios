@@ -205,5 +205,6 @@ This view controller is shown to the user just to inform them that authenticatio
 
 ## See also
 
-* [DvsSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/DVSSample)
-* [MobileAppLoginSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/MobileAppLoginSample)
+1. [MobileAppLogin](https://github.com/miracl/sample-mobile-app-ios/tree/master/MobileAppLoginSample)
+2. [DVSSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/DVSSample)
+3. [BootstrapSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/BootstrapSample)

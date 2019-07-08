@@ -131,3 +131,4 @@ If `status` result is `OK`, the user can verify the validity of the provided PIN
 ### See also:
 1. [MobileLoginSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/MobileLoginSample) 
 2. [WebsiteLoginSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/WebsiteLoginSample)
+3. [BootstrapSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/BootstrapSample)
