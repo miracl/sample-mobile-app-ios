@@ -239,5 +239,6 @@ the app will try to finish authentication with a call to [`[MPinMFA FinishAuthen
 
 ## See also
 
-* [DvsSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/DVSSample)
-* [WebsiteLoginSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/WebsiteLoginSample)
+1. [WebsiteLoginSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/WebsiteLoginSample)
+2. [DVSSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/DVSSample)
+3. [BootstrapSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/BootstrapSample)

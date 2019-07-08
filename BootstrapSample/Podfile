@@ -1,0 +1,5 @@
+platform :ios, '12.0'
+
+target 'BootstrapSample' do
+  pod 'MfaSdk', :podspec => 'https://github.com/miracl/mfa-client-sdk-ios/releases/download/1.0.0/MfaSdk.podspec'
+end
