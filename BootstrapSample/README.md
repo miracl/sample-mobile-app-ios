@@ -37,11 +37,18 @@ Keep in mind, that the bootstrap codes are currently available only for enterpri
 
 ## Create a demo web app to log into
 
-In order to be able to test the demo iOS app, you need to run a backend service as a relying party demo web app (RPA). You could use one of our web SDKs as explained in the [SDK Instructions](https://devdocs.trust.miracl.cloud/sdk-instructions/) of our documentation.
-The SDK authenticates to the [MIRACL Trust authentication portal](https://trust.miracl.cloud/), called also MFA, using [OpenIDConnect](https://openid.net/connect/) protocol. This means you need to login and create an application in it so you can take credentials (`client id` and `client secret`) for the communication. Note that the redirect URL set in this MFA web application needs to match your demo web application, concatenated with `/login` by default.
+In order to be able to test the demo iOS app, you need to run a backend service as a relying party demo web app (RPA). The demo app should authenticate to the [MIRACL Trust authentication portal](https://trust.miracl.cloud/), called also MFA, using [OpenIDConnect](https://openid.net/connect/) protocol. More information could be found [here](http://docs.miracl.cloud/oidc-client-setup/). This means you need to login and create an application in the portal and use its credentials (`client id` and `client secret`) in the demo web app for the communication.
 
-Once you have run the demo web app you need to host it on a visible URI for the mobile app. These steps are documented in details in the
-[dotnet SDK](https://devdocs.trust.miracl.cloud/sdk-instructions/dotnet-core/). Just reassure that the proper redirect URI (`demoAppUri/login`) is added as a redirect URI to the [authentication portal](https://trust.miracl.cloud/) application settings you're running the web app with:
+For the case of that sample, there is one more endpoint the RPA should implements as it is done at [this sample RPA project](https://github.com/miracl/maas-sdk-dotnet-core2#sample-endpoints):
+* POST `/authzurl`
+ This should return the following json formatted data on success as it is done [here](https://github.com/miracl/maas-sdk-dotnet-core2/blob/master/MiraclAuthenticationApp.Core2.0/Controllers/authtokenController.cs#L13):
+```
+{
+    "authorizeURL": "<- The authorization url to the MFA ->"
+}
+```
+
+Once you have run the demo web app you need to host it on a visible uri for the mobile app. Just be sure that the proper redirect uri (constructed as `demoAppUri/login`) is added as a redirect uri to the [authentication portal](https://trust.miracl.cloud/) application settings you're running this web app with:
 
 <img src="images/redirect-url-private-ip.png" width="400">
 
@@ -64,10 +71,10 @@ Before building an iOS app, you need to configure it through the [`Config.m`](Bo
     urlComponents.host = <# Replace with your backend URL #>;
     urlComponents.port = @(<# Replace with your backend Port #>);
     urlComponents.path = @"/authzurl";
-    
+
     NSURL *authzURL = urlComponents.URL;
     NSAssert(authzURL, @"authzURL cannot be nil");
-    
+
     return authzURL;
 }
 
@@ -99,7 +106,7 @@ SDK initialization is done at [`AppDelegate.m`](BootstrapSample/AppDelegate.m) i
 [MPinMFA SetBackend:[Config mfaURL]];
 ```
 
-### Bootstrap Code Generation 
+### Bootstrap Code Generation
 
 All of the work is done at [`RegCodeRegistrationViewController`](BootstrapSample/View%20Controllers/RegCodeRegistrationViewController.m) which is presented when `Code Generation` tab is clicked.
 
@@ -138,7 +145,7 @@ Here, if registration for the bootstrap code is successful, an object reference 
 self.registrationCodeLabel.text = [NSString stringWithFormat:@"Bootstrap Code is: %@",registrationCode.otp];
 ```
 
-<img src="images/registration-code-generated.png" width="400"> 
+<img src="images/registration-code-generated.png" width="400">
 
 ### Bootstrap Code Registration
 
@@ -146,13 +153,13 @@ To register with a bootstrap code, the user needs to go to a device where they a
 
 Go to the login identity screen of your backend and click on the settings icon of an already registered identity. There is an option called `Enroll a New Device`:
 
-<img src="images/enroll_new_device.png" width="400"> 
+<img src="images/enroll_new_device.png" width="400">
 
-Keep in mind that if you don't see `Enroll a New Device` option, you are not an enterprise user. If you need this functionality, contact us at support@miracl.com. 
+Keep in mind that if you don't see `Enroll a New Device` option, you are not an enterprise user. If you need this functionality, contact us at support@miracl.com.
 
-`Enroll a New Device` requires authentication and asks you for your PIN. Then it displays the bootstrap code you need to use in your mobile device to transfer the identity to your phone. 
+`Enroll a New Device` requires authentication and asks you for your PIN. Then it displays the bootstrap code you need to use in your mobile device to transfer the identity to your phone.
 
-<img src="images/enter_bootrstrap_code.png" width="400"> 
+<img src="images/enter_bootrstrap_code.png" width="400">
 
 Back to this demo sample, there is a `Register new User` button which needs to be clicked to initiate the identity transfer. The logic about this is in the [`RegCodeAuthenticationViewController`](BootstrapSample/View%20Controllers/RegCodeAuthenticationViewController.m) file.
 
@@ -166,7 +173,7 @@ if (isExisiting) {
     [self showMessage:@"User already registered"];
     return;
 }
-        
+
 id<IUser> user = [MPinMFA MakeNewUser:mailTextFieldText
                             deviceName:@"Device name"];
 ```
@@ -179,26 +186,26 @@ MpinStatus *registationStatus = [MPinMFA StartRegistration:user
                                                         pmi:@""];
 ```
 
-If `MPinStatus` value of the registration is OK, an alert view is prompted to the user to create a PIN code for their new identity on this device: 
+If `MPinStatus` value of the registration is OK, an alert view is prompted to the user to create a PIN code for their new identity on this device:
 
 <img src="images/enter-pin-registration-with-code.png" width="400">
 
-To finalize the registration [`[MPinMFA ConfirmRegistration:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-confirmregistration-const-idiuser-user) and [`[MPinMFA FinishRegistration:pin0:pin1:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishregistration-const-idiuser-user-pin0-nsstring-pin0-pin1-nsstring-pin1) methods are called: 
+To finalize the registration [`[MPinMFA ConfirmRegistration:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-confirmregistration-const-idiuser-user) and [`[MPinMFA FinishRegistration:pin0:pin1:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-finishregistration-const-idiuser-user-pin0-nsstring-pin0-pin1-nsstring-pin1) methods are called:
 ```
 MpinStatus *confirmationStatus = [MPinMFA ConfirmRegistration:user];
 if (confirmationStatus.status == OK) {
     MpinStatus *finishRegistrationStatus = [MPinMFA FinishRegistration:user
                                                                   pin0:enteredPin
                                                                   pin1:nil];
-} 
+}
 ```
 
 and alert is presented to show the user they have already a registered identity on that device:
 
-<img src="images/registration-ok-reg-code.png" width="400"> 
+<img src="images/registration-ok-reg-code.png" width="400">
 
 ## See also
 
-1. [MobileLoginSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/MobileLoginSample) 
+1. [MobileLoginSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/MobileLoginSample)
 2. [WebsiteLoginSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/WebsiteLoginSample)
 3. [DVSSample](https://github.com/miracl/sample-mobile-app-ios/tree/master/DVSSample)
