@@ -29,8 +29,7 @@ This sample demonstrates how to use the [MIRACL iOS SDK](https://github.com/mira
 
 ## Create a demo web app to log into
 
-In order to be able to test the demo iOS app, you need to run a backend service as a relying party demo web app (RPA). You could use one of our web SDKs as explained in the [SDK Instructions](https://devdocs.trust.miracl.cloud/sdk-instructions/) of our documentation.
-The SDK authenticates to the [MIRACL Trust authentication portal](https://trust.miracl.cloud/), called also MFA, using [OpenIDConnect](https://openid.net/connect/) protocol. This means you need to login and create an application in it so you can take credentials (`client id` and `client secret`) for the communication. Note that the redirect URL set in this MFA web application needs to match your demo web application, concatenated with `/login` by default.
+In order to be able to test the demo iOS app, you need to run a backend service as a relying party demo web app (RPA). The web app should authenticate to the [MIRACL Trust authentication portal](https://trust.miracl.cloud/), called also MFA, using [OpenIDConnect](https://openid.net/connect/) protocol. This means you need to login and create an application in it so you can take credentials (`client id` and `client secret`) for the communication.  Sample ones could be found [here](https://github.com/miracl/maas-sdk-dotnet-core2#samples). Note that the redirect URL set in this MFA web application needs to match your demo web application, concatenated with `/login` by default.
 
 <img src="images/redirect-url-private-ip.png" width="400">
 
@@ -80,7 +79,7 @@ Then a QR code appears and you can scan it with your phone:
 <img src="images/qr_reader.png" width="400">
 
 Once the information from the QR code has been read within `- (void)parseResponse:(NSString *)strResponse`, the access code, and the `base url` are obtained from the qr-read URL. This is followed by an `HTTP GET` request to the `/service` endpoint located at the `base url` to get the service details. Note that there is a SDK method [`[MPinMFA GetServiceDetails: serviceDetails:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-getservicedetails-nsstring-url-servicedetails-servicedetails-sd) available which does the same thing and it should be used instead.
-If there is an error in the returned response it will be displayed (considered errors are `HTTP Status codes` `412`, `406` or general JSON parsing errors). 
+If there is an error in the returned response it will be displayed (considered errors are `HTTP Status codes` `412`, `406` or general JSON parsing errors).
 
 After the service details are obtained the SDK sets its authentication API URI by [`[MPinMFA SetBackend:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-setbackend-const-nsstring-url) method using them:
 
@@ -120,7 +119,7 @@ If `mpinStatus.status` has value `OK` then the [`PinPadViewController`](#PinPadV
 
 ### RegisterViewController
 
-The purpose of this view controller is to either create a new user registration or facilitate the completion of a started registration. First in the `- (void)viewWillAppear:(BOOL)animated` method [`[MPinMFA listUsers]`](https://github.com/miracl/mfa-client-sdk-ios#nsmutablearray-listusers) is called to check if any users are available. 
+The purpose of this view controller is to either create a new user registration or facilitate the completion of a started registration. First in the `- (void)viewWillAppear:(BOOL)animated` method [`[MPinMFA listUsers]`](https://github.com/miracl/mfa-client-sdk-ios#nsmutablearray-listusers) is called to check if any users are available.
 
 #### Identity Registration
 
@@ -142,7 +141,7 @@ If `mpinStatus.status` has value `OK` this means the identity was created and th
 
 <img src="images/confirm_reg.png" width="400">
 
-The message utilizes a call to the `[self.user  getIdentity]` [method](https://github.com/miracl/mfa-client-sdk-ios#idiuser-makenewuser-const-nsstring-identity-devicename-const-nsstring-devname) in order to display the information. 
+The message utilizes a call to the `[self.user  getIdentity]` [method](https://github.com/miracl/mfa-client-sdk-ios#idiuser-makenewuser-const-nsstring-identity-devicename-const-nsstring-devname) in order to display the information.
 If the registration was started successfully, a confirmation message is sent to the user's email in order to verify their identity registration. After the email verification, they need to click the `Confirmed` button which will result in a call to the `- (IBAction)onClickConfirmButton:(id)sender` method. There the app will check if the email confirmation is successful by calling [`[MPinMFA ConfirmRegistration:]`](https://github.com/miracl/mfa-client-sdk-ios#mpinstatus-confirmregistration-const-idiuser-user):
 
 ```
